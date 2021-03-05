@@ -82,9 +82,25 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Wireframe           |    L     |     3 hrs      |     0 hrs     |    TBD      |
+| Component Hierarchy |    H     |     3 hrs      |     0 hrs     |     TBD     |
+| Draw Tables         |    L     |     3 hrs      |     0 hrs     |    TBD      |
+| Create Readme       |    H     |     1 hrs      |     0 hrs     |     TBD     |
+| create DB for BE    |    L     |     5 hrs      |     0 hrs     |    TBD      |
+| connect DB for BE   |    H     |     5 hrs      |     0 hrs     |     TBD     |
+| Authentication in BE|    L     |     4 hrs      |     0 hrs     |    TBD      |
+| Seed                |    L     |     5 hrs      |     0 hrs     |    TBD      |
+| Controller in BE    |    H     |     9 hrs      |     0 hrs     |     TBD     |
+| Testing EndPoints   |    L     |     3 hrs      |     0 hrs     |    TBD      |
+| Testing in pry      |    H     |     3 hrs      |     0 hrs     |     TBD     |
+| FE depend           |    L     |     3 hrs      |     0 hrs     |    TBD      |
+| Clean FE react      |    H     |     1 hrs      |     0 hrs     |     TBD     |
+| Create folders/jsx/css|    H     |     1 hrs      |     0 hrs     |     TBD     |
+| Services            |    H     |     5 hrs      |     0 hrs     |     TBD     |
+| Each screen         |    H     |     5 hrs      |     0 hrs     |     TBD     |
+| Testing and Debug   |    H     |     5 hrs      |     0 hrs     |     TBD     |
+| CSS                 |    H     |     10 hrs     |     0 hrs    |     TBD    |
+| TOTAL               |          |     6 hrs      |     0 hrs     |     TBD     |
 
 > _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
