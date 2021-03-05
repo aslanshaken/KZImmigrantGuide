@@ -38,7 +38,7 @@ _The **KZ Immigrant Guide**  is a small kazakh community app based in the USA. I
 
 #### Component Tree
 
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+[Component Tree Sample](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20hierarchy.png?raw=true)
 
 #### Component Hierarchy
 
