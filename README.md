@@ -34,7 +34,7 @@ _The **KZ Immigrant Guide**  is a small kazakh community app based in the USA. I
 
 #### Wireframes
 
-![Dummy Link](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20wireframe.png?raw=true)
+![Dummy Link](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20hierarchy.png?raw=true)
 
 #### Component Tree
 
