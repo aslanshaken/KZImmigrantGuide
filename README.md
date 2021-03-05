@@ -42,19 +42,37 @@ _The **KZ Immigrant Guide**  is a small kazakh community app based in the USA. I
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
 
 src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
+|__ screen/
+      |__ register
+      |__ login
+      |__ account
+      |__ jobs
+      |__ housing
+      |__ createPosts
+      |__ availableJobs
+      |__ getHired
+      |__ getHiredForm
+      |__ createJobForm
+      |__ CreateHouseForm
+      |__ ChosenCity
 |__ components/
-      |__ Header.jsx
+      |__ search
+      |__ cities
+      |__ events
+      |__ searchDetails
+|__ layout
+      |__ layout
+      |__ header
+      |__ footer
 |__ services/
+      |__ api-config
+      |__ auth
+      |__ houses
+      |__ availableJobs
+      |__ getHireJobs
 
 ```
 
