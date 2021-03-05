@@ -110,9 +110,8 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+![ERD Sample](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20tables.png?raw=true)
 <br>
 
 ***
