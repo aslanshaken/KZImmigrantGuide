@@ -1,4 +1,4 @@
-# PROJECT 4 README <!-- omit in toc -->
+# KZ Immigrant Guide<!-- omit in toc -->
 
 > The Project Planning section **should be completed** for your project pitch with instructors.
 >
