@@ -36,7 +36,7 @@ _The **KZ Immigrant Guide**  is a small kazakh community app based in the USA. I
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+![Dummy Link](https://ibb.co/D8Vtw8b)
 
 - Desktop Landing
 
