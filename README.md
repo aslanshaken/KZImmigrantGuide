@@ -13,6 +13,8 @@ _The **KZ Immigrant Guide**  is a small kazakh community app based in the USA. I
 - _Let a user post jobs, get hired, and post houses for rent._
 - _Users have access to create,edit and delete their posts._
 - _Platform provides free resources to search for a job, find people to hire and search for houses._
+- _Create database on localstorage,_
+- _Create Schema for full CRUD,._
 
 <br>
 
@@ -118,14 +120,16 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- _Let a user to sort posts by category,_
+- _Let a user to search all files on database using search tag._
+- _Create a live time message to chat with everyone._
+- _Add API to show the weather for each city._
+- _Work on Animations._
 
 ***
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
