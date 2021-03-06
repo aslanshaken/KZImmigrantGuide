@@ -113,7 +113,7 @@ src
 #### ERD Model
 
 
-![ERD Sample](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20tables.png?raw=true)
+![ERD Sample](https://github.com/leeuwork/KZImmigrantGuide/blob/main/KZ%20table.png?raw=true)
 <br>
 
 ***
