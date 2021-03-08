@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  has_many :get_employees, :post_by_employees, :post_houses
+  
   has_secure_password
 
   validates :username, presence: true, uniqueness: true
