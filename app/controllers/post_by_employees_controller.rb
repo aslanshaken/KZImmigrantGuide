@@ -1,5 +1,6 @@
 class PostByEmployeesController < ApplicationController
-  before_action :set_post_by_employee, only: [:show, :update, :destroy]
+  before_action :set_post_by_employee, only: [:show]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /post_by_employees
   def index
@@ -16,7 +17,7 @@ class PostByEmployeesController < ApplicationController
   # POST /post_by_employees
   def create
     @post_by_employee = PostByEmployee.new(post_by_employee_params)
-
+    @post_by_employee.user = @current_user # ?????
     if @post_by_employee.save
       render json: @post_by_employee, status: :created, location: @post_by_employee
     else
@@ -26,6 +27,7 @@ class PostByEmployeesController < ApplicationController
 
   # PATCH/PUT /post_by_employees/1
   def update
+    @post_by_employee = @current_user.post_by_employees.find(params[:id])  # ?????
     if @post_by_employee.update(post_by_employee_params)
       render json: @post_by_employee
     else
@@ -35,6 +37,7 @@ class PostByEmployeesController < ApplicationController
 
   # DELETE /post_by_employees/1
   def destroy
+    @post_by_employee = @current_user.post_by_employees.find(params[:id]) # ?????
     @post_by_employee.destroy
   end
 

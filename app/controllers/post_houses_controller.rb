@@ -1,5 +1,6 @@
 class PostHousesController < ApplicationController
-  before_action :set_post_house, only: [:show, :update, :destroy]
+  before_action :set_post_house, only: [:show]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /post_houses
   def index
@@ -16,7 +17,7 @@ class PostHousesController < ApplicationController
   # POST /post_houses
   def create
     @post_house = PostHouse.new(post_house_params)
-
+    @post_house.user = @current_user
     if @post_house.save
       render json: @post_house, status: :created, location: @post_house
     else
@@ -26,6 +27,7 @@ class PostHousesController < ApplicationController
 
   # PATCH/PUT /post_houses/1
   def update
+    @post_house = @current_user.post_houses.find(params[:id])
     if @post_house.update(post_house_params)
       render json: @post_house
     else
@@ -35,6 +37,7 @@ class PostHousesController < ApplicationController
 
   # DELETE /post_houses/1
   def destroy
+    @post_house = @current_user.post_houses.find(params[:id])
     @post_house.destroy
   end
 
