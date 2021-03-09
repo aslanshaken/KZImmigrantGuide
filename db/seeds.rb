@@ -127,6 +127,6 @@ PostHouse.create!(
 #====================================================================================
 
 puts "#{User.count} users created"
-puts "#{PostHouse.count} houses created"
 puts "#{GetEmployee.count} GetEmployee created"
 puts "#{PostByEmployee.count} PostByEmployee created"
+puts "#{PostHouse.count} houses created"
