@@ -1,0 +1,11 @@
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+    padding: 35px 0px 35px 0px;
+}
+
+#none{
+    text-decoration: none;
+    color: black;
+}
