@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_many :get_employees, :post_by_employees, :post_houses
+  has_many :get_employees
+  has_many :post_by_employees
+  has_many :post_houses
   
   has_secure_password
 
