@@ -13,6 +13,8 @@ import Login from './screens/Login/Login'
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
 import Register from './screens/Register/Register';
 import MainContainer from './containers/MainContainer';
+import Account from './screens/Account/Account';
+import JobEdit from './screens/JobEdit/JobEdit';
 
 function App() {
 
@@ -69,22 +71,30 @@ function App() {
 
   return (
     <Layout
-    currentUser={currentUser}
-    handleLogout={handleLogout}
+      currentUser={currentUser}
+      handleLogout={handleLogout}
     >
-      
+
       <Switch>
+
+        <Route path="/job/edit/:id">
+          <JobEdit  currentUser={currentUser} jobs={jobs}  />
+        </Route>
+
+        <Route path='/account'>
+          <Account currentUser={currentUser} jobs={jobs} />
+        </Route>
 
         <Route path='/login'>
           <Login
             handleLogin={handleLogin}
             error={error}
           />
-        </Route> 
+        </Route>
 
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
-        </Route> 
+        </Route>
 
         <Route path="/post-job">
           <CreateJobForm />

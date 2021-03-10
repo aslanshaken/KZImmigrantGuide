@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import './CreateJobForm.css'
-import { useHistory, Redirect } from 'react-router-dom';
-import { postNewJobForEmployee } from '../../services/getEmployees'
+import './JobEdit.css'
+import { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import {updateOneJobForEmployee} from '../../services/getEmployees'
 
-export default function CreateJobForm(props) {
+export default function JobEdit(props) {
     const [formData, setFormData] = useState({
         job_name: '',
         category: '',
@@ -12,10 +12,27 @@ export default function CreateJobForm(props) {
         cellphone: '',
         email: ''
     })
+    const { id } = useParams();
+    const { currentUser, jobs } = props
     const history = useHistory();
     const { job_name, category, description, city, cellphone, email } = formData;
 
-
+    useEffect(() => {
+        const prefillFormData = () => {
+            const jobPost = jobs.find((job) => job.id === Number(id));
+            setFormData({
+                job_name: jobPost.job_name,
+                category: jobPost.category,
+                description: jobPost.description,
+                city: jobPost.city,
+                cellphone: jobPost.cellphone,
+                email: jobPost.email
+            });
+        }
+        if (jobs.length) {
+            prefillFormData();
+        }
+    }, [jobs, id])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,28 +42,25 @@ export default function CreateJobForm(props) {
         }))
     }
 
-    const handleCreate = async (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault();
-        const newJob = await postNewJobForEmployee(formData);
-        // set(prevState => [...prevState, newFood]);
-        // window.location.reload()
+        const updatedJob = await updateOneJobForEmployee(id, formData);
+        // setFoods(prevState => prevState.map((food) => {
+        //     return food.id === Number(id) ? updatedFood : food
+        // }));
         history.push('/');
     }
 
-
-
-
     return (
         <div className="job-create-main-container">
-            <h2>Post</h2>
-            <h4>Create a new job</h4>
+            <h2>Edit</h2>
             <form
                 className="job-create-container"
-                onSubmit={handleCreate}
+                onSubmit={handleUpdate}
             >
 
                 <label>Name of the Job
-                    <input
+                <input
                         type='text'
                         name='job_name'
                         value={job_name}
@@ -55,7 +69,7 @@ export default function CreateJobForm(props) {
                 </label>
 
                 <label>Description
-                    <textarea
+                <textarea
                         type='text'
                         name='description'
                         value={description}
@@ -64,7 +78,7 @@ export default function CreateJobForm(props) {
                 </label>
 
                 <label>Category
-                    <input
+                <input
                         type='text'
                         name='category'
                         value={category}
@@ -73,7 +87,7 @@ export default function CreateJobForm(props) {
                 </label>
 
                 <label>City
-                    <input
+                <input
                         type='text'
                         name='city'
                         value={city}
@@ -82,7 +96,7 @@ export default function CreateJobForm(props) {
                 </label>
 
                 <label>Cellphone
-                    <input
+                <input
                         type='text'
                         name='cellphone'
                         value={cellphone}
@@ -91,7 +105,7 @@ export default function CreateJobForm(props) {
                 </label>
 
                 <label>Email
-                    <input
+                <input
                         type='email'
                         name='email'
                         value={email}

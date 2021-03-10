@@ -1,0 +1,38 @@
+.account-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.account-jobs{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.account-showjobs{
+    width: 1700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.account-showjobs-box{
+    border: 1px solid black;
+    padding: 10px;
+    width: 350px;
+    margin: 5px;
+    text-align: center;
+    height: 400px;
+}
+
+.account-showjobs-box a{
+    color: rgb(134, 88, 28);
+    margin: 15px;
+    
+}
+
+#center{
+    text-align: center;
+}

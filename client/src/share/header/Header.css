@@ -23,3 +23,7 @@
     border-radius: 10%;
     margin-top: 12px;
 }
+
+#logout{
+cursor: pointer;
+}
