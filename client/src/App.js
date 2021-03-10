@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route, useHistory } from 'react-router-dom';
 
+import Jobs from './screens/Jobs/Jobs'
+import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
+
 import Layout from './share/layout/Layout'
 // import Login from './screens/Login';
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
@@ -50,8 +53,8 @@ function App() {
 
   return (
     <Layout
-      // currentUser={currentUser}
-      // handleLogout={handleLogout}
+    // currentUser={currentUser}
+    // handleLogout={handleLogout}
     >
       <Switch>
         {/* <Route path='/login'>
@@ -63,6 +66,14 @@ function App() {
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
         </Route> */}
+        <Route path="/available-jobs">
+          <AvailableJobs />
+        </Route>
+
+        <Route path='/jobs'>
+          <Jobs />
+        </Route>
+
         <Route path='/'>
           <MainContainer currentUser={currentUser} />
         </Route>

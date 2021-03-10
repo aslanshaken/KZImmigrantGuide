@@ -1,0 +1,17 @@
+.jobs-question-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 550px;
+}
+
+.jobs-question{
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+}
+
+.jobs-question h3:hover{
+    border-bottom: 1px solid black;
+}

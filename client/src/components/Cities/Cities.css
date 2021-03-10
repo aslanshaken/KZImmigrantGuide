@@ -1,0 +1,26 @@
+.cities-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cities-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1000px;
+
+}
+
+.cities-container img {
+    width: 300px;
+}
+
+.cities-container h4 {
+    text-align: center;
+}
+
+.cities-box {
+    margin-bottom: 50px;
+}

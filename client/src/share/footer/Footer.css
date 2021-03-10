@@ -1,0 +1,10 @@
+.footer-container{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid black;
+}
+
+#footer-logo{
+    border: 1px solid black;
+    padding: 5px;
+}
