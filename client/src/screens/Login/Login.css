@@ -1,0 +1,19 @@
+.login-main-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 180px;
+    text-align: center;
+    margin-top: 150px;
+}
+.login-main-container input{
+    margin: 10px;
+}
+.login-main-container button{
+    margin-bottom: 20px;
+}
+
+.login-main-container form{
+    border: 2px solid black;
+    padding: 50px;
+}
+

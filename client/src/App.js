@@ -9,9 +9,9 @@ import CreatePosts from './screens/CreatePosts/CreatePosts'
 import CreateJobForm from './screens/CreateJobForm/CreateJobForm'
 
 import Layout from './share/layout/Layout'
-// import Login from './screens/Login';
+import Login from './screens/Login/Login'
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
-// import Register from './screens/Register';
+import Register from './screens/Register/Register';
 import MainContainer from './containers/MainContainer';
 
 function App() {
@@ -28,62 +28,64 @@ function App() {
 
 
 
-  console.log(jobs)
-
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
   const history = useHistory();
 
-  // useEffect(() => {
-  //   const handleVerify = async () => {
-  //     const currentUser = await verifyUser();
-  //     setCurrentUser(currentUser)
-  //   }
-  //   handleVerify();
-  // }, [])
+  useEffect(() => {
+    const handleVerify = async () => {
+      const currentUser = await verifyUser();
+      setCurrentUser(currentUser)
+    }
+    handleVerify();
+  }, [])
 
-  // const handleLogin = async (formData) => {
-  //   try {
-  //     const currentUser = await loginUser(formData);
-  //     setCurrentUser(currentUser);
-  //     setError(null);
-  //     history.push('/');
-  //   } catch (e) {
-  //     setError("invalid login credentials");
-  //   }
-  // }
+  const handleLogin = async (formData) => {
+    try {
+      const currentUser = await loginUser(formData);
+      setCurrentUser(currentUser);
+      setError(null);
+      history.push('/');
+    } catch (e) {
+      setError("invalid login credentials");
+    }
+  }
 
-  // const handleRegister = async (formData) => {
-  //   try {
-  //     const currentUser = await registerUser(formData);
-  //     setCurrentUser(currentUser);
-  //     history.push('/');
-  //   } catch (e) {
-  //     setError("invalid sign up info")
-  //   }
-  // }
+  const handleRegister = async (formData) => {
+    try {
+      const currentUser = await registerUser(formData);
+      setCurrentUser(currentUser);
+      history.push('/');
+    } catch (e) {
+      setError("invalid sign up info")
+    }
+  }
 
-  // const handleLogout = () => {
-  //   setCurrentUser(null);
-  //   localStorage.removeItem('authToken');
-  //   removeToken();
-  // }
+  const handleLogout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('authToken');
+    removeToken();
+  }
 
   return (
     <Layout
-    // currentUser={currentUser}
-    // handleLogout={handleLogout}
+    currentUser={currentUser}
+    handleLogout={handleLogout}
     >
+      
       <Switch>
-        {/* <Route path='/login'>
+
+        <Route path='/login'>
           <Login
             handleLogin={handleLogin}
             error={error}
           />
-        </Route>
+        </Route> 
+
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
-        </Route> */}
+        </Route> 
+
         <Route path="/post-job">
           <CreateJobForm />
         </Route>

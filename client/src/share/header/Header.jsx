@@ -36,12 +36,12 @@ export default function Header() {
                 </Link>
             </div>
             <div>
-                <Link to="#" id="none">
+                <Link to="/login" id="none">
                     <h4>Sign in</h4>
                 </Link>
             </div>
             <div>
-                <Link to="#" id="none">
+                <Link to="/register" id="none">
                     <h4>Sign up</h4>
                 </Link>
             </div>
