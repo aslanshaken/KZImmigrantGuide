@@ -78,11 +78,11 @@ function App() {
       <Switch>
 
         <Route path="/job/edit/:id">
-          <JobEdit  currentUser={currentUser} jobs={jobs}  />
+          <JobEdit  currentUser={currentUser} jobs={jobs} setJobs={setJobs}  />
         </Route>
 
         <Route path='/account'>
-          <Account currentUser={currentUser} jobs={jobs} />
+          <Account currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
         </Route>
 
         <Route path='/login'>
@@ -97,7 +97,7 @@ function App() {
         </Route>
 
         <Route path="/post-job">
-          <CreateJobForm />
+          <CreateJobForm setJobs={setJobs}/>
         </Route>
 
         <Route path="/create-posts">
@@ -105,7 +105,7 @@ function App() {
         </Route>
 
         <Route path="/available-jobs">
-          <AvailableJobs jobs={jobs} />
+          <AvailableJobs jobs={jobs}  setJobs={setJobs}/>
         </Route>
 
         <Route path='/jobs'>

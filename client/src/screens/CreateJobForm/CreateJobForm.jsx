@@ -13,6 +13,7 @@ export default function CreateJobForm(props) {
         email: ''
     })
     const history = useHistory();
+    const {setJobs} = props
     const { job_name, category, description, city, cellphone, email } = formData;
 
 
@@ -28,9 +29,8 @@ export default function CreateJobForm(props) {
     const handleCreate = async (e) => {
         e.preventDefault();
         const newJob = await postNewJobForEmployee(formData);
-        // set(prevState => [...prevState, newFood]);
-        // window.location.reload()
-        history.push('/');
+        setJobs(prevState => [...prevState, newJob]);
+        history.push('/available-jobs');
     }
 
 

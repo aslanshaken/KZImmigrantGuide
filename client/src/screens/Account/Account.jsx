@@ -4,13 +4,13 @@ import { destroyOneJobForEmployee } from '../../services/getEmployees';
 import { Link } from "react-router-dom";
 
 export default function Account(props) {
-    const { currentUser, jobs } = props
+    const { currentUser, jobs, setJobs } = props
     console.log(jobs)
     console.log(currentUser)
 
     const handleDelete = async (id) => {
         await destroyOneJobForEmployee(id);
-        window.location.reload()
+        setJobs(prevState => prevState.filter((job) => job.id !== id))
     }
 
     return (

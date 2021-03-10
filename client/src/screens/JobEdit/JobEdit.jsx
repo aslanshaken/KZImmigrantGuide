@@ -13,7 +13,7 @@ export default function JobEdit(props) {
         email: ''
     })
     const { id } = useParams();
-    const { currentUser, jobs } = props
+    const { currentUser, jobs, setJobs } = props
     const history = useHistory();
     const { job_name, category, description, city, cellphone, email } = formData;
 
@@ -45,10 +45,10 @@ export default function JobEdit(props) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const updatedJob = await updateOneJobForEmployee(id, formData);
-        // setFoods(prevState => prevState.map((food) => {
-        //     return food.id === Number(id) ? updatedFood : food
-        // }));
-        history.push('/');
+        setJobs(prevState => prevState.map((job) => {
+            return job.id === Number(id) ? updatedJob : job
+        }));
+        history.push('/account');
     }
 
     return (
