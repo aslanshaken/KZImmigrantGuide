@@ -1,0 +1,23 @@
+.post-options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 430px;
+}
+
+.post-options {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.post-options h4 {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.post-options h4:hover {
+    border: none;
+}

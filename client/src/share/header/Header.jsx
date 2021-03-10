@@ -46,7 +46,7 @@ export default function Header() {
                 </Link>
             </div>
             <div>
-                <Link to="#" id="none">
+                <Link to="/create-posts" id="none">
                     <h4 className="create-post-button">Create a Post</h4>
                 </Link>
             </div>

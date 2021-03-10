@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import {getAllJobsForEmployee} from './services/getEmployees' 
+import { getAllJobsForEmployee } from './services/getEmployees'
 
 import Jobs from './screens/Jobs/Jobs'
 import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
+import CreatePosts from './screens/CreatePosts/CreatePosts'
+import CreateJobForm from './screens/CreateJobForm/CreateJobForm'
 
 import Layout from './share/layout/Layout'
 // import Login from './screens/Login';
@@ -82,6 +84,14 @@ function App() {
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
         </Route> */}
+        <Route path="/post-job">
+          <CreateJobForm />
+        </Route>
+
+        <Route path="/create-posts">
+          <CreatePosts />
+        </Route>
+
         <Route path="/available-jobs">
           <AvailableJobs jobs={jobs} />
         </Route>
