@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route, useHistory } from 'react-router-dom';
+import {getAllJobsForEmployee} from './services/getEmployees' 
 
 import Jobs from './screens/Jobs/Jobs'
 import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
@@ -12,6 +13,21 @@ import { loginUser, registerUser, verifyUser, removeToken } from './services/aut
 import MainContainer from './containers/MainContainer';
 
 function App() {
+
+  // GET ALL FOODS
+  const [jobs, setJobs] = useState([])
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const jobsList = await getAllJobsForEmployee();
+      setJobs(jobsList);
+    }
+    fetchJobs();
+  }, [])
+
+
+
+  console.log(jobs)
+
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
   const history = useHistory();
@@ -67,7 +83,7 @@ function App() {
           <Register handleRegister={handleRegister} />
         </Route> */}
         <Route path="/available-jobs">
-          <AvailableJobs />
+          <AvailableJobs jobs={jobs} />
         </Route>
 
         <Route path='/jobs'>
