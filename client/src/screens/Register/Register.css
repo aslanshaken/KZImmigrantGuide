@@ -1,0 +1,29 @@
+.register-main-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 180px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.register-main-container input {
+    margin: 10px;
+}
+
+.register-main-container button {
+    margin-bottom: 20px;
+}
+
+.register-main-container form {
+    border: 2px solid black;
+    padding: 50px;
+}
+
+@media only screen and (max-width: 377px) {
+    .register-main-container form {
+        padding: 20px;
+    }
+
+
+
+}

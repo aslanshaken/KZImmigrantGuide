@@ -1,0 +1,39 @@
+.events-main-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
+
+.events-container {
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.events-box {
+    border: 1px solid black;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 377px) {
+    .events-main-container {
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+
+    .events-container {
+        width: 350px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .events-box {
+        border: 1px solid black;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+}

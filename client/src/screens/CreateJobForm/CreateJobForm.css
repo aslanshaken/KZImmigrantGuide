@@ -1,0 +1,57 @@
+.job-create-background {
+    margin-bottom: 100px;
+    background-image: url(https://wallpapercave.com/wp/uEI2zWW.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.job-create-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+}
+
+.job-create-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid burlywood;
+    padding: 50px;
+    box-shadow: 5px 5px 5px 5px gray;
+    background-color: white;
+}
+
+.job-create-container input {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.job-create-container textarea {
+    width: 250px;
+    margin-bottom: 10px;
+    height: 70px;
+}
+
+@media only screen and (max-width: 377px) {
+
+    .job-create-container {
+        padding: 20px;
+    }
+
+    .job-create-container input {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .job-create-container textarea {
+        width: 150px;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+
+
+}

@@ -1,0 +1,44 @@
+.jobs-question-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 400px;
+}
+
+.jobs-question {
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+}
+
+.jobs-question h3:hover {
+    border: none;
+    color: darkred;
+    transform: scale(1.5);
+}
+
+.jobs-question h3 {
+    font-size: 30px;
+    padding: 20px;
+    transition: transform .5s ease;
+}
+
+@media only screen and (max-width: 377px) {
+    .jobs-question-main {
+        margin-bottom: 400px;
+    }
+
+    .jobs-question {
+        width: 350px;
+    }
+
+    .jobs-question-main h1,
+    .jobs-question h3,
+    .jobs-question h4 {
+        font-size: 13px;
+        transition: transform .5s ease;
+    }
+
+
+}
