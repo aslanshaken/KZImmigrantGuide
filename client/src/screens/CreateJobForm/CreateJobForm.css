@@ -35,3 +35,23 @@
     margin-bottom: 10px;
     height: 70px;
 }
+
+@media only screen and (max-width: 377px) {
+
+    .job-create-container {
+        padding: 20px;
+    }
+
+    .job-create-container input {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .job-create-container textarea {
+        width: 150px;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+
+
+}

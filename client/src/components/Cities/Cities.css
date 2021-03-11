@@ -31,3 +31,26 @@
 .cities-box {
     margin-bottom: 50px;
 }
+
+@media only screen and (max-width: 377px) {
+
+    .cities-wrap-parent {
+        margin-bottom: 20px;
+    }
+
+    .cities-container {
+        width: 320px;
+
+    }
+
+    .cities-container img {
+        width: 100px;
+        height: 70px;
+    }
+
+
+    .cities-box {
+        margin-bottom: 10px;
+    }
+
+}

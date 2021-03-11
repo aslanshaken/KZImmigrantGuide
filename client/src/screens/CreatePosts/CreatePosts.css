@@ -26,3 +26,17 @@
     zoom: 1;
     transform: scale(1.5);
 }
+
+
+@media only screen and (max-width: 377px) {
+    .post-options-container {
+        margin-bottom: 340px;
+    }
+
+    .post-options h4 {
+        padding: 10px;
+        margin: 10px;
+        font-size: 15px;
+    }
+
+}
