@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 550px;
+    margin-bottom: 400px;
 }
 
 .jobs-question{
@@ -13,5 +13,13 @@
 }
 
 .jobs-question h3:hover{
-    border-bottom: 1px solid black;
+    border:none;
+    color: darkred;
+    transform: scale(1.5);
+}
+
+.jobs-question h3{
+    font-size: 30px;
+    padding: 20px;
+    transition: transform .5s ease;
 }

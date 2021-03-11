@@ -1,7 +1,7 @@
 import './JobEdit.css'
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import {updateOneJobForEmployee} from '../../services/getEmployees'
+import { updateOneJobForEmployee } from '../../services/getEmployees'
 
 export default function JobEdit(props) {
     const [formData, setFormData] = useState({
@@ -52,72 +52,66 @@ export default function JobEdit(props) {
     }
 
     return (
-        <div className="job-create-main-container">
-            <h2>Edit</h2>
-            <form
-                className="job-create-container"
-                onSubmit={handleUpdate}
-            >
-
-                <label>Name of the Job
-                <input
+        <div className="job-edit-background">
+            <div className="job-edit-main-container">
+                <h2>Edit</h2>
+                <form
+                    className="job-edit-container"
+                    onSubmit={handleUpdate}
+                >
+                    <input
+                        placeholder="Name of the Job"
                         type='text'
                         name='job_name'
                         value={job_name}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Description
-                <textarea
+                    <textarea
+                        placeholder="Description"
                         type='text'
                         name='description'
                         value={description}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Category
-                <input
+                    <input
+                        placeholder="Category"
                         type='text'
                         name='category'
                         value={category}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>City
-                <input
+                    <input
+                        placeholder="City"
                         type='text'
                         name='city'
                         value={city}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Cellphone
-                <input
+                    <input
+                        placeholder="Cellphone"
                         type='text'
                         name='cellphone'
                         value={cellphone}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Email
-                <input
+                    <input
+                        placeholder="Email"
                         type='email'
                         name='email'
                         value={email}
                         onChange={handleChange}
                     />
-                </label>
 
-                <br />
+                    <br />
 
-                <button>Submit</button>
-
-            </form>
+                    <button>Submit</button>
+                </form>
+            </div>
         </div>
     )
 }

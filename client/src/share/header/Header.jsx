@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './Header.css'
+import Logo from '../../assets/logo.png'
 
 export default function Header(props) {
     const { currentUser, handleLogout } = props;
@@ -9,12 +10,13 @@ export default function Header(props) {
         <div className="nav-container">
             <div>
                 <Link to="/" id="none">
-                    <h4 className="logo">KZ Immigrant Guide</h4>
+                    <img id="logo" src={Logo} />
+
                 </Link>
             </div>
             <div>
                 <Link to="/jobs" id="none">
-                    <h4>Jobs</h4>
+                    <h4 >Jobs</h4>
                 </Link>
             </div>
             <div>
@@ -43,7 +45,7 @@ export default function Header(props) {
                     <>
                         <div>
                             <Link to="/account" id="none">
-                                <h4>{currentUser.username.toUpperCase()}</h4>
+                                <h4>My Account</h4>
                             </Link>
                         </div>
                         <div>
@@ -66,9 +68,14 @@ export default function Header(props) {
             }
 
             <div>
-                <Link to="/create-posts" id="none">
-                    <h4 className="create-post-button">Create a Post</h4>
-                </Link>
+                {currentUser ?
+                    <Link to="/create-posts" id="none">
+                        <h4 className="create-post-button">Create a Post</h4>
+                    </Link>
+                    :
+                    <h4 className="create-post-button" onClick={()=>alert("Please Sign in or Register")}>Create a Post</h4>
+                }
+
             </div>
 
         </div>

@@ -14,18 +14,20 @@ export default function Account(props) {
     }
 
     return (
-        <div>
+        <div className="account-background">
 
             <div className="account-info-container">
-                <h3>Username Information</h3>
-                <div>
-                    <h5>Username: {currentUser?.username}</h5>
-                    <h5>Email: {currentUser?.email}</h5>
+
+                <div className="user-info">
+                    <h3>My Account</h3>
+                    <h4>Username: <a> {currentUser?.username}</a></h4>
+                    <h4>Email: <a>{currentUser?.email}</a></h4>
                 </div>
             </div>
 
             <h2 id="center">My Posts</h2>
-            <h3 id="center">Jobs</h3>
+            <h2 id="center">Jobs-Section</h2>
+
             <div className="account-jobs">
 
                 <div className="account-showjobs">
@@ -40,9 +42,8 @@ export default function Account(props) {
                                     <p>Cell Phone:<a> {job.cellphone}</a> </p>
                                     <p>Email: <a>{job.email}</a></p>
                                     <p>Posted by: <a>{currentUser?.username}</a> </p>
-                                    <br /><br />
-                                    <Link to={`/job/edit/${job.id}`} id="none"> <button>Edit</button> </Link>
-                                    <button onClick={() => handleDelete(job.id)} >Delete</button>
+                                    <Link to={`/job/edit/${job.id}`} id="none"><img src="https://img.icons8.com/dusk/64/000000/edit--v2.png" /> </Link>
+                                    <img onClick={() => handleDelete(job.id)} src="https://img.icons8.com/cute-clipart/64/000000/delete-sign.png" />
                                 </div>
                             )
                         }

@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+.cities-wrap-parent {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
 .cities-container {
     display: flex;
     flex-wrap: wrap;
@@ -15,6 +21,7 @@
 
 .cities-container img {
     width: 300px;
+    height: 200px;
 }
 
 .cities-container h4 {

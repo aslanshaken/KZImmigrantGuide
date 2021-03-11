@@ -13,7 +13,7 @@ export default function CreateJobForm(props) {
         email: ''
     })
     const history = useHistory();
-    const {setJobs} = props
+    const { setJobs } = props
     const { job_name, category, description, city, cellphone, email } = formData;
 
 
@@ -37,73 +37,71 @@ export default function CreateJobForm(props) {
 
 
     return (
-        <div className="job-create-main-container">
-            <h2>Post</h2>
-            <h4>Create a new job</h4>
-            <form
-                className="job-create-container"
-                onSubmit={handleCreate}
-            >
+        <div className="job-create-background">
+            <div className="job-create-main-container">
 
-                <label>Name of the Job
+                <h3>Create a new job</h3>
+
+                <form
+                    className="job-create-container"
+                    onSubmit={handleCreate}
+                >
+
                     <input
+                        placeholder="Name of the Job"
                         type='text'
                         name='job_name'
                         value={job_name}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Description
                     <textarea
+                        placeholder="Description"
                         type='text'
                         name='description'
                         value={description}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Category
                     <input
+                        placeholder="Category"
                         type='text'
                         name='category'
                         value={category}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>City
                     <input
+                        placeholder="City"
                         type='text'
                         name='city'
                         value={city}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Cellphone
                     <input
+                        placeholder="Cellphone"
                         type='text'
                         name='cellphone'
                         value={cellphone}
                         onChange={handleChange}
                     />
-                </label>
 
-                <label>Email
                     <input
+                        placeholder="Email"
                         type='email'
                         name='email'
                         value={email}
                         onChange={handleChange}
                     />
-                </label>
 
-                <br />
+                    <br />
 
-                <button>Submit</button>
+                    <button>Submit</button>
 
-            </form>
+                </form>
+
+            </div>
         </div>
     )
 }

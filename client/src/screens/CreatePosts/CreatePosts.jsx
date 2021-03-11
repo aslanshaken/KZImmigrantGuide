@@ -6,6 +6,7 @@ export default function CreatePosts() {
         <div className="post-options-container">
             <h2>Post</h2>
             <h5>Please Choose One</h5>
+
             <div className="post-options">
                 <Link to="/post-get-hired" id="none">
                     <h4>Get Hired</h4>
@@ -17,6 +18,7 @@ export default function CreatePosts() {
                     <h4>Add Housing</h4>
                 </Link>
             </div>
+
         </div>
     )
 }

@@ -1,0 +1,37 @@
+.job-edit-background {
+    margin-bottom: 100px;
+    background-image: url(https://wallpaperaccess.com/full/220675.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.job-edit-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+}
+
+.job-edit-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid burlywood;
+    padding: 50px;
+    box-shadow: 5px 5px 5px 5px gray;
+    background-color: white;
+}
+
+.job-edit-container input {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.job-edit-container textarea {
+    width: 250px;
+    margin-bottom: 10px;
+    height: 70px;
+}

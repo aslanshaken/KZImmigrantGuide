@@ -1,29 +1,41 @@
-.nav-container{
+.nav-container {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid black;
     padding: 35px 0px 35px 0px;
 }
 
-#none{
+#none {
     text-decoration: none;
     color: black;
 }
 
-.logo{
-    font-size: larger;
-    font-style: italic;
-    border-style:groove;
-    padding: 4px;
+body {
+    font-family: 'Palanquin', sans-serif;
 }
 
-.create-post-button{
-    border: 1px solid black;
+#logo {}
+
+.create-post-button {
+    border: 2px solid rgb(22, 141, 22);
     padding: 10px;
     border-radius: 10%;
     margin-top: 12px;
+    color: green;
+    cursor: pointer;
+    transition: transform .9s ease-in-out;
 }
 
-#logout{
-cursor: pointer;
+.create-post-button:hover {
+    background-color: green;
+    color: white;
+    transform: scale(2) rotate(10deg);
+}
+
+#logout {
+    cursor: pointer;
+}
+
+.nav-container h4:hover {
+    border-bottom: 1px solid green;
 }
