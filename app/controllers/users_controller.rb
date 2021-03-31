@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
+      UserMailer.password_reset(@user).deliver_now
       @token = encode({id: @user.id})
       render json: {
         user: @user.attributes.except("password_digest"),
