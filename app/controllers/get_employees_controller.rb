@@ -6,7 +6,7 @@ class GetEmployeesController < ApplicationController
   # GET /get_employees
   def index
     @get_employees = GetEmployee.all
-     
+
     render json: @get_employees
   end
 
@@ -18,7 +18,7 @@ class GetEmployeesController < ApplicationController
   # POST /get_employees
   def create
     @get_employee = GetEmployee.new(get_employee_params)
-    @get_employee.user = @current_user #???
+    @get_employee.user = @current_user 
     if @get_employee.save
       render json: @get_employee, status: :created, location: @get_employee
     else

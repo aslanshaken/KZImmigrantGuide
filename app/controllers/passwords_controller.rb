@@ -1,7 +1,7 @@
 class PasswordsController < ApplicationController
 
     def forgot
-        user = User.find_by(email: params[:_json])
+        user = User.find_by(email: params[:email])
         if user
           render json: {
             alert: "If this user exists, we have sent you a password reset email."
@@ -10,7 +10,7 @@ class PasswordsController < ApplicationController
         else
           #this sends regardless of whether there's an email in database for security reasons
           render json: {
-            alert: "If this user exists, we have sent you a password reset email."
+            alert: params[:email]
           }
         end
       end

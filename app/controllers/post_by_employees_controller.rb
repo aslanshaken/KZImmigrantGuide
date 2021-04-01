@@ -17,7 +17,7 @@ class PostByEmployeesController < ApplicationController
   # POST /post_by_employees
   def create
     @post_by_employee = PostByEmployee.new(post_by_employee_params)
-    @post_by_employee.user = @current_user # ?????
+    @post_by_employee.user = @current_user 
     if @post_by_employee.save
       render json: @post_by_employee, status: :created, location: @post_by_employee
     else
@@ -49,6 +49,6 @@ class PostByEmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_by_employee_params
-      params.require(:post_by_employee).permit(:name, :about, :category, :city, :cellphone, :email, :user_id)
+      params.require(:post_by_employee).permit(:name, :about, :category, :city, :cellphone, :email, :user_id, :title) # Added title in the end?
     end
 end

@@ -49,7 +49,7 @@ class PostHousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_house_params
-      params.require(:post_house).permit(:name, :description, :city, :date_move_in, :price, :cellphone, :email, :user_id)
+      params.require(:post_house).permit(:name, :description, :city, :date_move_in, :price, :cellphone, :email, :user_id, :state, :bathroom)
     end 
     # :post_house ??? above
 end

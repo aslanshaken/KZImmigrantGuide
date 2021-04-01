@@ -2,13 +2,16 @@ class User < ApplicationRecord
   has_many :get_employees
   has_many :post_by_employees
   has_many :post_houses
+  has_many :post_house_wanteds
+  has_many :communities
+  has_many :blogs
   
   has_secure_password
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true #uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, length: { minimum: 6 }
+  # validates :password, length: { minimum: 6 } - doesn't work with forger/reset ATTENTION  
 
   def send_password_reset
     self.password_reset_token = generate_base64_token
