@@ -57,7 +57,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
 
-  # added settings -- ACTION MAILER 
+  # ACTION MAILER 
 
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
@@ -75,7 +75,10 @@ Rails.application.configure do
       :authentication       => "plain",
       :enable_starttls_auto => true
     }
+  
 
+    # ACTIVE STORAGE 
+    config.active_storage.service = :local
 
 
 end

@@ -9,6 +9,9 @@
 PostByEmployee.destroy_all
 GetEmployee.destroy_all
 PostHouse.destroy_all
+PostHouseWanted.destroy_all
+Blog.destroy_all
+Community.destroy_all
 User.destroy_all
 
 
