@@ -27,7 +27,7 @@ class PostByEmployeesController < ApplicationController
 
   # PATCH/PUT /post_by_employees/1
   def update
-    @post_by_employee = @current_user.post_by_employees.find(params[:id])  # ?????
+    @post_by_employee = @current_user.post_by_employees.find(params[:id])  # from http [id]
     if @post_by_employee.update(post_by_employee_params)
       render json: @post_by_employee
     else
@@ -37,14 +37,14 @@ class PostByEmployeesController < ApplicationController
 
   # DELETE /post_by_employees/1
   def destroy
-    @post_by_employee = @current_user.post_by_employees.find(params[:id]) # ?????
+    @post_by_employee = @current_user.post_by_employees.find(params[:id]) # from http [id]
     @post_by_employee.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post_by_employee
-      @post_by_employee = PostByEmployee.find(params[:id])
+      @post_by_employee = PostByEmployee.find(params[:id]) # from http [id]
     end
 
     # Only allow a list of trusted parameters through.

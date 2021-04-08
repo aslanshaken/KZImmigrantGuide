@@ -10,19 +10,19 @@ class PasswordsController < ApplicationController
         else
           #this sends regardless of whether there's an email in database for security reasons
           render json: {
-            alert: params[:email]
+            alert: "This #{params[:email]} doesn't exist. Please provide valid email address"
           }
         end
       end
     
       def reset
-        user = User.find_by(password_reset_token: params[:token], email: params[:email])
+        user = User.find_by(password_reset_token: reset_params[:token], email: reset_params[:email])
         if user.present? && user.password_token_valid?
-          if user.reset_password(params[:password])
+          if user.reset_password( reset_params[:password])
             render json: {
               alert: "Your password has been successfuly reset!"
             }
-            session[:user_id] = user.id
+            session[:user_id] = user.id # ??? 
           else
             render json: { error: user.errors.full_messages }, status: :unprocessable_entity
           end
@@ -30,4 +30,13 @@ class PasswordsController < ApplicationController
           render json: {error:  ['Link not valid or expired. Try generating a new link.']}, status: :not_found
         end
       end
+
+      def reset_params
+        params.require(:data).permit(:token, :email, :password)
+      end
+
+      # def forgot_params
+      #   params.require(:emailInfo).permit(:email)
+      # end
+
 end

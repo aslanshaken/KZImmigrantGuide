@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :post_house_wanteds
   has_many :communities
   has_many :blogs
+  has_one_attached :avatar
   
   has_secure_password
 

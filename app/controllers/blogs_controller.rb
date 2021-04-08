@@ -6,12 +6,32 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
 
-    render json: @blogs
+    posts = @blogs.map do |blog| { 
+      :blog => blog,
+      :image => {
+        filename: blog.photo2.filename,
+        content_type: blog.photo2.content_type,
+        created_at: blog.photo2.created_at,
+        url: url_for(blog.photo2)
+      }
+    }
+    end
+
+    render json: posts
+
   end
 
   # GET /blogs/1
   def show
-    render json: @blog
+    render :json => { 
+      :blog => @blog,
+      :image => {
+        filename: @blog.photo2.filename,
+        content_type: @blog.photo2.content_type,
+        created_at: @blog.photo2.created_at,
+        url: url_for(@blog.photo2)
+      }
+    } 
   end
 
   # POST /blogs
@@ -19,6 +39,9 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user = @current_user
     if @blog.save
+
+      @blog.photo2.attach(params[:image]) # Active Storage
+
       render json: @blog, status: :created, location: @blog
     else
       render json: @blog.errors, status: :unprocessable_entity
@@ -29,6 +52,11 @@ class BlogsController < ApplicationController
   def update
     @blog = @current_user.blogs.find(params[:id])
     if @blog.update(blog_params)
+
+      @blog.photo2.destroy  if @blog.photo2.present?  # Active Storage
+      @blog.photo2.attach(params[:image]) # Active Storage
+
+
       render json: @blog
     else
       render json: @blog.errors, status: :unprocessable_entity
@@ -38,6 +66,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   def destroy
     @blog = @current_user.blogs.find(params[:id])
+    @blog.photo2.destroy  if @blog.photo2.present?  # Active Storage
     @blog.destroy
   end
 

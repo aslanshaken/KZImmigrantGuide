@@ -28,7 +28,7 @@ class GetEmployeesController < ApplicationController
 
   # PATCH/PUT /get_employees/1
   def update
-    @get_employee = @current_user.get_employees.find(params[:id])#???
+    @get_employee = @current_user.get_employees.find(params[:id]) # from http [id]
     if @get_employee.update(get_employee_params)
       render json: @get_employee
     else
@@ -38,7 +38,7 @@ class GetEmployeesController < ApplicationController
 
   # DELETE /get_employees/1
   def destroy 
-    @get_employee = @current_user.get_employees.find(params[:id]) #???
+    @get_employee = @current_user.get_employees.find(params[:id]) # from http [id]
     @get_employee.destroy
   end
 

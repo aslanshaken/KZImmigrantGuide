@@ -6,12 +6,31 @@ class CommunitiesController < ApplicationController
   def index
     @communities = Community.all
 
-    render json: @communities
+    posts = @communities.map do |community| { 
+      :community => community,
+      :image => {
+        filename: community.photo.filename,
+        content_type: community.photo.content_type,
+        created_at: community.photo.created_at,
+        url: url_for(community.photo)
+      }
+    }
+    end
+
+    render json: posts
   end
 
   # GET /communities/1
   def show
-    render json: @community
+    render :json => { 
+      :community => @community,
+      :image => {
+        filename: @community.photo.filename,
+        content_type: @community.photo.content_type,
+        created_at: @community.photo.created_at,
+        url: url_for(@community.photo)
+      }
+    } 
   end
 
   # POST /communities
@@ -19,6 +38,9 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.user = @current_user
     if @community.save
+
+      @community.photo.attach(params[:image]) # Active Storage
+
       render json: @community, status: :created, location: @community
     else
       render json: @community.errors, status: :unprocessable_entity
@@ -29,6 +51,10 @@ class CommunitiesController < ApplicationController
   def update
     @community = @current_user.communities.find(params[:id])
     if @community.update(community_params)
+
+      @community.photo.destroy  if @community.photo.present?  # Active Storage
+      @community.photo.attach(params[:image]) # Active Storage
+
       render json: @community
     else
       render json: @community.errors, status: :unprocessable_entity
@@ -38,6 +64,9 @@ class CommunitiesController < ApplicationController
   # DELETE /communities/1
   def destroy
     @community = @current_user.communities.find(params[:id])
+
+    @community.photo.destroy  if @community.photo.present?  # Active Storage
+
     @community.destroy
   end
 
