@@ -1,0 +1,34 @@
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 100px 0;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4E47fvvaU2xKCqmhhLD89bDfIVWQ4ncTUiA1uzLM_0r8JwXUw9n2UWvVcTViWyiB1bac&usqp=CAU");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 200px;
+  background-position-x: 250px;
+  background-position-y: 170px;
+}
+.video-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+}
+.video-style {
+  width: 500px;
+  box-shadow: 15px 15px 15px #888888;
+  border-radius: 5%;
+}
+
+#made {
+  margin-left: 270px;
+}
+
+#video-mission-text{
+    width: 507px;
+    color: rgb(114, 110, 110);
+    margin-top: -5px;
+}

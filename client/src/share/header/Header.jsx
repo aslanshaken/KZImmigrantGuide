@@ -10,65 +10,73 @@ export default function Header(props) {
     return (
         <div>
 
+            {currentUser
+                ?
+                <div className="nav-container-upper">
+                    <div>
+                        <Link to="/account" id="none">
+                            <h5>My Account</h5>
+                        </Link>
+                    </div>
+                    <div><h5>|</h5></div>
+                    <div>
+                        <h5 id="logout" onClick={handleLogout}>Sign out</h5>
+                    </div>
+                </div>
+                :
+                <div className="nav-container-upper">
+                    <div>
+                        <Link to="/login" id="none">
+                            <h5>Log in</h5>
+                        </Link>
+                    </div>
+                    <div><h5>|</h5></div>
+                    <div>
+                        <Link to="/register" id="none">
+                            <h5>Create Account</h5>
+                        </Link>
+                    </div>
+                </div>
+            }
+
             <div className="nav-container">
                 <div>
                     <Link to="/" id="none">
-                        <img id="logo" src={Logo} />
-
+                        <h4>
+                            <img id="logo" src={Logo} />
+                        </h4>
                     </Link>
                 </div>
                 <div>
                     <Link to="/jobs" id="none">
-                        <h4 >Jobs</h4>
+                        <h4 id="hv">Jobs</h4>
                     </Link>
                 </div>
                 <div>
                     <Link to="#" id="none">
-                        <h4>Housing</h4>
+                        <h4 id="hv" >Housing</h4>
                     </Link>
                 </div>
                 <div>
                     <Link to="#" id="none">
-                        <h4>Communities</h4>
+                        <h4 id="hv">Communities</h4>
                     </Link>
                 </div>
                 <div>
                     <Link to="#" id="none">
-                        <h4>Blog</h4>
+                        <h4 id="hv">Blog</h4>
                     </Link>
                 </div>
                 <div>
                     <Link to="#" id="none">
-                        <h4>Contact</h4>
+                        <h4 id="hv">About Us</h4>
                     </Link>
                 </div>
-                {
-                    currentUser ?
-                        <>
-                            <div>
-                                <Link to="/account" id="none">
-                                    <h4>My Account</h4>
-                                </Link>
-                            </div>
-                            <div>
-                                <h4 id="logout" onClick={handleLogout}>Sign out</h4>
-                            </div>
-                        </>
-                        :
-                        <>
-                            <div>
-                                <Link to="/login" id="none">
-                                    <h4>Sign in</h4>
-                                </Link>
-                            </div>
-                            <div>
-                                <Link to="/register" id="none">
-                                    <h4>Sign up</h4>
-                                </Link>
-                            </div>
-                        </>
-                }
-
+                <div>
+                    <Link to="#" id="none">
+                        <h4 id="hv">Contact</h4>
+                    </Link>
+                </div>
                 <div>
                     {currentUser ?
                         <Link to="/create-posts" id="none">
@@ -80,6 +88,12 @@ export default function Header(props) {
                 </div>
 
             </div >
+
+
+
+
+
+
 
             {/* CELL PHONE */}
             <div className="nav-cell-container" >

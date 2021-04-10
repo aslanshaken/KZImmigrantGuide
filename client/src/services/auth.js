@@ -30,17 +30,6 @@ export const removeToken = () => {
 ///////////////////////////////////////////////
 
 
-export const registerUser = async (registerData, imageInfo) => {
-    try {
-        const resp = await api.post('/users/', { user: registerData, image: imageInfo })
-        localStorage.setItem('authToken', resp.data.token);
-        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-        return resp.data.user
-    } catch (e) {
-        throw (e)
-    }
-}
-
 export const getAllUsers = async()=>{
     const resp = await api.get('/users');
     return resp.data
@@ -54,6 +43,18 @@ export const getOneUser = async(id) =>{
     const resp = await api.get(`/users/${id}`)
     return resp.data
      // receives as [ user:{name:dsd, city:sds}, image:{name: dsd, url:sds} ]
+}
+
+
+export const registerUser = async (registerData, imageInfo) => {
+    try {
+        const resp = await api.post('/users/', { user: registerData, image: imageInfo })
+        localStorage.setItem('authToken', resp.data.token);
+        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
+        return resp.data.user
+    } catch (e) {
+        throw (e)
+    }
 }
 
 export const updateOneUser = async (id, data, imageInfo) => {

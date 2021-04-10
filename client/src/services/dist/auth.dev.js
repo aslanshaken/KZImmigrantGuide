@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.destroyOneUser = exports.updateOneUser = exports.getOneUser = exports.getAllUsers = exports.registerUser = exports.removeToken = exports.verifyUser = exports.loginUser = void 0;
+exports.destroyOneUser = exports.updateOneUser = exports.registerUser = exports.getOneUser = exports.getAllUsers = exports.removeToken = exports.verifyUser = exports.loginUser = void 0;
 
 var _apiConfig = _interopRequireDefault(require("./api-config"));
 
@@ -85,48 +85,37 @@ var removeToken = function removeToken() {
 
 exports.removeToken = removeToken;
 
-var registerUser = function registerUser(registerData, imageInfo) {
+var getAllUsers = function getAllUsers() {
   var resp;
-  return regeneratorRuntime.async(function registerUser$(_context3) {
+  return regeneratorRuntime.async(function getAllUsers$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          _context3.prev = 0;
-          _context3.next = 3;
-          return regeneratorRuntime.awrap(_apiConfig["default"].post('/users/', {
-            user: registerData,
-            image: imageInfo
-          }));
+          _context3.next = 2;
+          return regeneratorRuntime.awrap(_apiConfig["default"].get('/users'));
 
-        case 3:
+        case 2:
           resp = _context3.sent;
-          localStorage.setItem('authToken', resp.data.token);
-          _apiConfig["default"].defaults.headers.common.authorization = "Bearer ".concat(resp.data.token);
-          return _context3.abrupt("return", resp.data.user);
+          return _context3.abrupt("return", resp.data);
 
-        case 9:
-          _context3.prev = 9;
-          _context3.t0 = _context3["catch"](0);
-          throw _context3.t0;
-
-        case 12:
+        case 4:
         case "end":
           return _context3.stop();
       }
     }
-  }, null, null, [[0, 9]]);
+  });
 };
 
-exports.registerUser = registerUser;
+exports.getAllUsers = getAllUsers;
 
-var getAllUsers = function getAllUsers() {
+var getOneUser = function getOneUser(id) {
   var resp;
-  return regeneratorRuntime.async(function getAllUsers$(_context4) {
+  return regeneratorRuntime.async(function getOneUser$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
-          return regeneratorRuntime.awrap(_apiConfig["default"].get('/users'));
+          return regeneratorRuntime.awrap(_apiConfig["default"].get("/users/".concat(id)));
 
         case 2:
           resp = _context4.sent;
@@ -140,30 +129,41 @@ var getAllUsers = function getAllUsers() {
   });
 };
 
-exports.getAllUsers = getAllUsers;
+exports.getOneUser = getOneUser;
 
-var getOneUser = function getOneUser(id) {
+var registerUser = function registerUser(registerData, imageInfo) {
   var resp;
-  return regeneratorRuntime.async(function getOneUser$(_context5) {
+  return regeneratorRuntime.async(function registerUser$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
-          _context5.next = 2;
-          return regeneratorRuntime.awrap(_apiConfig["default"].get("/users/".concat(id)));
+          _context5.prev = 0;
+          _context5.next = 3;
+          return regeneratorRuntime.awrap(_apiConfig["default"].post('/users/', {
+            user: registerData,
+            image: imageInfo
+          }));
 
-        case 2:
+        case 3:
           resp = _context5.sent;
-          return _context5.abrupt("return", resp.data);
+          localStorage.setItem('authToken', resp.data.token);
+          _apiConfig["default"].defaults.headers.common.authorization = "Bearer ".concat(resp.data.token);
+          return _context5.abrupt("return", resp.data.user);
 
-        case 4:
+        case 9:
+          _context5.prev = 9;
+          _context5.t0 = _context5["catch"](0);
+          throw _context5.t0;
+
+        case 12:
         case "end":
           return _context5.stop();
       }
     }
-  });
+  }, null, null, [[0, 9]]);
 };
 
-exports.getOneUser = getOneUser;
+exports.registerUser = registerUser;
 
 var updateOneUser = function updateOneUser(id, data, imageInfo) {
   var resp;

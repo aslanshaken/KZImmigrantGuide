@@ -18,27 +18,26 @@ import JobEdit from './screens/JobEdit/JobEdit';
 
 function App() {
 
-  // GET ALL FOODS
-  const [jobs, setJobs] = useState([])
-  useEffect(() => {
-    const fetchJobs = async () => {
-      const jobsList = await getAllJobsForEmployee();
-      setJobs(jobsList);
-    }
-    fetchJobs();
-  }, [])
-
-
-
-  const [currentUser, setCurrentUser] = useState(null);
+  const [jobs, setJobs] = useState([]) // Get all jobs posted by employee
+  const [currentUser, setCurrentUser] = useState(null); // set a current user
   const [error, setError] = useState(null);
   const history = useHistory();
 
   useEffect(() => {
+    
+    // VERIFY
     const handleVerify = async () => {
       const currentUser = await verifyUser();
       setCurrentUser(currentUser)
     }
+    
+    // Get All Jobs
+    const fetchJobs = async () => {
+      const jobsList = await getAllJobsForEmployee();
+      setJobs(jobsList);
+    }
+
+    fetchJobs();
     handleVerify();
   }, [])
 
@@ -79,7 +78,7 @@ function App() {
       <Switch>
 
         <Route path="/job/edit/:id">
-          <JobEdit  currentUser={currentUser} jobs={jobs} setJobs={setJobs}  />
+          <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
         </Route>
 
         <Route path='/account'>
@@ -98,7 +97,7 @@ function App() {
         </Route>
 
         <Route path="/post-job">
-          <CreateJobForm setJobs={setJobs}/>
+          <CreateJobForm setJobs={setJobs} />
         </Route>
 
         <Route path="/create-posts">
@@ -106,7 +105,7 @@ function App() {
         </Route>
 
         <Route path="/available-jobs">
-          <AvailableJobs jobs={jobs}  setJobs={setJobs}/>
+          <AvailableJobs jobs={jobs} setJobs={setJobs} />
         </Route>
 
         <Route path='/jobs'>
