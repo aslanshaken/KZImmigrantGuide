@@ -1,38 +1,103 @@
+.login {
+  margin: 20px 40px 50px 40px;
+}
+
+.login-video {
+  width: 100%;
+  /* border-radius: 15em 15em 15em 15em; */
+  outline: none;
+}
+
 .login-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+#login-left-right {
+  position: absolute;
+  display: flex;
+  margin-top: 200px;
+}
+
+.login-left-container {
+  border: 2px solid black;
+  padding: 20px;
+  background-color: white;
+  width: 300px;
+  border-radius: 5em 0em 0em 5em;
+}
+
+.login-left-container img {
+  width: 40px;
+  margin: 0px 15px -10px 0px;
+}
+
+.login-right-container {
+  border: 2px solid black;
+  padding: 50px;
+  background-color: white;
+  width: 250px;
+  border-radius: 0em 5em 5em 0em;
+}
+
+.login-right-container form img {
+  width: 100px;
+}
+
+.login-right-container form {
+  text-align: center;
+}
+.input-username {
+  margin: 10px;
+  background: url("https://img.icons8.com/fluent/48/000000/username.png")
+    no-repeat scroll 5px;
+  text-align: center;
+  background-size: 25px;
+  height: 25px;
+  border-radius: 5em 5em 5em 5em;
+  outline: none;
+  width: 190px;
+  font-weight: 800;
+}
+
+.input-password {
+  margin: 10px;
+  background: url("https://img.icons8.com/ultraviolet/40/000000/heart-key.png")
+    no-repeat scroll 5px;
+  text-align: center;
+  background-size: 21px;
+  height: 25px;
+  border-radius: 5em 5em 5em 5em;
+  line-height: 2em;
+  outline: none;
+  width: 190px;
+  font-weight: 800;
+}
+
+#form-button {
+  background-color: #e2793c;
+  border-radius: 5em 5em 5em 5em;
+  line-height: 2em;
+  outline: none;
+  width: 190px;
+  margin-top: 35px;
+}
+
+#forget-password {
+  margin: 0px -90px 0px 0px;
+}
+
+@media only screen and (max-width: 377px) {
+  .login-main-container {
     display: flex;
     justify-content: center;
     margin-bottom: 180px;
     text-align: center;
     margin-top: 150px;
-}
+  }
 
-.login-main-container input {
-    margin: 10px;
-}
-
-.login-main-container button {
-    margin-bottom: 20px;
-}
-
-.login-main-container form {
+  .login-main-container form {
     border: 2px solid black;
-    padding: 50px;
-}
-
-@media only screen and (max-width: 377px) {
-    .login-main-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 180px;
-        text-align: center;
-        margin-top: 150px;
-    }
-
-    .login-main-container form {
-        border: 2px solid black;
-        padding: 20px;
-    }
-
-
-
+    padding: 20px;
+  }
 }

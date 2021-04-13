@@ -1,0 +1,18 @@
+.ad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.ad-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 70px 400px 70px 400px ;
+    background-image: url("https://lh3.googleusercontent.com/proxy/LwpEn7W63UeM4KUs-a6SzVseBTtDVS1OVDH2kMzDuHICGdAGB1WII2RVIXsLs1t739mxukBp7GTPpwiDmA");
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: center;
+}

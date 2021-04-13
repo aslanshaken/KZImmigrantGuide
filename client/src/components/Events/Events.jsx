@@ -1,4 +1,5 @@
 import './Events.css'
+import { Link } from 'react-router-dom'
 
 export default function Events() {
     return (
@@ -9,26 +10,43 @@ export default function Events() {
                 <div className="events-container">
 
                     <div className="events-box">
-                        <h5>Name of Events</h5>
-                        <h5>Description: </h5>
-                        <h5>Date</h5>
-                        <h5>Location</h5>
+                        <img src="https://www.coe.int/documents/204503/67779280/Astana/280011e3-f61c-df49-3218-e6ac50b66239?t=1592324080000" />
+                        <div id="events-text">
+                            <h5 id="events-name-text">Name of the Event </h5>
+                            <h5>Date</h5>
+                        </div>
+                        <div id="events-text">
+                            <h5 id="events-location-text">Location </h5>
+                            <Link to="#" id="none"><h5>Read More</h5></Link>
+                        </div>
                     </div>
 
                     <div className="events-box">
-                        <h5>Name of Events</h5>
-                        <h5>Description: </h5>
-                        <h5>Date</h5>
-                        <h5>Location</h5>
+                        <img src="https://www.coe.int/documents/204503/67779280/Astana/280011e3-f61c-df49-3218-e6ac50b66239?t=1592324080000" />
+                        <div id="events-text">
+                            <h5 id="events-name-text">Name of the Event </h5>
+                            <h5>Date</h5>
+                        </div>
+                        <div id="events-text">
+                            <h5 id="events-location-text">Location </h5>
+                            <Link to="#" id="none"><h5>Read More</h5></Link>
+                        </div>
                     </div>
 
                     <div className="events-box">
-                        <h5>Name of Events</h5>
-                        <h5>Description: </h5>
-                        <h5>Date</h5>
-                        <h5>Location</h5>
+                        <img src="https://www.coe.int/documents/204503/67779280/Astana/280011e3-f61c-df49-3218-e6ac50b66239?t=1592324080000" />
+                        <div id="events-text">
+                            <h5 id="events-name-text">Name of the Event </h5>
+                            <h5>Date</h5>
+                        </div>
+                        <div id="events-text">
+                            <h5 id="events-location-text">Location </h5>
+                            <Link to="#" id="none"><h5>Read More</h5></Link>
+                        </div>
                     </div>
+
                 </div>
+                
             </div>
         </div>
     )

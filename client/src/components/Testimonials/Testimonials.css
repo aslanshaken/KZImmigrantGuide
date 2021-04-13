@@ -1,0 +1,23 @@
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-box {
+  width: 250px;
+  margin: 20px;
+}
+
+.testimonials-first-box {
+  display: flex;
+}
+
+.testimonials-first-box img {
+  width: 65px;
+  margin-right: 90px;
+}
+
+.testimonials-box p {
+  color: rgb(100, 92, 92);
+}

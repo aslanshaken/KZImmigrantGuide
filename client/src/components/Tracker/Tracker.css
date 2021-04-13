@@ -1,0 +1,26 @@
+.tracker-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.tracker-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    /* border: 1px solid black; */
+    padding: 10px;
+    height: 80px;
+}
+
+.tracker-box h2{
+    margin-bottom: -10px;
+    border-bottom: 1px solid black;
+    color: chocolate;
+}
+
+/* .tracker-box:hover{
+} */
