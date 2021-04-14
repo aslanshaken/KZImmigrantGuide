@@ -1,11 +1,13 @@
 {
     "compile-hero.disable-compile-files-on-did-save-code": false,
     "cSpell.ignoreWords": [
+        "forgotpassword",
         "house",
         "nauriz",
         "post",
         "qazaq",
         "qazaqstan",
+        "resetpassword",
         "wanteds"
     ]
 }

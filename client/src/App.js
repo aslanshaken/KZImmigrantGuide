@@ -15,6 +15,8 @@ import Register from './screens/Register/Register';
 import MainContainer from './containers/MainContainer';
 import Account from './screens/Account/Account';
 import JobEdit from './screens/JobEdit/JobEdit';
+import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
+import ResetPassword from './screens/ResetPassword/ResetPassword'
 
 function App() {
 
@@ -90,6 +92,14 @@ function App() {
             handleLogin={handleLogin}
             error={error}
           />
+        </Route>
+
+        <Route path='/forgotpassword'>
+          <ForgetPassword />
+        </Route>
+
+        <Route path='/resetpassword'>
+          <ResetPassword />
         </Route>
 
         <Route path='/register'>
