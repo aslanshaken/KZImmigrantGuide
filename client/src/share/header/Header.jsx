@@ -38,57 +38,57 @@ export default function Header(props) {
                     </div>
                 </div>
             }
-
-            <div className="nav-container">
-                <div>
-                    <Link to="/" id="none">
-                        <h4>
-                            <img id="logo" src={Logo} />
-                        </h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/jobs" id="none">
-                        <h4 id="hv">Jobs</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="#" id="none">
-                        <h4 id="hv" >Housing</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="#" id="none">
-                        <h4 id="hv">Communities</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="#" id="none">
-                        <h4 id="hv">Blog</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="#" id="none">
-                        <h4 id="hv">About Us</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="#" id="none">
-                        <h4 id="hv">Contact</h4>
-                    </Link>
-                </div>
-                <div>
-                    {currentUser ?
-                        <Link to="/create-posts" id="none">
-                            <h4 className="create-post-button">Create a Post</h4>
+            <div id="fixed">
+                <div className="nav-container">
+                    <div>
+                        <Link to="/" id="none">
+                            <h4>
+                                <img id="logo" src={Logo} />
+                            </h4>
                         </Link>
-                        :
-                        <h4 className="create-post-button" onClick={() => alert("Please Sign in or Register")}>Create a Post</h4>
-                    }
-                </div>
+                    </div>
+                    <div>
+                        <Link to="/jobs" id="none">
+                            <h4 id="hv">Jobs</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv" >Housing</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv">Communities</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv">Blog</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv">About Us</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv">Contact</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        {currentUser ?
+                            <Link to="/create-posts" id="none">
+                                <h4 className="create-post-button">Create a Post</h4>
+                            </Link>
+                            :
+                            <h4 className="create-post-button" onClick={() => alert("Please Sign in or Register")}>Create a Post</h4>
+                        }
+                    </div>
 
-            </div >
-
+                </div >
+            </div>
 
 
 

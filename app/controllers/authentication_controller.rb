@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
         token = encode({id: @user.id})
         render json: {
           user: @user.attributes.except("password_digest"),
-          token: token
+          token: token,
           }, status: :ok
       else
         render json: { errors: 'unauthorized' }, status: :unauthorized
@@ -17,7 +17,17 @@ class AuthenticationController < ApplicationController
     
     # GET /auth/verify
     def verify
-      render json: @current_user.attributes.except("password_digest"), status: :ok
+      render :json => { 
+        :user =>  @current_user.attributes.except("password_digest"),
+        :image => if @current_user.avatar.present?
+        {
+          filename:  @current_user.avatar.filename,
+          content_type:   @current_user.avatar.content_type,
+          created_at:   @current_user.avatar.created_at,
+          url: url_for(@current_user.avatar)
+        }
+        end
+      }, status: :ok
     end
   
     private

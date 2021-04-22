@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "axios": "^0.21.1",
-    "react-router-dom": "^5.2.0"
+    "react-avatar-editor": "^11.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-select": "^4.3.0"
   }
 }

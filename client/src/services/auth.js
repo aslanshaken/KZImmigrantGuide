@@ -30,7 +30,7 @@ export const removeToken = () => {
 ///////////////////////////////////////////////
 
 
-export const getAllUsers = async()=>{
+export const getAllUsers = async () => {
     const resp = await api.get('/users');
     return resp.data
     // receives as [ 
@@ -39,10 +39,10 @@ export const getAllUsers = async()=>{
     //   ]
 }
 
-export const getOneUser = async(id) =>{
+export const getOneUser = async (id) => {
     const resp = await api.get(`/users/${id}`)
     return resp.data
-     // receives as [ user:{name:dsd, city:sds}, image:{name: dsd, url:sds} ]
+    // receives as [ user:{name:dsd, city:sds}, image:{name: dsd, url:sds} ]
 }
 
 

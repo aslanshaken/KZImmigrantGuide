@@ -8,12 +8,14 @@ class UsersController < ApplicationController
 
     users = @users.map do |user| { 
       :user => user,
-      :image => {
+      :image => if user.avatar.present? 
+        {
         filename: user.avatar.filename,
         content_type: user.avatar.content_type,
         created_at: user.avatar.created_at,
         url: url_for(user.avatar)
-      }
+        }
+      end
     }
     end
 
@@ -25,12 +27,14 @@ class UsersController < ApplicationController
   def show
     render :json => { 
       :user => @user,
-      :image => {
+      :image => if @user.avatar.present?
+      {
         filename: @user.avatar.filename,
         content_type:  @user.avatar.content_type,
         created_at:  @user.avatar.created_at,
         url: url_for(@user.avatar)
       }
+      end
     } 
   end
 

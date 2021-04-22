@@ -12,12 +12,12 @@ class PostHousesController < ApplicationController
 
     posts = @post_houses.map do |post_house|{ 
       :post_house => post_house,
-      :images => post_house.photos.map{ |photo| ({
+      :images => post_house.photos.map{ |photo| ( {
         filename: photo.filename,
         content_type: photo.content_type,
         created_at: photo.created_at,
         url: url_for(photo)
-      })}
+      }) }
     } 
     end
 

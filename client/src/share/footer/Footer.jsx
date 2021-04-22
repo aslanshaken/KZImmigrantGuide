@@ -2,7 +2,6 @@ import './Footer.css'
 
 export default function Footer() {
     return (
-
         <div className="footer-container">
             <div><h5> Copyright KZ Immigrant Guide</h5></div>
             <div><h5>2021, All rights reserved </h5></div>

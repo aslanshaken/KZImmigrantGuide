@@ -57,7 +57,7 @@ export default function ForgetPassword() {
                             onChange={handleChange}
                         />
                         <button id="forget-password-form-button"><b>Submit</b></button>
-                        <Link to='/register' id='none'> <h3>Go Back</h3></Link>
+                        <Link to='/login' id='none'> <h3>Go Back</h3></Link>
                     </form>
                 </div>
 

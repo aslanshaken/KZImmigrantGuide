@@ -17,6 +17,7 @@ import Account from './screens/Account/Account';
 import JobEdit from './screens/JobEdit/JobEdit';
 import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
 import ResetPassword from './screens/ResetPassword/ResetPassword'
+import AccountEdit from './screens/AccountEdit/AccountEdit'
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
       setCurrentUser(currentUser);
       setError(null);
       history.push('/');
+      history.go(0)
     } catch (e) {
       setError("invalid login credentials");
     }
@@ -85,6 +87,10 @@ function App() {
 
         <Route path='/account'>
           <Account currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
+        </Route>
+
+        <Route path='/account-edit'>
+          <AccountEdit currentUser={currentUser}/>
         </Route>
 
         <Route path='/login'>

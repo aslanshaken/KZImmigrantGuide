@@ -1,112 +1,170 @@
-.account-background {
-    margin-bottom: 100px;
-    background-image: url(https://iso.500px.com/wp-content/uploads/2014/12/blackandwhite.jpg);
+.account-container {
+  /* margin-bottom: 100px; */
+  /* background-image: url(https://iso.500px.com/wp-content/uploads/2014/12/blackandwhite.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-
+    background-repeat: no-repeat; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
-.account-background h2 {
-    color: gray;
+.account-container h1 {
+  color: gray;
 }
 
-.account-info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.account-main-photo {
+  width: 700px;
+  height: 200px;
 }
+
+.account-top-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-img {
+  width: 120px;
+  height: 120px;
+  margin: 25px 0px -15px 0px;
+  border: 1px solid black;
+  border-radius: 10%;
+}
+.account-screens {
+  display: flex;
+}
+
+.account-screens h3 {
+  margin: 0px 150px 50px 110px;
+}
+
+#chosen {
+  color: #4b8ff4;
+  border-bottom: 2px solid#4B8FF4;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+#will-chosen:hover {
+  background-color: #b3bbc4;
+  outline: 5px solid #b3bbc4;
+}
+
+.account-user-box {
+  width: 350px;
+  border: 1px solid black;
+  padding: 1%;
+  border-radius: 1em;
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 3px 3px #aeb4bb;
+}
+
+#paragraph-head {
+  font-size: 20px;
+  margin: 0px 0px 10px 0px;
+}
+
+.account-user-left-right {
+  display: flex;
+  border-bottom: 1px solid black;
+  margin: 15px 0px 15px 0px;
+}
+
+.account-user-left-right img {
+  width: 65px;
+}
+
+#user-left {
+  width: 175px;
+  color: #606469;
+}
+
+#user-right {
+  width: 175px;
+}
+
+.account-user-edit-button {
+  font-size: 20px;
+  color: #4b8ff4;
+  text-decoration: none;
+}
+
+
 
 .account-jobs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 .account-showjobs {
-    width: 1700px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 25px;
+  width: 1700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 25px;
 }
 
 .account-showjobs-box {
-    border: 1px solid #888888;
-    padding: 10px;
-    width: 350px;
-    margin: 20px;
-    text-align: center;
-    height: 480px;
-    box-shadow: 5px 10px 18px #888888;
-    transition: transform .5s ease;
-    background-color: white;
+  border: 1px solid #888888;
+  padding: 10px;
+  width: 350px;
+  margin: 20px;
+  text-align: center;
+  height: 480px;
+  box-shadow: 5px 10px 18px #888888;
+  transition: transform 0.5s ease;
+  background-color: white;
 }
 
-
 .account-showjobs-box:hover {
-    transform: scale(1.1);
-    cursor: grabbing;
+  transform: scale(1.1);
+  cursor: grabbing;
 }
 
 .account-showjobs-box a {
-    color: rgb(134, 88, 28);
-    margin: 15px;
-
+  color: rgb(134, 88, 28);
+  margin: 15px;
 }
 
 .account-showjobs-box img {
-    width: 30px;
-    cursor: pointer;
-
+  width: 30px;
+  cursor: pointer;
 }
 
 #center {
-    text-align: center;
-}
-
-.user-info {
-    border: 1px solid black;
-    padding: 20px;
-    margin-top: 20px;
-    color: gray;
-}
-
-.user-info a {
-    font-size: larger;
-    margin: 15px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 377px) {
+  .account-showjobs {
+    width: 350px;
+    padding: 25px;
+  }
 
-    .account-showjobs {
-        width: 350px;
-        padding: 25px;
-    }
+  .account-showjobs-box {
+    width: 350px;
+    height: 420px;
+    font-size: 13px;
+  }
 
-    .account-showjobs-box {
-        width: 350px;
-        height: 420px;
-        font-size: 13px;
-    }
+  .account-showjobs-box img {
+    width: 20px;
+  }
 
+  .user-info {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+    color: gray;
+    font-size: 13px;
+  }
 
-    .account-showjobs-box img {
-        width: 20px;
-    }
-
-    .user-info {
-        border: 1px solid black;
-        padding: 10px;
-        margin-top: 20px;
-        color: gray;
-        font-size: 13px;
-    }
-
-    .user-info a {
-        font-size: 13px;
-    }
-
+  .user-info a {
+    font-size: 13px;
+  }
 }
