@@ -1,6 +1,6 @@
 import './AccountEdit.css'
 import { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { updateOneUser } from '../../services/auth'
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function AccountEdit(props) {
         instagram: '',
         current_city: '',
     })
-    const { currentUser } = props
+    const { currentUser, setCurrentUser } = props
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
     const id = currentUser?.user.id
@@ -59,7 +59,8 @@ export default function AccountEdit(props) {
             prefillFormData();
         }
     }, [currentUser])
-    console.log(gender)
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -71,12 +72,10 @@ export default function AccountEdit(props) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const updatedUser = await updateOneUser(id, formData, newImage);
-        // setJobs(prevState => prevState.map((job) => {
-        //     return job.id === Number(id) ? updatedJob : job
-        // }));
+        console.log(updatedUser)
         history.push('/account');
+        history.go(0)
     }
-
 
     const handleImage = (e) => {
         e.preventDefault();
@@ -85,9 +84,16 @@ export default function AccountEdit(props) {
     }
 
     const checkImage = () => {
-        return currentUser?.image.url ? currentUser?.image.url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU"
+        if (currentUser.image === null) {
+            return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU"
+        } else {
+            return currentUser?.image.url
+        }
     }
 
+    // console.log(id)
+    // console.log(formData)
+    // console.log(newImage)
 
     if (!currentUser) {
         return <p>Loading ...</p>;
@@ -95,19 +101,12 @@ export default function AccountEdit(props) {
 
     return (
         <div className="account-edit-container">
-
-            {/* <img
-                src="https://userscontent2.emaze.com/images/bd7e18ec-b0dd-46b7-98b1-dbd3ab88928a/d1139ad6-60d6-453f-874d-9324ee309762.png"
-                className="account-main-photo"
-            /> */}
-
             <div className="account-edit-middle">
                 <div className="account-edit-left">
-
-                    <div className="account-user-box">
-                        <div className="account-image">
+                    <div className="account-edit-box">
+                        <div className="account-edit-image">
                             <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
-                            <img id="user-img" src={preview ? preview : checkImage()} />
+                            <img id="user-edit-img" src={preview ? preview : checkImage()} />
                             <div className="upload-box">
                                 <label for="img-input" >
                                     <h5 id="upload-text">Update Avatar Image</h5>
@@ -119,10 +118,10 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <p id="paragraph-head">My Profile</p>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Username</div>
-                            <div id="user-right">
+                        <p id="paragraph-edit-head">My Profile</p>
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Username</div>
+                            <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='username'
@@ -131,8 +130,8 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">First Name</div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">First Name</div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='first_name'
@@ -141,8 +140,8 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Last Name</div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Last Name</div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='last_name'
@@ -151,8 +150,8 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Birthday</div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Birthday</div> <div id="user-edit-right">
                                 <input
                                     type='date'
                                     name='dob'
@@ -161,9 +160,9 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Gender </div>
-                            <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Gender </div>
+                            <div id="user-edit-right">
                                 <select value={gender} onChange={handleChange} name='gender'>
                                     <option >Select</option>
                                     <option value="male" >Male</option>
@@ -175,10 +174,10 @@ export default function AccountEdit(props) {
                         </div>
                     </div>
 
-                    <div className="account-user-box">
+                    <div className="account-edit-box">
                         <p id="paragraph-head">Contact Info</p>
                         <div className="account-user-left-right">
-                            <div id="user-left">Email</div> <div id="user-right">
+                            <div id="user-edit-left">Email</div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='email'
@@ -187,8 +186,8 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Cell Phone</div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Cell Phone</div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='cell_phone'
@@ -198,13 +197,16 @@ export default function AccountEdit(props) {
                             </div>
                         </div>
                     </div>
+                    <Link to="account-edit" className="account-edit-button">
+                        Go Back
+                    </Link>
                 </div>
 
-                <div className="account-right">
-                    <div className="account-user-box">
-                        <p id="paragraph-head">Choose what others see</p>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Birthplace: </div> <div id="user-right">
+                <div className="account-edit-right">
+                    <div className="account-edit-box">
+                        <p id="paragraph-edit-head">Choose what others see</p>
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Birthplace: </div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='birth_place'
@@ -213,8 +215,8 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">Current City:</div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">Current City:</div> <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='current_city'
@@ -223,9 +225,10 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">About Me: </div> <div id="user-right">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">About Me: </div> <div id="user-edit-right">
                                 <textarea
+                                    maxLength="200"
                                     type='text'
                                     name='about_me'
                                     value={about_me}
@@ -233,11 +236,11 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">
                                 <img src="https://img.icons8.com/cute-clipart/128/000000/facebook-new.png" />
                             </div>
-                            <div id="user-right">
+                            <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='facebook'
@@ -246,7 +249,7 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
+                        <div className="account-edit-left-right">
                             <div id="user-left">
                                 <img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png" />
                             </div>
@@ -259,11 +262,11 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">
                                 <img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png" />
                             </div>
-                            <div id="user-right">
+                            <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='current_city'
@@ -272,11 +275,11 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">
                                 <img src="https://img.icons8.com/plasticine/100/000000/telegram-app.png" />
                             </div>
-                            <div id="user-right">
+                            <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='current_city'
@@ -285,11 +288,11 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-                        <div className="account-user-left-right">
-                            <div id="user-left">
+                        <div className="account-edit-left-right">
+                            <div id="user-edit-left">
                                 <img src="https://img.icons8.com/cute-clipart/128/000000/whatsapp.png" />
                             </div>
-                            <div id="user-right">
+                            <div id="user-edit-right">
                                 <input
                                     type='text'
                                     name='current_city'
@@ -298,20 +301,12 @@ export default function AccountEdit(props) {
                                 />
                             </div>
                         </div>
-
+                    </div>
+                    <div className="account-edit-button" onClick={handleUpdate}>
+                        Save
                     </div>
                 </div>
-
             </div>
-            <div>
-                <Link to="account-edit" className="account-user-edit-button">
-                    Save
-            </Link>
-                <Link to="account-edit" className="account-user-edit-button">
-                    Go Back
-            </Link>
-            </div>
-
         </div >
     )
 }

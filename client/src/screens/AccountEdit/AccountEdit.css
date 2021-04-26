@@ -21,7 +21,7 @@
 .account-left {
 }
 
-.account-user-box {
+.account-edit-box {
   width: 380px;
   border: 1px solid black;
   padding: 3%;
@@ -30,14 +30,14 @@
   box-shadow: 3px 3px 3px 3px #aeb4bb;
 }
 
-.account-image {
+.account-edit-image {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#user-img {
+#user-edit-img {
   width: 150px;
   height: 150px;
   border-radius: 10%;
@@ -52,35 +52,36 @@
   width: 130px;
 }
 
-
-#paragraph-head {
+#paragraph-edit-head {
   font-size: 20px;
   margin: 0px 0px 10px 0px;
 }
 
-.account-user-left-right {
+.account-edit-left-right {
   display: flex;
   border-bottom: 1px solid black;
   margin: 15px 0px 15px 0px;
 }
 
-.account-user-left-right img {
+.account-edit-left-right img {
   width: 65px;
 }
 
-#user-left {
+#user-edit-left {
   width: 200px;
   color: #606469;
 }
 
-#user-right {
+#user-edit-right {
   width: 200px;
 }
 
-.account-user-edit-button {
+.account-edit-button {
   font-size: 20px;
   color: #4b8ff4;
   text-decoration: none;
+  margin-left: 180px;
+  cursor: pointer;
 }
 
 #center {
@@ -95,7 +96,7 @@
   cursor: pointer;
 }
 
-.account-user-box input,
+.account-edit-box input,
 select,
 textarea {
   height: 20px;
@@ -105,8 +106,8 @@ textarea {
   margin-left: -20px;
 }
 
-.account-user-box textarea {
-  height: 170px;
+.account-edit-box textarea {
+  height: 170px !important;
   width: 200px !important;
   margin-bottom: 5px;
   font-size: 16px;

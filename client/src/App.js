@@ -90,7 +90,7 @@ function App() {
         </Route>
 
         <Route path='/account-edit'>
-          <AccountEdit currentUser={currentUser}/>
+          <AccountEdit currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
 
         <Route path='/login'>

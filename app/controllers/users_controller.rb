@@ -59,16 +59,20 @@ class UsersController < ApplicationController
 
   # # PATCH/PUT /users/1
   def update
-      @user = @current_user.users.find(params[:id])  # Checks if user is exist
+      @user = User.find(params[:id]) # Checks if user is exist
     if @user.update(user_params) # How does it know that it needs to go to the Schema?
+      @user.avatar.attach(params[:image])
+      # if params[:image]
+      #   @user.avatar.destroy  if @user.avatar.present?  # Active Storage
+      #   @user.avatar.attach(params[:image]) # Active Storage
+      # end
 
-      @user.avatar.destroy  if @user.avatar.present?  # Active Storage
-      @user.avatar.attach(params[:image]) # Active Storage
-
-      render json: @user
+      render json: params[:image]
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+
+
   end
 
   # # DELETE /users/1
@@ -88,6 +92,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through. GATE Requirements
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_reset_token, :password_reset_sent_at, :first_name, :last_name, :dob, :cellphone, :gender, :birth_place, :about_me, :facebook, :instagram, :current_city)
+      params.require(:user).permit(:username, :email, :password, :password_reset_token, :password_reset_sent_at, :first_name, :last_name, :dob, :cell_phone, :gender, :birth_place, :about_me, :facebook, :instagram, :current_city)
     end
 end

@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Account.css'
 import { destroyOneJobForEmployee } from '../../services/getEmployees';
 import { Link } from "react-router-dom";
 
 export default function Account(props) {
     const { currentUser, jobs, setJobs } = props
-    // console.log(jobs)
-    // console.log(currentUser)
 
     const handleDelete = async (id) => {
         await destroyOneJobForEmployee(id);
@@ -22,7 +20,7 @@ export default function Account(props) {
     return (
         <div className="account-container">
             <div className="account-main-photo">
-                <img id="user-img" src={currentUser?.image.url} />
+                <img id="user-img" src={currentUser?.image === null ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU" : currentUser?.image.url} />
                 <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
             </div>
             <div className="account-personal-listing">

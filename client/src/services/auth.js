@@ -51,7 +51,7 @@ export const registerUser = async (registerData, imageInfo) => {
         const resp = await api.post('/users/', { user: registerData, image: imageInfo })
         localStorage.setItem('authToken', resp.data.token);
         api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-        return resp.data.user
+        return resp.data.image
     } catch (e) {
         throw (e)
     }
@@ -60,7 +60,7 @@ export const registerUser = async (registerData, imageInfo) => {
 export const updateOneUser = async (id, data, imageInfo) => {
     // sends as data = [ { user:{name:dsd, city:sds}, image:{photo_name: value, photo_size: value } } ]
     const resp = await api.put(`/users/${id}`, { user: data, image: imageInfo });
-    return resp.data;
+    return resp.data.user;
     // receives as user:{name:dsd, city:sds} but images can be added.
 }
 
