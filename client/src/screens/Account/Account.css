@@ -117,13 +117,14 @@
 
 .account-user-about-me {
   display: flex;
-  margin: 15px 0px 140px 0px;
+  height: 240px !important;
 }
 
 .account-user-social-media {
   display: flex;
   border-top: 1px solid black;
   margin: 15px 0px 120px 0px;
+  justify-content: center;
 }
 
 .account-user-social-media img {

@@ -68,6 +68,7 @@ export default function AccountEdit(props) {
             [name]: value
         }))
     }
+    console.log(newImage)
 
     const handleUpdate = async (e) => {
         e.preventDefault();

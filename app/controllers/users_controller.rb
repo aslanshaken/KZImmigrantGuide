@@ -61,19 +61,17 @@ class UsersController < ApplicationController
   def update
       @user = User.find(params[:id]) # Checks if user is exist
     if @user.update(user_params) # How does it know that it needs to go to the Schema?
-      @user.avatar.attach(params[:image])
-      # if params[:image]
-      #   @user.avatar.destroy  if @user.avatar.present?  # Active Storage
-      #   @user.avatar.attach(params[:image]) # Active Storage
-      # end
+    
+        # @user.avatar.destroy  if @user.avatar.present?  # Active Storage
+        # @user.avatar.attach(params[:image]) # Active Storage
 
       render json: params[:image]
     else
       render json: @user.errors, status: :unprocessable_entity
     end
 
-
   end
+
 
   # # DELETE /users/1
   def destroy

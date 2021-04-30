@@ -58,10 +58,12 @@ export const registerUser = async (registerData, imageInfo) => {
 }
 
 export const updateOneUser = async (id, data, imageInfo) => {
-    // sends as data = [ { user:{name:dsd, city:sds}, image:{photo_name: value, photo_size: value } } ]
+
+    const formData = new FormData();
+    formData.append('image', imageInfo)
+
     const resp = await api.put(`/users/${id}`, { user: data, image: imageInfo });
-    return resp.data.user;
-    // receives as user:{name:dsd, city:sds} but images can be added.
+    return resp.data;
 }
 
 export const destroyOneUser = async (id) => {
