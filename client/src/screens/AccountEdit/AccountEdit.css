@@ -64,7 +64,7 @@
 }
 
 .account-edit-left-right img {
-  width: 65px;
+  width: 77px;
 }
 
 #user-edit-left {
@@ -74,6 +74,10 @@
 
 #user-edit-right {
   width: 200px;
+}
+
+#user-edit-password {
+  height: 40px;
 }
 
 .account-edit-button {
@@ -113,3 +117,4 @@ textarea {
   font-size: 16px;
   margin-left: -20px;
 }
+

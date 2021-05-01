@@ -45,23 +45,19 @@
   display: flex;
   justify-content: space-between;
   width: 400px;
-  margin: 50px 50px 50px -20px;
+  margin: 50px 70px 50px 0px;
 }
 
 .account-personal-listing h3 {
-  padding: 3%;
+  padding: 1%;
 }
 
-#account-personal {
+#account-chosen {
   border-radius: 1em;
   background-color: rgb(195, 210, 238);
   cursor: pointer;
 }
 
-#account-listings:hover {
-  border-bottom: 1px solid rgb(195, 210, 238);
-  cursor: pointer;
-}
 
 .account-profile-box {
   width: 380px;
@@ -113,7 +109,6 @@
   border-bottom: 1px solid black;
   margin: 15px 0px 15px 0px;
 }
-
 
 .account-user-about-me {
   display: flex;

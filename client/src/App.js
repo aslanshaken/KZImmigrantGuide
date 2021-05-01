@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getAllJobsForEmployee } from './services/getEmployees'
-
 import Jobs from './screens/Jobs/Jobs'
 import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
 import CreatePosts from './screens/CreatePosts/CreatePosts'
 import CreateJobForm from './screens/CreateJobForm/CreateJobForm'
-
 import Layout from './share/layout/Layout'
 import Login from './screens/Login/Login'
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
@@ -18,6 +16,7 @@ import JobEdit from './screens/JobEdit/JobEdit';
 import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
 import ResetPassword from './screens/ResetPassword/ResetPassword'
 import AccountEdit from './screens/AccountEdit/AccountEdit'
+import AccountListings from './screens/AccountListings/AccountListings'
 
 function App() {
 
@@ -27,13 +26,13 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    
+
     // VERIFY
     const handleVerify = async () => {
       const currentUser = await verifyUser();
       setCurrentUser(currentUser)
     }
-    
+
     // Get All Jobs
     const fetchJobs = async () => {
       const jobsList = await getAllJobsForEmployee();
@@ -74,10 +73,7 @@ function App() {
   }
 
   return (
-    <Layout
-      currentUser={currentUser}
-      handleLogout={handleLogout}
-    >
+    <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
 
@@ -86,18 +82,19 @@ function App() {
         </Route>
 
         <Route path='/account'>
-          <Account currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
+          <Account currentUser={currentUser} />
         </Route>
 
         <Route path='/account-edit'>
           <AccountEdit currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
 
+        <Route path='/account-listings'>
+          <AccountListings currentUser={currentUser} />
+        </Route>
+
         <Route path='/login'>
-          <Login
-            handleLogin={handleLogin}
-            error={error}
-          />
+          <Login handleLogin={handleLogin} error={error} />
         </Route>
 
         <Route path='/forgotpassword'>

@@ -1,4 +1,4 @@
-
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Cities from '../components/Cities/Cities';
 import Events from '../components/Events/Events';
 import Video from '../components/Video/Video';
@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials/Testimonials';
 import Ad from '../components/Ad/Ad'
 
 
-export default function MainContainer(props) {
+export default function MainContainer() {
     return (
         <div>
             <Video />

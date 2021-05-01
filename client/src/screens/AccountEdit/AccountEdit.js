@@ -132,6 +132,12 @@ export default function AccountEdit(props) {
                             </div>
                         </div>
                         <div className="account-edit-left-right">
+                            <div id="user-edit-left">Password</div>
+                            <div id="user-edit-password">
+                                <Link to="/forgotpassword" id="none"> change password</Link>
+                            </div>
+                        </div>
+                        <div className="account-edit-left-right">
                             <div id="user-edit-left">First Name</div> <div id="user-edit-right">
                                 <input
                                     type='text'
@@ -198,7 +204,7 @@ export default function AccountEdit(props) {
                             </div>
                         </div>
                     </div>
-                    <Link to="account-edit" className="account-edit-button">
+                    <Link to="account" className="account-edit-button">
                         Go Back
                     </Link>
                 </div>

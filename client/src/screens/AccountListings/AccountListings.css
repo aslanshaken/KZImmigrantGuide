@@ -1,0 +1,81 @@
+.account-listings-container {
+  /* margin-bottom: 100px; */
+  /* background-image: url(https://static.tildacdn.com/tild3530-6230-4565-b231-336463333938/Almaty_web_4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.account-listings-main-photo {
+  background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1500px;
+  height: 300px;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-img-listings {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+}
+.account-listings-container h2 {
+  color: rgb(218, 152, 152);
+}
+
+.account-listings-links {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 50px 70px 50px 0px;
+}
+
+.account-listings-links h3 {
+  padding: 1%;
+}
+
+/* #account-chosen {
+  border-radius: 1em;
+  background-color: rgb(195, 210, 238);
+  cursor: pointer;
+} */
+
+.account-listings-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 900px;
+  margin-top: 10px;
+  /* border: 1px solid black; */
+}
+
+.listing-box {
+  border-bottom: 1px solid black;
+  padding-bottom: 3%;
+  width: 700px;
+  display: flex;
+  box-shadow: 5px 5px 0px 0px grey;
+  margin: 50px;
+}
+
+.listing-box img {
+  width: 300px;
+  height: 200px;
+  margin: 0px 50px 0px 0px;
+}
+
+.listings-box-button {
+  display: flex;
+  justify-content: space-evenly;
+}

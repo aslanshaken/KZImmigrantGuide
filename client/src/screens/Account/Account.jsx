@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import './Account.css'
 import { destroyOneJobForEmployee } from '../../services/getEmployees';
 import { Link } from "react-router-dom";
@@ -24,8 +23,8 @@ export default function Account(props) {
                 <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
             </div>
             <div className="account-personal-listing">
-                <h3 id="account-personal">Personal Information</h3>
-                <h3 id="account-listings">Listings</h3>
+                <h3 id="account-chosen">Personal Information</h3>
+                <h3><Link to="account-listings" id="none">Listings</Link></h3>
             </div>
             <div className="account-middle">
                 <div className="account-left">
