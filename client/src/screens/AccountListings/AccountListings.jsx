@@ -18,6 +18,11 @@ export default function AccountListings(props) {
         fetchJobs();
     }, [])
 
+    function filterDate(str) {
+        const mdy = str.split('T')[0]
+        const date = mdy.split('-')[1] + '-' + mdy.split('-')[2] + '-' + mdy.split('-')[0]
+        return date
+    }
 
     return (
         <div className="account-listings-container">
@@ -29,27 +34,48 @@ export default function AccountListings(props) {
                 <h3><Link to="account" id="none">Personal Information</Link></h3>
                 <h3 id="account-chosen">Listings</h3>
             </div>
+            <div>
+                Search by..
+            </div>
             <div className="account-listings-middle">
+                <div className="account-listings-flex" >
+                    {jobs.map((job) => {
+                        if (job.user_id == currentUser?.user.id) {
+                            return (
+                                <div className="listing-box">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjPkVfPcEjvvIXZIqx30gzFi0Li7WaML4RQ&usqp=CAU" />
+                                    <div>
+                                        <p> {job.job_name}</p>
+                                        <p>Post created: {filterDate(job.created_at)}</p>
+                                        <p>Last updated: {filterDate(job.updated_at)}</p>
+                                        <p> Category: "Available Jobs" </p>
+                                        <div className="listings-box-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
 
-                {jobs.map((job) => {
-                    if (job.user_id == currentUser?.user.id) {
-                    return(
-                        <div className="listing-box">
+                    <div className="listing-box">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjPkVfPcEjvvIXZIqx30gzFi0Li7WaML4RQ&usqp=CAU" />
                         <div>
-                            <p>Title: {job.job_name}</p>
-                            <p>Date posted: 04/05/2020</p>
-                            <p> Category: "House for rent" </p>
+                            <p>Title: </p>
+                            <p>Post created: </p>
+                            <p>Last updated: </p>
+                            <p> Category: "Available Jobs" </p>
                             <div className="listings-box-button">
                                 <button>Edit</button>
                                 <button>Delete</button>
                             </div>
                         </div>
                     </div>
-                    )
-                    }
-                })
-                }
+                    
+
+                </div>
+
             </div>
         </div>
     )

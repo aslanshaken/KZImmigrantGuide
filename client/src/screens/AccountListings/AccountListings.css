@@ -42,7 +42,7 @@
 }
 
 .account-listings-links h3 {
-  padding: 1%;
+  padding: 2%;
 }
 
 /* #account-chosen {
@@ -53,26 +53,30 @@
 
 .account-listings-middle {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 900px;
+  justify-content: center;
+  width: 1500px;
   margin-top: 10px;
-  /* border: 1px solid black; */
+}
+
+.account-listings-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .listing-box {
   border-bottom: 1px solid black;
   padding-bottom: 3%;
-  width: 700px;
-  display: flex;
-  box-shadow: 5px 5px 0px 0px grey;
+  /* width: 700px; */
+  box-shadow: 5px 5px 0px 0px rgb(148, 139, 139);
   margin: 50px;
+  text-align: center;
 }
 
 .listing-box img {
   width: 300px;
   height: 200px;
-  margin: 0px 50px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .listings-box-button {
