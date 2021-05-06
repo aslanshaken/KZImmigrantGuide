@@ -2,32 +2,22 @@ import './AccountListings.css'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getAllJobsForEmployee } from '../../services/getEmployees'
-import { getAllPostsByEmployee } from '../../services/postByEmployees'
 
 export default function AccountListings(props) {
-    const { currentUser } = props
+    
+    // Get data from app.js
+    const {
+        currentUser,
+        jobs,
+        jobsByEmployee,
+        houseForRent,
+        houseWanted,
+        communities,
+        blogs
+    } = props
     const history = useHistory();
+    const [categoryToggle, setCategoryToggle] = useState("all")
 
-    // Get all lists from back end
-    const [jobs, setJobs] = useState([])
-    const [jobsByEmployee, setJobsByEmployee] = useState([])
-    console.log(jobsByEmployee)
-
-    useEffect(() => {
-        const fetchJobs = async () => {
-            const jobsList = await getAllJobsForEmployee();
-            setJobs(jobsList);
-        }
-        const fetchJobsByEmployee = async () => {
-            const jobsByEmployeeList = await getAllPostsByEmployee();
-            setJobsByEmployee(jobsByEmployeeList);
-        }
-
-        fetchJobs();
-        fetchJobsByEmployee();
-    }, [])
-    // Ends
 
     function filterDate(str) {
         const mdy = str.split('T')[0]
@@ -37,11 +27,12 @@ export default function AccountListings(props) {
 
     function maxLength(str) {
         if (str.length > 25) {
-            return str.split('').slice(0, 35).join('') + '.......'
+            return str.split('').slice(0, 30).join('') + '  ....'
         } else {
             return str
         }
     }
+
 
     return (
         <div className="account-listings-container">
@@ -54,15 +45,26 @@ export default function AccountListings(props) {
                 <h3 id="account-chosen">Listings</h3>
             </div>
             <div>
-                Search by..
+                <select onClick={(e) => { setCategoryToggle(e.target.value) }}>
+                    <option value="all"> All Categories</option>
+                    <option value="availableJobs" >Available jobs</option>
+                    <option value="needJob" >I'm looking for a job</option>
+                    <option value="houseRent" >House for rent</option>
+                    <option value="houseWanted" >House Wanted</option>
+                    <option value="communities" >Communities</option>
+                    <option value="blogs" >Blogs</option>
+
+                </select>
             </div>
             <div className="account-listings-middle">
                 <div className="account-listings-flex" >
                     {jobs.map((job) => {
                         if (job.user_id == currentUser?.user.id) {
                             return (
-                                <div className="listing-box">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjPkVfPcEjvvIXZIqx30gzFi0Li7WaML4RQ&usqp=CAU" />
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "availableJobs" ? "listing-box" : "none-display"}
+                                >
+                                    <img src="https://codlrc.org/sites/default/files/u114/were%20hiring.jpg" />
                                     <div>
                                         <p> {job.job_name}</p>
                                         <p>Post created: {filterDate(job.created_at)}</p>
@@ -80,8 +82,10 @@ export default function AccountListings(props) {
                     {jobsByEmployee.map((jobByEmployee) => {
                         if (jobByEmployee.user_id == currentUser?.user.id) {
                             return (
-                                <div className="listing-box">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjPkVfPcEjvvIXZIqx30gzFi0Li7WaML4RQ&usqp=CAU" />
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "needJob" ? "listing-box" : "none-display"}
+                                >
+                                    <img src="https://media.istockphoto.com/vectors/looking-for-a-job-vector-id638089158?k=6&m=638089158&s=170667a&w=0&h=m6pK6pfOSrDsoDO0ASkSwdBhCkMdziGykOGWbBq6lT4=" />
                                     <div>
                                         <p> {maxLength(jobByEmployee.title)}</p>
                                         <p>Post created: {filterDate(jobByEmployee.created_at)}</p>
@@ -96,6 +100,91 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
+                    {houseForRent.map((houseRent) => {
+                        if (houseRent.post_house.user_id == currentUser?.user.id) {
+                            return (
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseRent" ? "listing-box" : "none-display"}
+                                >
+                                    <div>
+                                        <img src={!houseRent.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : houseRent.images[0]?.url} />
+                                        <p> {maxLength(houseRent.post_house.name)}</p>
+                                        <p>Post created: {filterDate(houseRent.post_house.created_at)}</p>
+                                        <p>Last updated: {filterDate(houseRent.post_house.updated_at)}</p>
+                                        <p> Category: " House for rent " </p>
+                                        <div className="listings-box-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
+                    {houseWanted.map((house) => {
+                        if (house.post_house_wanted.user_id == currentUser?.user.id) {
+                            return (
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseWanted" ? "listing-box" : "none-display"}
+                                >
+                                    <div>
+                                        <img src={!house.image ? "https://as2.ftcdn.net/jpg/01/75/38/45/500_F_175384555_nJHTQaacAVkFekOTpZCtPCzUzy572yGf.jpg" : house.image?.url} />
+                                        <p> {maxLength(house.post_house_wanted.name)}</p>
+                                        <p>Post created: {filterDate(house.post_house_wanted.created_at)}</p>
+                                        <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
+                                        <p> Category: " House Wanted " </p>
+                                        <div className="listings-box-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
+                    {communities.map((community) => {
+                        if (community.community.user_id == currentUser?.user.id) {
+                            return (
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "communities" ? "listing-box" : "none-display"}
+                                >
+                                    <div>
+                                        <img src={!community.image ? "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg" : community.image?.url} />
+                                        <p> {maxLength(community.community.name_community)}</p>
+                                        <p>Post created: {filterDate(community.community.created_at)}</p>
+                                        <p>Last updated: {filterDate(community.community.updated_at)}</p>
+                                        <p> Category: " Communities " </p>
+                                        <div className="listings-box-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
+                    {blogs.map((blog) => {
+                        if (blog.blog.user_id == currentUser?.user.id) {
+                            return (
+                                <div
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "blogs" ? "listing-box" : "none-display"}
+                                >
+                                    <div>
+                                        <img src={!blog.image ? "https://blog.hubspot.com/hubfs/GettyImages-974683580.jpg" : blog.image?.url} />
+                                        <p> {maxLength(blog.blog.title)}</p>
+                                        <p>Post created: {filterDate(blog.blog.created_at)}</p>
+                                        <p>Last updated: {filterDate(blog.blog.updated_at)}</p>
+                                        <p> Category: " Blogs " </p>
+                                        <div className="listings-box-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
+
 
 
 

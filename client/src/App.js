@@ -1,18 +1,30 @@
-import { useState, useEffect } from 'react';
+// Essentials
 import './App.css';
+import { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
+
+// Security
+import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
+
+// Get the lists from API
 import { getAllJobsForEmployee } from './services/getEmployees'
+import { getAllPostsByEmployee } from './services/postByEmployees'
+import { getAllHousesForRent } from './services/postHouses'
+import { getAllHousesWanted } from './services/postHousesWanted'
+import { getAllCommunities } from './services/communities'
+import { getAllBlogs } from './services/blogs'
+
+// Forward addresses
 import Jobs from './screens/Jobs/Jobs'
 import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
 import CreatePosts from './screens/CreatePosts/CreatePosts'
 import CreateJobForm from './screens/CreateJobForm/CreateJobForm'
 import Layout from './share/layout/Layout'
 import Login from './screens/Login/Login'
-import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
 import Register from './screens/Register/Register';
 import MainContainer from './containers/MainContainer';
 import Account from './screens/Account/Account';
-import JobEdit from './screens/JobEdit/JobEdit';
+import JobByEmployerEdit from './screens/JobByEmployerEdit/JobByEmployerEdit';
 import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
 import ResetPassword from './screens/ResetPassword/ResetPassword'
 import AccountEdit from './screens/AccountEdit/AccountEdit'
@@ -20,11 +32,55 @@ import AccountListings from './screens/AccountListings/AccountListings'
 
 function App() {
 
-  const [jobs, setJobs] = useState([]) // Get all jobs posted by employee
   const [currentUser, setCurrentUser] = useState(null); // set a current user
   const [error, setError] = useState(null);
   const history = useHistory();
 
+  // API lists valuable
+  const [jobs, setJobs] = useState([])
+  const [jobsByEmployee, setJobsByEmployee] = useState([])
+  const [houseForRent, setHouseForRent] = useState([])
+  const [houseWanted, setHouseWanted] = useState([])
+  const [communities, setCommunities] = useState([])
+  const [blogs, setBlogs] = useState([])
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const jobsList = await getAllJobsForEmployee();
+      setJobs(jobsList)
+    }
+    const fetchJobsByEmployee = async () => {
+      const jobsByEmployeeList = await getAllPostsByEmployee();
+      setJobsByEmployee(jobsByEmployeeList)
+    }
+    const fetchHouseForRent = async () => {
+      const houseForRentList = await getAllHousesForRent();
+      setHouseForRent(houseForRentList)
+    }
+    const fetchHouseWanted = async () => {
+      const houseWantedList = await getAllHousesWanted();
+      setHouseWanted(houseWantedList)
+    }
+    const fetchCommunities = async () => {
+      const communitiesList = await getAllCommunities();
+      setCommunities(communitiesList)
+    }
+    const fetchBlogs = async () => {
+      const blogsList = await getAllBlogs();
+      setBlogs(blogsList)
+    }
+
+    fetchJobs();
+    fetchJobsByEmployee();
+    fetchHouseForRent();
+    fetchHouseWanted();
+    fetchCommunities();
+    fetchBlogs();
+  }, [])
+
+
+
+  // Security 
   useEffect(() => {
 
     // VERIFY
@@ -33,13 +89,6 @@ function App() {
       setCurrentUser(currentUser)
     }
 
-    // Get All Jobs
-    const fetchJobs = async () => {
-      const jobsList = await getAllJobsForEmployee();
-      setJobs(jobsList);
-    }
-
-    fetchJobs();
     handleVerify();
   }, [])
 
@@ -72,13 +121,15 @@ function App() {
     history.push('/');
   }
 
+
+
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
 
         <Route path="/job/edit/:id">
-          <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
+          <JobByEmployerEdit currentUser={currentUser} />
         </Route>
 
         <Route path='/account'>
@@ -90,7 +141,15 @@ function App() {
         </Route>
 
         <Route path='/account-listings'>
-          <AccountListings currentUser={currentUser} />
+          <AccountListings
+            currentUser={currentUser}
+            jobs={jobs}
+            jobsByEmployee={jobsByEmployee}
+            houseForRent={houseForRent}
+            houseWanted={houseWanted}
+            communities={communities}
+            blogs={blogs}
+          />
         </Route>
 
         <Route path='/login'>
@@ -110,7 +169,7 @@ function App() {
         </Route>
 
         <Route path="/post-job">
-          <CreateJobForm setJobs={setJobs} />
+          <CreateJobForm />
         </Route>
 
         <Route path="/create-posts">
@@ -118,7 +177,7 @@ function App() {
         </Route>
 
         <Route path="/available-jobs">
-          <AvailableJobs jobs={jobs} setJobs={setJobs} />
+          <AvailableJobs />
         </Route>
 
         <Route path='/jobs'>

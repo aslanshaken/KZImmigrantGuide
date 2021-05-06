@@ -8,12 +8,14 @@ class CommunitiesController < ApplicationController
 
     posts = @communities.map do |community| { 
       :community => community,
-      :image => {
+      :image => if community.photo.present?
+      {
         filename: community.photo.filename,
         content_type: community.photo.content_type,
         created_at: community.photo.created_at,
         url: url_for(community.photo)
       }
+    end
     }
     end
 

@@ -68,7 +68,7 @@
   border-bottom: 1px solid black;
   padding-bottom: 3%;
   /* width: 700px; */
-  box-shadow: 5px 5px 0px 0px rgb(148, 139, 139);
+  box-shadow:5px 5px 15px 5px rgb(148, 139, 139);
   margin: 50px;
   text-align: center;
 }
@@ -82,4 +82,8 @@
 .listings-box-button {
   display: flex;
   justify-content: space-evenly;
+}
+
+.none-display{
+  display: none;
 }

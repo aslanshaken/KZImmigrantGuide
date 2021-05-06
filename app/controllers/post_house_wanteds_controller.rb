@@ -8,12 +8,14 @@ class PostHouseWantedsController < ApplicationController
 
     posts = @post_house_wanteds.map do |post_house_wanted| { 
       :post_house_wanted => post_house_wanted,
-      :image => {
+      :image => if post_house_wanted.avatar2.present?
+      {
         filename: post_house_wanted.avatar2.filename,
         content_type: post_house_wanted.avatar2.content_type,
         created_at: post_house_wanted.avatar2.created_at,
         url: url_for(post_house_wanted.avatar2)
       }
+      end
     }
     end
     #   post_house_wanted.avatar2.map{ |avatar| ({

@@ -8,12 +8,14 @@ class BlogsController < ApplicationController
 
     posts = @blogs.map do |blog| { 
       :blog => blog,
-      :image => {
+      :image => if blog.photo2.present?
+      {
         filename: blog.photo2.filename,
         content_type: blog.photo2.content_type,
         created_at: blog.photo2.created_at,
         url: url_for(blog.photo2)
       }
+    end
     }
     end
 

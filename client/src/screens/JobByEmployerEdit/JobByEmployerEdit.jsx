@@ -1,9 +1,9 @@
-import './JobEdit.css'
+import './JobByEmployerEdit.css'
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { updateOneJobForEmployee } from '../../services/getEmployees'
 
-export default function JobEdit(props) {
+export default function JobByEmployerEdit(props) {
     const [formData, setFormData] = useState({
         job_name: '',
         category: '',
