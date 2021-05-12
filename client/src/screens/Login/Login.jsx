@@ -34,7 +34,7 @@ export default function Login(props) {
                         handleLogin(formData);
                     }}>
                         {/* <img src="https://cdn3.iconfinder.com/data/icons/international-circle-flags-outline/480/kazakh-kazakhstan-asian-country-flag-512.png" /> */}
-                        <h2 id='welcome-text' >Welcome</h2>
+                        <h1 id='welcome-text' >Welcome</h1>
                         {
                             error &&
                             <p>{error}</p>
@@ -57,9 +57,9 @@ export default function Login(props) {
                             value={password}
                             onChange={handleChange}
                         />
-                        <Link to='/forgotpassword' id='none'> <h6 id="forget-password">Forget Password?</h6></Link>
+                        <Link to='/forgotpassword' id='none'> <h5 id="forget-password">Forget Password?</h5></Link>
                         <button id="login-form-button"><b>Log into your account</b></button>
-                        <Link to='/register' id='none'> <h3>Create account</h3></Link>
+                        <Link to='/register' id='none'> <h4>New user? Create account</h4></Link>
                     </form>
                 </div>
             </div>

@@ -1,35 +1,56 @@
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 0 100px 0;
-  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4E47fvvaU2xKCqmhhLD89bDfIVWQ4ncTUiA1uzLM_0r8JwXUw9n2UWvVcTViWyiB1bac&usqp=CAU");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 200px;
-  background-position-x: 250px;
-  background-position-y: 170px; */
-}
 .video-center {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* width: 700px; */
+  justify-content: flex-end;
+  margin-bottom: 80px;
 }
+
 .video-style {
-  width: 1000px;
-  box-shadow: 15px 15px 15px #888888;
-  border-radius: 5%;
-  outline: none;
+  width: 100%;
+  height: 790px;
+  object-fit: cover;
+  z-index: -100;
+}
+
+.video-text-box {
+  padding: 20px;
+  width: 550px;
+  border-radius: 5em 5em 5em 5em;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 50px 0px 0px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.video-text-box h2 {
+  color: rgb(100, 151, 196);
 }
 
 #made {
-  margin-left: 770px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
 }
 
-#video-mission-text{
-    width: 507px;
-    color: rgb(114, 110, 110);
-    margin-top: -5px;
+
+@keyframes shake {
+  50% {
+    transform: translate(5px);
+  }
+
+  50% {
+    transform: translate(0px, 20px);
+  }
+}
+
+.video-img{
+  height: 55px;
+  animation: shake 2.6s;
+  animation-iteration-count: infinite;
+}
+
+#video-flags{
+  width: 200px;
+  
 }

@@ -1,28 +1,28 @@
 .login {
-  margin: 20px 40px 50px 40px;
+  margin: 0px 0px 0px 0px;
 }
 
 .login-video {
   width: 100%;
-  /* border-radius: 15em 15em 15em 15em; */
-  outline: none;
+  height: 700px;
+  object-fit: cover;
+  z-index: -100;
 }
 
 .login-main-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
-.login-box{
-  /* border: 2px solid black; */
+.login-box {
   padding: 20px;
-  width: 250px;
+  width: 350px;
   border-radius: 5em 5em 5em 5em;
   text-align: center;
   position: absolute;
   display: flex;
-  margin-top: 200px;
-  background-color: white;
+  margin: 100px 100px 0px 0px ;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .login-box form img {
@@ -35,10 +35,10 @@
     no-repeat scroll 5px;
   text-align: center;
   background-size: 25px;
-  height: 25px;
+  height: 30px;
   border-radius: 5em 5em 5em 5em;
   outline: none;
-  width: 190px;
+  width: 250px;
   font-weight: 800;
 }
 
@@ -48,30 +48,28 @@
     no-repeat scroll 5px;
   text-align: center;
   background-size: 21px;
-  height: 25px;
+  height: 30px;
   border-radius: 5em 5em 5em 5em;
   line-height: 2em;
   outline: none;
-  width: 190px;
+  width: 250px;
   font-weight: 800;
 }
 
 #forget-password {
-  margin: 0px -90px 0px 0px;
+  margin: 0px -150px 0px 0px;
 }
 
 #login-form-button {
-  background-color: #1B98E0;
+  background-color: #1b98e0;
   border-radius: 5em 5em 5em 5em;
   line-height: 2em;
   outline: none;
-  width: 190px;
+  width: 250px;
   margin-top: 35px;
   height: 40px;
   color: white;
 }
-
-
 
 @media only screen and (max-width: 377px) {
   .login-main-container {

@@ -1,16 +1,17 @@
 .register {
-  margin: 20px 40px 50px 40px;
+  margin: 0px 0px 0px 0px;
 }
 
 .register-main-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .register-video {
   width: 100%;
-  /* border-radius: 15em 15em 15em 15em; */
-  outline: none;
+  height: 700px;
+  object-fit: cover;
+  z-index: -100;
 }
 
 .register-box {
@@ -22,7 +23,8 @@
   width: 400px;
   border-radius: 5em 5em 5em 5em;
   text-align: center;
-  background-color: white;
+  margin: 40px 100px 0px 0px ;
+  background-color: rgba(243, 237, 237, 0.90);
 }
 
 #welcome-text {
