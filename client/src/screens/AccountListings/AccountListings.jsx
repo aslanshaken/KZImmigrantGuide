@@ -2,9 +2,10 @@ import './AccountListings.css'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { destroyOneJobForEmployee } from '../../services/getEmployees'
 
 export default function AccountListings(props) {
-    
+
     // Get data from app.js
     const {
         currentUser,
@@ -71,8 +72,12 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(job.updated_at)}</p>
                                         <p> Category: " Available Jobs " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to={`/job/edit/${job.id}`} className="account-button">Edit</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneJobForEmployee(job.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -92,8 +97,8 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(jobByEmployee.updated_at)}</p>
                                         <p> Category: " I'm looking for a job " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -113,8 +118,8 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(houseRent.post_house.updated_at)}</p>
                                         <p> Category: " House for rent " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -134,8 +139,8 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
                                         <p> Category: " House Wanted " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -155,8 +160,8 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(community.community.updated_at)}</p>
                                         <p> Category: " Communities " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +181,8 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(blog.blog.updated_at)}</p>
                                         <p> Category: " Blogs " </p>
                                         <div className="listings-box-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
