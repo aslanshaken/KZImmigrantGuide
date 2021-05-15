@@ -29,6 +29,7 @@ import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
 import ResetPassword from './screens/ResetPassword/ResetPassword'
 import AccountEdit from './screens/AccountEdit/AccountEdit'
 import AccountListings from './screens/AccountListings/AccountListings'
+import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
 
 function App() {
 
@@ -127,6 +128,10 @@ function App() {
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
+
+        <Route path="/job-by-employee/edit/:id">
+          <JobByEmployeeEdit currentUser={currentUser} jobsByEmployee={jobsByEmployee} setJobsByEmployee={setJobsByEmployee} />
+        </Route>
 
         <Route path="/job/edit/:id">
           <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />

@@ -97,7 +97,7 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(jobByEmployee.updated_at)}</p>
                                         <p> Category: " I'm looking for a job " </p>
                                         <div className="listings-box-button">
-                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link to={`/job-by-employee/edit/${jobByEmployee.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
