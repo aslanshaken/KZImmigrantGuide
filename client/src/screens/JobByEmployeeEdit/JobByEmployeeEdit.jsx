@@ -55,19 +55,19 @@ console.log(jobsByEmployee)
     }
 
     return (
-        <div className="job-edit">
-            <div className="job-edit-main-photo">
-                <img id="job-edit-user-image" src={currentUser?.image === null ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU" : currentUser?.image.url} />
+        <div className="jobByEmployee-edit">
+            <div className="jobByEmployee-edit-main-photo">
+                <img id="jobByEmployee-edit-user-image" src={currentUser?.image === null ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU" : currentUser?.image.url} />
                 <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
             </div>
-            <div className="job-edit-links">
+            <div className="jobByEmployee-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
                 <h3><Link to="/account-listings" id="none">Listings</Link></h3>
             </div>
-            <div className="job-edit-main-container">
-                <img id="job-edit-img" src="https://media.istockphoto.com/vectors/looking-for-a-job-vector-id638089158?k=6&m=638089158&s=170667a&w=0&h=m6pK6pfOSrDsoDO0ASkSwdBhCkMdziGykOGWbBq6lT4=" />
+            <div className="jobByEmployee-edit-main-container">
+                <img id="jobByEmployee-edit-img" src="https://media.istockphoto.com/vectors/looking-for-a-job-vector-id638089158?k=6&m=638089158&s=170667a&w=0&h=m6pK6pfOSrDsoDO0ASkSwdBhCkMdziGykOGWbBq6lT4=" />
                 <form
-                    className="job-edit-box"
+                    className="jobByEmployee-edit-box"
                     onSubmit={handleUpdate}
                 >
                     <h2>Edit</h2>
@@ -135,9 +135,9 @@ console.log(jobsByEmployee)
 
                     <br />
 
-                    <div id="job-edit-button">
-                        <Link to="/account-listings" className="job-edit-button">Go Back</Link>
-                        <button className="job-edit-save-button">Save</button>
+                    <div id="jobByEmployee-edit-button">
+                        <Link to="/account-listings" className="jobByEmployee-edit-button">Go Back</Link>
+                        <button className="jobByEmployee-edit-save-button">Save</button>
                     </div>
                 </form>
             </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { destroyOneJobForEmployee } from '../../services/getEmployees'
+import { destroyOneEmployeePost } from '../../services/postByEmployees'
 
 export default function AccountListings(props) {
 
@@ -98,7 +99,11 @@ export default function AccountListings(props) {
                                         <p> Category: " I'm looking for a job " </p>
                                         <div className="listings-box-button">
                                             <Link to={`/job-by-employee/edit/${jobByEmployee.id}`} className="account-button">Edit</Link>
-                                            <Link className="account-button">Delete</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneEmployeePost(jobByEmployee.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>

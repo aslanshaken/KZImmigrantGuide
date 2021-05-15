@@ -1,96 +1,95 @@
-.job-edit {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  
-  .job-edit-main-photo {
-    background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 1500px;
-    height: 300px;
-    border-radius: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #job-edit-user-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 10%;
-  }
-  
-  .job-edit-links {
-    display: flex;
-    justify-content: space-between;
-    width: 500px;
-    margin: 50px 60px 50px 0px;
-  }
-  
-  .job-edit-links h3 {
-    padding: 2%;
-  }
-  
-  .job-edit-main-container {
-    display: flex;
-    box-shadow: 5px 5px 5px 5px gray;
-  }
-  
-  #job-edit-img {
-    width: 510px;
-    margin: 50px;
-  }
-  
-  .job-edit-box {
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    background-color: white;
-    width: 500px;
-  }
-  
-  .job-edit-box h2 {
-    text-align: center;
-  }
-  
-  .job-edit-box input {
-    width: 350px;
-    margin-bottom: 10px;
-    float: right;
-    font-size: medium;
-  }
-  
-  .job-edit-box textarea {
-    width: 350px !important;
-    margin-bottom: 10px;
-    height: 150px !important;
-    float: right;
-  }
-  
-  #job-edit-button {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .job-edit-button {
-    font-size: 20px;
-    color: #4b8ff4;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .job-edit-save-button {
-    font-size: 20px;
-    color: #4b8ff4;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    background: white;
-  }
-  
+.jobByEmployee-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.jobByEmployee-edit-main-photo {
+  background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1500px;
+  height: 300px;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#jobByEmployee-edit-user-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+}
+
+.jobByEmployee-edit-links {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin: 50px 60px 50px 0px;
+}
+
+.jobByEmployee-edit-links h3 {
+  padding: 2%;
+}
+
+.jobByEmployee-edit-main-container {
+  display: flex;
+  box-shadow: 5px 5px 5px 5px gray;
+}
+
+#jobByEmployee-edit-img {
+  width: 510px;
+  margin: 50px;
+}
+
+.jobByEmployee-edit-box {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: white;
+  width: 500px;
+}
+
+.jobByEmployee-edit-box h2 {
+  text-align: center;
+}
+
+.jobByEmployee-edit-box input {
+  width: 350px;
+  margin-bottom: 10px;
+  float: right;
+  font-size: medium;
+}
+
+.jobByEmployee-edit-box textarea {
+  width: 350px !important;
+  margin-bottom: 10px;
+  height: 150px !important;
+  float: right;
+}
+
+#jobByEmployee-edit-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.jobByEmployee-edit-button {
+  font-size: 20px;
+  color: #4b8ff4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jobByEmployee-edit-save-button {
+  font-size: 20px;
+  color: #4b8ff4;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: white;
+}
