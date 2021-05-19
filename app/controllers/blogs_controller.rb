@@ -59,7 +59,17 @@ class BlogsController < ApplicationController
       @blog.photo2.attach(params[:image]) # Active Storage
 
 
-      render json: @blog
+      render :json => { 
+        :blog => @blog,
+        :image =>if @blog.photo2.present?
+          {
+          filename: @blog.photo2.filename,
+          content_type: @blog.photo2.content_type,
+          created_at: @blog.photo2.created_at,
+          url: url_for(@blog.photo2)
+        }
+      end
+      } 
     else
       render json: @blog.errors, status: :unprocessable_entity
     end

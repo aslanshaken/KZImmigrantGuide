@@ -186,7 +186,7 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(blog.blog.updated_at)}</p>
                                         <p> Category: " Blogs " </p>
                                         <div className="listings-box-button">
-                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link to={`/blog/edit/${blog.blog.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>

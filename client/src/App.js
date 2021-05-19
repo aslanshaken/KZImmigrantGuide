@@ -30,6 +30,7 @@ import ResetPassword from './screens/ResetPassword/ResetPassword'
 import AccountEdit from './screens/AccountEdit/AccountEdit'
 import AccountListings from './screens/AccountListings/AccountListings'
 import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
+import BlogEdit from './screens/BlogEdit/BlogEdit'
 
 function App() {
 
@@ -122,12 +123,14 @@ function App() {
     history.push('/');
   }
 
-
-
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
+
+        <Route path="/blog/edit/:id">
+          <BlogEdit currentUser={currentUser} blogs={blogs} setBlogs={setBlogs} />
+        </Route>
 
         <Route path="/job-by-employee/edit/:id">
           <JobByEmployeeEdit currentUser={currentUser} jobsByEmployee={jobsByEmployee} setJobsByEmployee={setJobsByEmployee} />
