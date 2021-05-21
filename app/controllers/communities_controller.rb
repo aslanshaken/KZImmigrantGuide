@@ -57,7 +57,17 @@ class CommunitiesController < ApplicationController
       @community.photo.destroy  if @community.photo.present?  # Active Storage
       @community.photo.attach(params[:image]) # Active Storage
 
-      render json: @community
+      render :json => { 
+        :community =>  @community,
+        :image =>if @community.photo.present?
+          {
+          filename:  @community.photo.filename,
+          content_type:  @community.photo.content_type,
+          created_at:  @community.photo.created_at,
+          url: url_for(@community.photo)
+        }
+      end
+      } 
     else
       render json: @community.errors, status: :unprocessable_entity
     end

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { destroyOneJobForEmployee } from '../../services/getEmployees'
 import { destroyOneEmployeePost } from '../../services/postByEmployees'
+import { destroyOneBlog } from '../../services/blogs'
 
 export default function AccountListings(props) {
 
@@ -152,20 +153,20 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
-                    {communities.map((community) => {
-                        if (community.community.user_id == currentUser?.user.id) {
+                    {communities.map((arr) => {
+                        if (arr.community.user_id == currentUser?.user.id) {
                             return (
                                 <div
                                     className={categoryToggle === "all" ? "listing-box" : categoryToggle === "communities" ? "listing-box" : "none-display"}
                                 >
                                     <div>
-                                        <img src={!community.image ? "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg" : community.image?.url} />
-                                        <p> {maxLength(community.community.name_community)}</p>
-                                        <p>Post created: {filterDate(community.community.created_at)}</p>
-                                        <p>Last updated: {filterDate(community.community.updated_at)}</p>
+                                        <img src={!arr.image ? "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg" : arr.image?.url} />
+                                        <p> {maxLength(arr.community.name_community)}</p>
+                                        <p>Post created: {filterDate(arr.community.created_at)}</p>
+                                        <p>Last updated: {filterDate(arr.community.updated_at)}</p>
                                         <p> Category: " Communities " </p>
                                         <div className="listings-box-button">
-                                            <Link to="#" className="account-button">Edit</Link>
+                                            <Link to={`/community/edit/${arr.community.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button">Delete</Link>
                                         </div>
                                     </div>
@@ -187,7 +188,11 @@ export default function AccountListings(props) {
                                         <p> Category: " Blogs " </p>
                                         <div className="listings-box-button">
                                             <Link to={`/blog/edit/${blog.blog.id}`} className="account-button">Edit</Link>
-                                            <Link className="account-button">Delete</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneBlog(blog.blog.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>

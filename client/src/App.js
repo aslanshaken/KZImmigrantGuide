@@ -31,6 +31,7 @@ import AccountEdit from './screens/AccountEdit/AccountEdit'
 import AccountListings from './screens/AccountListings/AccountListings'
 import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
 import BlogEdit from './screens/BlogEdit/BlogEdit'
+import CommunityEdit from './screens/CommunityEdit/CommunityEdit'
 
 function App() {
 
@@ -122,11 +123,15 @@ function App() {
     removeToken();
     history.push('/');
   }
-
+  console.log(communities)
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
+
+        <Route path="/community/edit/:id">
+          <CommunityEdit currentUser={currentUser} communities={communities} setCommunities={setCommunities} />
+        </Route>
 
         <Route path="/blog/edit/:id">
           <BlogEdit currentUser={currentUser} blogs={blogs} setBlogs={setBlogs} />
