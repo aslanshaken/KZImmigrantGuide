@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { destroyOneJobForEmployee } from '../../services/getEmployees'
 import { destroyOneEmployeePost } from '../../services/postByEmployees'
 import { destroyOneBlog } from '../../services/blogs'
+import {destroyOneCommunity} from '../../services/communities'
 
 export default function AccountListings(props) {
 
@@ -167,7 +168,11 @@ export default function AccountListings(props) {
                                         <p> Category: " Communities " </p>
                                         <div className="listings-box-button">
                                             <Link to={`/community/edit/${arr.community.id}`} className="account-button">Edit</Link>
-                                            <Link className="account-button">Delete</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneCommunity(arr.community.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>

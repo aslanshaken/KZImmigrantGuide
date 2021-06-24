@@ -15,12 +15,12 @@ export default function BlogEdit(props) {
     const { currentUser, blogs, setBlogs } = props
     const history = useHistory();
     const { title, name, description, email } = formData;
-    const [img, setImg] = useState()
+    const [newImage, setNewImage] = useState(false)
+    const [preview, setPreview] = useState(false)
 
     useEffect(() => {
         const prefillFormData = () => {
             const blogPost = blogs.find((blog) => blog.blog.id === Number(id));
-            blogPost.image === null ? setImg("https://blog.hubspot.com/hubfs/GettyImages-974683580.jpg") : setImg(blogPost.image.url)
             setFormData({
                 title: blogPost.blog.title,
                 name: blogPost.blog.name,
@@ -51,6 +51,20 @@ export default function BlogEdit(props) {
         history.push('/account-listings');
     }
 
+    const handleImage = (e) => {
+        e.preventDefault();
+        setPreview(URL.createObjectURL(e.target.files[0]))
+        setNewImage(e.target.files[0])
+    }
+
+    const checkImage = () => {
+        if (currentUser?.image === null) {
+            return "https://blog.hubspot.com/hubfs/GettyImages-974683580.jpg"
+        } else {
+            return currentUser?.image.url
+        }
+    }
+
     return (
         <div className="blog-edit">
             <div className="blog-edit-main-photo">
@@ -62,7 +76,19 @@ export default function BlogEdit(props) {
                 <h3><Link to="/account-listings" id="none">Listings</Link></h3>
             </div>
             <div className="blog-edit-main-container">
-                <img id="blog-edit-img" src={img} /> 
+            <div>
+                    <img id="blog-edit-img" src={preview ? preview : checkImage()} />
+                    <div className="blog-edit-upload-box">
+                        <label for="img-input" >
+                            <h5 id="blog-edit-text">Update Image</h5>
+                        </label>
+                        <input
+                            id="img-input"
+                            type="file"
+                            onChange={handleImage}
+                        />
+                    </div>
+                </div>
                 <form
                     className="blog-edit-box"
                     onSubmit={handleUpdate}

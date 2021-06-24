@@ -1,14 +1,15 @@
 .video-center {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 80px;
+  justify-content:center;
+  margin-bottom: 20px;
 }
 
 .video-style {
-  width: 100%;
-  height: 790px;
+  width: 60%;
+  height: 400px;
   object-fit: cover;
   z-index: -100;
+  border-radius: 20px;
 }
 
 .video-text-box {

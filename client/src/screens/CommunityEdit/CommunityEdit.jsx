@@ -21,14 +21,15 @@ export default function CommunityEdit(props) {
     const { currentUser, communities, setCommunities } = props
     const history = useHistory();
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData;
-    const [img, setImg] = useState()
+    const [newImage, setNewImage] = useState(false)
+    const [preview, setPreview] = useState(false)
 
     useEffect(() => {
         const prefillFormData = () => {
             const CommunityPost = communities.find((arr) => arr.community.id === Number(id));
-            CommunityPost.image === null ? setImg("https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg") : setImg(CommunityPost.image.url)
+            // CommunityPost.image === null ? setImg("https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg") : setImg(CommunityPost.image.url)
             setFormData({
-                city: CommunityPost.community.city ,
+                city: CommunityPost.community.city,
                 contact_email: CommunityPost.community.contact_email,
                 contact_name: CommunityPost.community.contact_name,
                 contact_phone: CommunityPost.community.contact_phone,
@@ -62,6 +63,21 @@ export default function CommunityEdit(props) {
         history.push('/account-listings');
     }
 
+
+    const handleImage = (e) => {
+        e.preventDefault();
+        setPreview(URL.createObjectURL(e.target.files[0]))
+        setNewImage(e.target.files[0])
+    }
+
+    const checkImage = () => {
+        if (currentUser?.image === null) {
+            return "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg"
+        } else {
+            return currentUser?.image.url
+        }
+    }
+
     return (
         <div className="community-edit">
             <div className="community-edit-main-photo">
@@ -73,7 +89,19 @@ export default function CommunityEdit(props) {
                 <h3><Link to="/account-listings" id="none">Listings</Link></h3>
             </div>
             <div className="community-edit-main-container">
-                <img id="community-edit-img" src={img} />
+                <div>
+                    <img id="community-edit-img" src={preview ? preview : checkImage()} />
+                    <div className="community-edit-upload-box">
+                        <label for="img-input" >
+                            <h5 id="community-edit-text">Update Image</h5>
+                        </label>
+                        <input
+                            id="img-input"
+                            type="file"
+                            onChange={handleImage}
+                        />
+                    </div>
+                </div>
                 <form
                     className="community-edit-box"
                     onSubmit={handleUpdate}

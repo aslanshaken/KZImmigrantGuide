@@ -42,10 +42,26 @@
     box-shadow: 5px 5px 5px 5px gray;
   }
   
+.community-edit-upload-box{
+  display: flex;
+  justify-content: center;
+}
+
   #community-edit-img {
     width: 510px;
     margin: 50px;
-    height: 450px;
+    height: 380px;
+    border-radius: 10%;
+  }
+
+  #community-edit-text {
+    color: white;
+    background-color: #4577f1;
+    border-radius: 1em;
+    padding: 5px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
   }
   
   .community-edit-box {
