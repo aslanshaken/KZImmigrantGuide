@@ -1,5 +1,5 @@
 # KZ Immigrant Guide<!-- omit in toc -->
-Link - https://stoic-heisenberg-80e1ff.netlify.app/
+Link - https://qazaq-republic.netlify.app/
 
 ## Overview
 
