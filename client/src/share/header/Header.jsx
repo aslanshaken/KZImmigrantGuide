@@ -42,9 +42,10 @@ export default function Header(props) {
                 <div className="nav-container">
                     <div>
                         <Link to="/" id="none">
-                            <h4>
-                                <img id="logo" src={Logo} />
-                            </h4>
+                            <p id="logo">
+                                QAZAQ REPUBLIC IN THE USA   
+                                {/* <img id="logo" src={Logo} /> */}
+                            </p>
                         </Link>
                     </div>
                     <div>
@@ -55,6 +56,11 @@ export default function Header(props) {
                     <div>
                         <Link to="#" id="none">
                             <h4 id="hv" >Housing</h4>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h4 id="hv" >Services</h4>
                         </Link>
                     </div>
                     <div>

@@ -29,18 +29,25 @@
 }
 
 body {
-  font-family: "Palanquin", sans-serif;
+  letter-spacing: 0.5px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #logo {
-  width: 250px;
-  margin: -100px 300px -120px 0px;
+  color: #606060;
+  margin-right: 400px;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: baseline;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-decoration: none solid rgb(96, 96, 96);
 }
 
 .create-post-button {
   border: 1px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-color: #6498C6;
+  background-color: #6498c6;
   color: #ffffff;
   cursor: pointer;
   padding: 0px 10px 0px 10px;

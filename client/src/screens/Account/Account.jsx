@@ -63,7 +63,7 @@ export default function Account(props) {
 
                 <div className="account-right">
                     <div className="account-others-box">
-                        <p id="paragraph-head">Choose what others see</p>
+                        <p id="paragraph-head">Bio</p>
                         <div className="account-user-left-right">
                             <div id="user-left">Birthplace: </div> <div id="user-right">{capitalizeFirstLetter(currentUser?.user.birth_place)}</div>
                         </div>
@@ -73,6 +73,9 @@ export default function Account(props) {
                         <div className="account-user-about-me">
                             <div id="user-left">About Me: </div> <div id="user-right">{capitalizeFirstLetter(currentUser?.user.about_me)}</div>
                         </div>
+                    </div>
+                    <div className="account-contact-box">
+                        <p id="paragraph-head">Social Media</p>
                         <div className="account-user-social-media">
                             <Link to={currentUser?.user.facebook}>
                                 <img src="https://img.icons8.com/cute-clipart/128/000000/facebook-new.png" />
