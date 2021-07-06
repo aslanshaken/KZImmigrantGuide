@@ -6,15 +6,15 @@ import { updateOneHouseForRent } from '../../services/postHouses'
 
 export default function HouseForRentEdit(props) {
     const [formData, setFormData] = useState({
-        name: '',
-        description: '',
-        state: '',
-        city: '',
-        date_move_in: '',
-        price: '',
         bathroom: '',
         cellphone: '',
+        city: '',
+        date_move_in: '',
+        description: '',
         email: '',
+        name: '',
+        price: '',
+        state: '',
     })
     const { id } = useParams();
     const { currentUser, houseForRent, setHouseForRent } = props
@@ -23,20 +23,22 @@ export default function HouseForRentEdit(props) {
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
 
+    console.log(houseForRent)
     useEffect(() => {
         const prefillFormData = () => {
-            const Houses = houseForRent.find((arr) => arr.post_house.id === Number(id));
+            const House = houseForRent.find((arr) => arr.post_house.id === Number(id));
             setFormData({
-                name: Houses.post_house.name,
-                description: Houses.description,
-                state: Houses.post_house.state,
-                city: Houses.post_house.city,
-                date_move_in: Houses.post_house.date_move_in,
-                price: Houses.post_house.price,
-                bathroom: Houses.post_house.bathroom,
-                cellphone: Houses.post_house.cellphone,
-                email: Houses.post_house.email,
+                name: House.post_house.name,
+                description: House.post_house.description,
+                state: House.post_house.state,
+                city: House.post_house.city,
+                date_move_in: House.post_house.date_move_in,
+                price: House.post_house.price,
+                bathroom: House.post_house.bathroom,
+                cellphone: House.post_house.cellphone,
+                email: House.post_house.email,
             });
+            setNewImage(House.images)
         }
         if (houseForRent.length) {
             prefillFormData();
@@ -54,8 +56,9 @@ export default function HouseForRentEdit(props) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const updateHouse = await updateOneHouseForRent(id, formData);
+        const newH = { images: newImage, post_house: updateHouse }
         setHouseForRent(prevState => prevState.map((arr) => {
-            return arr.post_house.id === Number(id) ? updateHouse : arr
+            return arr.post_house.id === Number(id) ? newH : arr
         }));
         history.push('/account-listings');
     }
@@ -68,10 +71,10 @@ export default function HouseForRentEdit(props) {
     }
 
     const checkImage = () => {
-        if (currentUser?.image === null) {
-            return "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg"
+        if (newImage[0]?.url) {
+            return newImage[0].url
         } else {
-            return currentUser?.image.url
+            return "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg"
         }
     }
 
@@ -107,9 +110,33 @@ export default function HouseForRentEdit(props) {
                     <label>Name:
                         <input
                             type='text'
-                            name='name_house'
-                            value={name_house}
+                            name='name'
+                            value={name}
                             maxLength="35"
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label> Bathroom:
+                        <input
+                            type='number'
+                            name='bathroom'
+                            value={bathroom}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label> Price:
+                        <input
+                            type='number'
+                            name='price'
+                            value={price}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label> Date Move In:
+                        <input
+                            type='number'
+                            name='date_move_in'
+                            value={date_move_in}
                             onChange={handleChange}
                         />
                     </label>
@@ -130,59 +157,27 @@ export default function HouseForRentEdit(props) {
                             onChange={handleChange}
                         />
                     </label>
-                    <label> Members:
-                        <input
-                            type='number'
-                            name='members_count'
-                            value={members_count}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label> Name:
+                    <label> Description:
                         <input
                             type='text'
-                            name='contact_name'
-                            value={contact_name}
+                            name='description'
+                            value={description}
                             onChange={handleChange}
                         />
                     </label>
                     <label> Email:
                         <input
                             type='email'
-                            name='contact_email'
-                            value={contact_email}
+                            name='email'
+                            value={email}
                             onChange={handleChange}
                         />
                     </label>
                     <label> CellPhone:
                         <input
                             type='numbers'
-                            name='contact_phone'
-                            value={contact_phone}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label> Facebook:
-                        <input
-                            type='text'
-                            name='facebook'
-                            value={facebook}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label> Telegram:
-                        <input
-                            type='text'
-                            name='telegram'
-                            value={telegram}
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label> WhatsApp:
-                        <input
-                            type='text'
-                            name='whatsapp'
-                            value={whatsapp}
+                            name='cellphone'
+                            value={cellphone}
                             onChange={handleChange}
                         />
                     </label>

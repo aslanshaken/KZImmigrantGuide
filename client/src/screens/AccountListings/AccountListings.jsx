@@ -6,6 +6,7 @@ import { destroyOneJobForEmployee } from '../../services/getEmployees'
 import { destroyOneEmployeePost } from '../../services/postByEmployees'
 import { destroyOneBlog } from '../../services/blogs'
 import { destroyOneCommunity } from '../../services/communities'
+import { destroyOneHouseForRent } from '../../services/postHouses'
 
 export default function AccountListings(props) {
 
@@ -53,7 +54,7 @@ export default function AccountListings(props) {
                     <option value="all"> All Categories</option>
                     <option value="availableJobs" >Available jobs</option>
                     <option value="needJob" >I'm looking for a job</option>
-                    <option value="houseRent" >House for rent</option>
+                    <option value="houseForRent" >House for rent</option>
                     <option value="houseWanted" >House Wanted</option>
                     <option value="communities" >Communities</option>
                     <option value="blogs" >Blogs</option>
@@ -112,21 +113,25 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
-                    {houseForRent.map((houseRent) => {
-                        if (houseRent.post_house.user_id == currentUser?.user.id) {
-                            return (
+                    {houseForRent.map((house) => { // Map thru all houses for rent
+                        if (house.post_house.user_id == currentUser?.user.id) {  // Gets each and checks for a user id 
+                            return ( // if ok, continue below
                                 <div
-                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseRent" ? "listing-box" : "none-display"}
+                                    className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseForRent" ? "listing-box" : "none-display"}
                                 >
                                     <div>
-                                        <img src={!houseRent.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : houseRent.images[0]?.url} />
-                                        <p className="account-listings-title"> {maxLength(houseRent.post_house.name)}</p>
-                                        <p>Post created: {filterDate(houseRent.post_house.created_at)}</p>
-                                        <p>Last updated: {filterDate(houseRent.post_house.updated_at)}</p>
+                                        <img src={!house.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : house.images[0]?.url} />
+                                        <p className="account-listings-title"> {maxLength(house.post_house.name)}</p>
+                                        <p>Post created: {filterDate(house.post_house.created_at)}</p>
+                                        <p>Last updated: {filterDate(house.post_house.updated_at)}</p>
                                         <p> Category: " House for rent " </p>
                                         <div className="listings-box-button">
-                                            <Link to="#" className="account-button">Edit</Link>
-                                            <Link className="account-button">Delete</Link>
+                                            <Link to={`/house/edit/${house.post_house.id}`} className="account-button">Edit</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneHouseForRent(house.post_house.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>

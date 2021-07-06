@@ -44,7 +44,6 @@ export default function BlogEdit(props) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const updatedBlog = await updateOneBlog(id, formData);
-        console.log(updatedBlog)
         setBlogs(prevState => prevState.map((blog) => {
             return blog.blog.id === Number(id) ? updatedBlog : blog
         }));

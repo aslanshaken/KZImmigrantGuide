@@ -32,6 +32,7 @@ import AccountListings from './screens/AccountListings/AccountListings'
 import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
 import BlogEdit from './screens/BlogEdit/BlogEdit'
 import CommunityEdit from './screens/CommunityEdit/CommunityEdit'
+import HouseForRentEdit from './screens/HouseForRentEdit/HouseForRentEdit';
 
 function App() {
 
@@ -81,7 +82,6 @@ function App() {
     fetchBlogs();
   }, [])
 
-console.log(houseForRent)
 
   // Security 
   useEffect(() => {
@@ -123,11 +123,15 @@ console.log(houseForRent)
     removeToken();
     history.push('/');
   }
-  console.log(communities)
+  
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
+
+        <Route path="/house/edit/:id">
+          <HouseForRentEdit currentUser={currentUser} houseForRent={houseForRent} setHouseForRent={setHouseForRent} />
+        </Route>
 
         <Route path="/community/edit/:id">
           <CommunityEdit currentUser={currentUser} communities={communities} setCommunities={setCommunities} />
