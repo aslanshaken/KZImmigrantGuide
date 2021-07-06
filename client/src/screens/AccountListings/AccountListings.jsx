@@ -7,6 +7,7 @@ import { destroyOneEmployeePost } from '../../services/postByEmployees'
 import { destroyOneBlog } from '../../services/blogs'
 import { destroyOneCommunity } from '../../services/communities'
 import { destroyOneHouseForRent } from '../../services/postHouses'
+import { destroyOneHouseWanted } from '../../services/postHousesWanted'
 
 export default function AccountListings(props) {
 
@@ -151,8 +152,12 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
                                         <p> Category: " House Wanted " </p>
                                         <div className="listings-box-button">
-                                            <Link to="#" className="account-button">Edit</Link>
-                                            <Link className="account-button">Delete</Link>
+                                            <Link to={`/house-wanted/edit/${house.post_house_wanted.id}`} className="account-button">Edit</Link>
+                                            <Link className="account-button"
+                                                onClick={() => {
+                                                    destroyOneHouseWanted(house.post_house.id)
+                                                    history.go(0)
+                                                }}>Delete</Link>
                                         </div>
                                     </div>
                                 </div>

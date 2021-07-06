@@ -33,6 +33,7 @@ import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
 import BlogEdit from './screens/BlogEdit/BlogEdit'
 import CommunityEdit from './screens/CommunityEdit/CommunityEdit'
 import HouseForRentEdit from './screens/HouseForRentEdit/HouseForRentEdit';
+import HouseWantedEdit from './screens/HouseWantedEdit/HouseWantedEdit';
 
 function App() {
 
@@ -47,7 +48,7 @@ function App() {
   const [houseWanted, setHouseWanted] = useState([])
   const [communities, setCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
-
+  console.log(houseWanted)
   useEffect(() => {
     const fetchJobs = async () => {
       const jobsList = await getAllJobsForEmployee();
@@ -123,11 +124,15 @@ function App() {
     removeToken();
     history.push('/');
   }
-  
+
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
       <Switch>
+
+        <Route path="/house-wanted/edit/:id">
+          <HouseWantedEdit currentUser={currentUser} houseWanted={houseWanted} setHouseWanted={setHouseWanted} />
+        </Route>
 
         <Route path="/house/edit/:id">
           <HouseForRentEdit currentUser={currentUser} houseForRent={houseForRent} setHouseForRent={setHouseForRent} />

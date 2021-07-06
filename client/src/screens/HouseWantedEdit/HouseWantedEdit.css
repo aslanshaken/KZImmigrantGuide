@@ -1,4 +1,4 @@
-.house-edit {
+.house-wanted-edit {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     margin-bottom: 50px;
   }
   
-  .house-edit-main-photo {
+  .house-wanted-edit-main-photo {
     background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
     background-size: cover;
     background-position: center;
@@ -20,41 +20,41 @@
     align-items: center;
   }
   
-  #house-edit-user-image {
+  #house-wanted-edit-user-image {
     width: 150px;
     height: 150px;
     border-radius: 10%;
   }
   
-  .house-edit-links {
+  .house-wanted-edit-links {
     display: flex;
     justify-content: space-between;
     width: 500px;
     margin: 50px 60px 50px 0px;
   }
   
-  .house-edit-links h3 {
+  .house-wanted-edit-links h3 {
     padding: 2%;
   }
   
-  .house-edit-main-container {
+  .house-wanted-edit-main-container {
     display: flex;
     box-shadow: 5px 5px 5px 5px gray;
   }
   
-.house-edit-upload-box{
+.house-wanted-edit-upload-box{
   display: flex;
   justify-content: center;
 }
 
-  #house-edit-img {
+  #house-wanted-edit-img {
     width: 510px;
     margin: 50px;
     height: 380px;
     border-radius: 10%;
   }
 
-  #house-edit-text {
+  #house-wanted-edit-text {
     color: white;
     background-color: #4577f1;
     border-radius: 1em;
@@ -64,7 +64,7 @@
     text-align: center;
   }
   
-  .house-edit-box {
+  .house-wanted-edit-box {
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -72,34 +72,34 @@
     width: 500px;
   }
   
-  .house-edit-box h2 {
+  .house-wanted-edit-box h2 {
     text-align: center;
   }
   
-  .house-edit-box input {
+  .house-wanted-edit-box input {
     width: 300px;
     margin-bottom: 10px;
     float: right;
     font-size: medium;
   }
   
-  .house-edit-date{
+  .house-wanted-edit-date{
     padding-left: 1%;
   }
 
-  #house-edit-button {
+  #house-wanted-edit-button {
     display: flex;
     justify-content: space-evenly;
   }
   
-  .house-edit-button {
+  .house-wanted-edit-button {
     font-size: 20px;
     color: #4b8ff4;
     text-decoration: none;
     cursor: pointer;
   }
   
-  .house-edit-save-button {
+  .house-wanted-edit-save-button {
     font-size: 20px;
     color: #4b8ff4;
     text-decoration: none;

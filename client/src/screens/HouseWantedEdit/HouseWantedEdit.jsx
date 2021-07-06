@@ -1,49 +1,46 @@
-import './HouseForRentEdit.css'
+import './HouseWantedEdit.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
-import { updateOneHouseForRent } from '../../services/postHouses'
+import { updateOneHouseWanted } from '../../services/postHousesWanted'
 
-export default function HouseForRentEdit(props) {
+export default function HouseWantedEdit(props) {
     const [formData, setFormData] = useState({
         bathroom: '',
         cellphone: '',
         city: '',
         date_move_in: '',
-        description: '',
+        about_me: '',
         email: '',
         name: '',
-        price: '',
         state: '',
     })
     const { id } = useParams();
-    const { currentUser, houseForRent, setHouseForRent } = props
+    const { currentUser, houseWanted, setHouseWanted } = props
     const history = useHistory();
-    const { name, description, state, city, date_move_in, bathroom, cellphone, email, price } = formData;
+    const { name, about_me, state, city, date_move_in, bathroom, cellphone, email} = formData;
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
 
-    console.log(houseForRent)
     useEffect(() => {
         const prefillFormData = () => {
-            const House = houseForRent.find((arr) => arr.post_house.id === Number(id));
+            const House = houseWanted.find((arr) => arr.post_house_wanted.id === Number(id));
             setFormData({
-                name: House.post_house.name,
-                description: House.post_house.description,
-                state: House.post_house.state,
-                city: House.post_house.city,
-                date_move_in: House.post_house.date_move_in,
-                price: House.post_house.price,
-                bathroom: House.post_house.bathroom,
-                cellphone: House.post_house.cellphone,
-                email: House.post_house.email,
+                name: House.post_house_wanted.name,
+                about_me: House.post_house_wanted.about_me,
+                state: House.post_house_wanted.state,
+                city: House.post_house_wanted.city,
+                date_move_in: House.post_house_wanted.date_move_in,
+                bathroom: House.post_house_wanted.bathroom,
+                cellphone: House.post_house_wanted.cellphone,
+                email: House.post_house_wanted.email,
             });
-            setNewImage(House.images)
+            setNewImage(House.image)
         }
-        if (houseForRent.length) {
+        if (houseWanted.length) {
             prefillFormData();
         }
-    }, [houseForRent, id])
+    }, [houseWanted, id])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -55,10 +52,10 @@ export default function HouseForRentEdit(props) {
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const updateHouse = await updateOneHouseForRent(id, formData);
-        const newH = { images: newImage, post_house: updateHouse }
-        setHouseForRent(prevState => prevState.map((arr) => {
-            return arr.post_house.id === Number(id) ? newH : arr
+        const updateHouse = await updateOneHouseWanted(id, formData);
+        const newH = { image: newImage, post_house_wanted: updateHouse }
+        setHouseWanted(prevState => prevState.map((arr) => {
+            return arr.post_house_wanted.id === Number(id) ? newH : arr
         }));
         history.push('/account-listings');
     }
@@ -71,29 +68,29 @@ export default function HouseForRentEdit(props) {
     }
 
     const checkImage = () => {
-        if (newImage[0]?.url) {
-            return newImage[0].url
+        if (newImage?.url) {
+            return newImage[0]?.url
         } else {
-            return "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg"
+            return "https://as2.ftcdn.net/jpg/01/75/38/45/500_F_175384555_nJHTQaacAVkFekOTpZCtPCzUzy572yGf.jpg"
         }
     }
 
     return (
-        <div className="house-edit">
-            <div className="house-edit-main-photo">
-                <img id="house-edit-user-image" src={currentUser?.image === null ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU" : currentUser?.image.url} />
+        <div className="house-wanted-edit">
+            <div className="house-wanted-edit-main-photo">
+                <img id="house-wanted-edit-user-image" src={currentUser?.image === null ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBhcplevwUKGRs1P-Ps8Mwf2wOwnW_R_JIA&usqp=CAU" : currentUser?.image.url} />
                 <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
             </div>
-            <div className="house-edit-links">
+            <div className="house-wanted-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
                 <h3><Link to="/account-listings" id="none">Listings</Link></h3>
             </div>
-            <div className="house-edit-main-container">
+            <div className="house-wanted-edit-main-container">
                 <div>
-                    <img id="house-edit-img" src={preview ? preview : checkImage()} />
-                    <div className="house-edit-upload-box">
+                    <img id="house-wanted-edit-img" src={preview ? preview : checkImage()} />
+                    <div className="house-wanted-edit-upload-box">
                         <label for="img-input" >
-                            <h5 id="house-edit-text">Update Image</h5>
+                            <h5 id="house-wanted-edit-text">Update Image</h5>
                         </label>
                         <input
                             id="img-input"
@@ -103,7 +100,7 @@ export default function HouseForRentEdit(props) {
                     </div>
                 </div>
                 <form
-                    className="house-edit-box"
+                    className="house-wanted-edit-box"
                     onSubmit={handleUpdate}
                 >
                     <h2>Edit</h2>
@@ -116,6 +113,14 @@ export default function HouseForRentEdit(props) {
                             onChange={handleChange}
                         />
                     </label>
+                    <label> About Me:
+                        <input
+                            type='text'
+                            name='about_me'
+                            value={about_me}
+                            onChange={handleChange}
+                        />
+                    </label>
                     <label> Bathroom:
                         <input
                             type='number'
@@ -124,17 +129,9 @@ export default function HouseForRentEdit(props) {
                             onChange={handleChange}
                         />
                     </label>
-                    <label> Price:
-                        <input
-                            type='number'
-                            name='price'
-                            value={price}
-                            onChange={handleChange}
-                        />
-                    </label>
                     <label> Date Move In:
                         <input
-                            className='house-edit-date'
+                            className='house-wanted-edit-date'
                             type='date'
                             name='date_move_in'
                             value={date_move_in}
@@ -158,14 +155,6 @@ export default function HouseForRentEdit(props) {
                             onChange={handleChange}
                         />
                     </label>
-                    <label> Description:
-                        <input
-                            type='text'
-                            name='description'
-                            value={description}
-                            onChange={handleChange}
-                        />
-                    </label>
                     <label> Email:
                         <input
                             type='email'
@@ -185,9 +174,9 @@ export default function HouseForRentEdit(props) {
 
                     <br />
 
-                    <div id="house-edit-button">
-                        <Link to="/account-listings" className="house-edit-button">Go Back</Link>
-                        <button className="house-edit-save-button">Save</button>
+                    <div id="house-wanted-edit-button">
+                        <Link to="/account-listings" className="house-wanted-edit-button">Go Back</Link>
+                        <button className="house-wanted-edit-save-button">Save</button>
                     </div>
                 </form>
             </div>
