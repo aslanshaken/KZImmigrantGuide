@@ -1,0 +1,107 @@
+.house-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .house-edit-main-photo {
+    background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1500px;
+    height: 300px;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #house-edit-user-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
+  }
+  
+  .house-edit-links {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin: 50px 60px 50px 0px;
+  }
+  
+  .house-edit-links h3 {
+    padding: 2%;
+  }
+  
+  .house-edit-main-container {
+    display: flex;
+    box-shadow: 5px 5px 5px 5px gray;
+  }
+  
+.house-edit-upload-box{
+  display: flex;
+  justify-content: center;
+}
+
+  #house-edit-img {
+    width: 510px;
+    margin: 50px;
+    height: 380px;
+    border-radius: 10%;
+  }
+
+  #house-edit-text {
+    color: white;
+    background-color: #4577f1;
+    border-radius: 1em;
+    padding: 5px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+  }
+  
+  .house-edit-box {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: white;
+    width: 500px;
+  }
+  
+  .house-edit-box h2 {
+    text-align: center;
+  }
+  
+  .house-edit-box input {
+    width: 300px;
+    margin-bottom: 10px;
+    float: right;
+    font-size: medium;
+  }
+  
+
+  #house-edit-button {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .house-edit-button {
+    font-size: 20px;
+    color: #4b8ff4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .house-edit-save-button {
+    font-size: 20px;
+    color: #4b8ff4;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background: white;
+  }
+  

@@ -27,7 +27,7 @@ import Account from './screens/Account/Account';
 import JobEdit from './screens/JobEdit/JobEdit';
 import ForgetPassword from './screens/ForgetPassword/ForgetPassword'
 import ResetPassword from './screens/ResetPassword/ResetPassword'
-import AccountEdit from './screens/AccountEdit/AccountEdit'
+import AccountEdit from './screens/AccountEdit/AccountEdit.jsx'
 import AccountListings from './screens/AccountListings/AccountListings'
 import JobByEmployeeEdit from './screens/JobByEmployeeEdit/JobByEmployeeEdit'
 import BlogEdit from './screens/BlogEdit/BlogEdit'
@@ -81,7 +81,7 @@ function App() {
     fetchBlogs();
   }, [])
 
-
+console.log(houseForRent)
 
   // Security 
   useEffect(() => {

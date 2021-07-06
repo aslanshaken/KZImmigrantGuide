@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { destroyOneJobForEmployee } from '../../services/getEmployees'
 import { destroyOneEmployeePost } from '../../services/postByEmployees'
 import { destroyOneBlog } from '../../services/blogs'
-import {destroyOneCommunity} from '../../services/communities'
+import { destroyOneCommunity } from '../../services/communities'
 
 export default function AccountListings(props) {
 
@@ -70,7 +70,7 @@ export default function AccountListings(props) {
                                 >
                                     <img src="https://codlrc.org/sites/default/files/u114/were%20hiring.jpg" />
                                     <div>
-                                        <p> {job.job_name}</p>
+                                        <p className="account-listings-title"> {maxLength(job.job_name)}</p>
                                         <p>Post created: {filterDate(job.created_at)}</p>
                                         <p>Last updated: {filterDate(job.updated_at)}</p>
                                         <p> Category: " Available Jobs " </p>
@@ -95,7 +95,7 @@ export default function AccountListings(props) {
                                 >
                                     <img src="https://media.istockphoto.com/vectors/looking-for-a-job-vector-id638089158?k=6&m=638089158&s=170667a&w=0&h=m6pK6pfOSrDsoDO0ASkSwdBhCkMdziGykOGWbBq6lT4=" />
                                     <div>
-                                        <p> {maxLength(jobByEmployee.title)}</p>
+                                        <p className="account-listings-title"> {maxLength(jobByEmployee.title)}</p>
                                         <p>Post created: {filterDate(jobByEmployee.created_at)}</p>
                                         <p>Last updated: {filterDate(jobByEmployee.updated_at)}</p>
                                         <p> Category: " I'm looking for a job " </p>
@@ -120,7 +120,7 @@ export default function AccountListings(props) {
                                 >
                                     <div>
                                         <img src={!houseRent.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : houseRent.images[0]?.url} />
-                                        <p> {maxLength(houseRent.post_house.name)}</p>
+                                        <p className="account-listings-title"> {maxLength(houseRent.post_house.name)}</p>
                                         <p>Post created: {filterDate(houseRent.post_house.created_at)}</p>
                                         <p>Last updated: {filterDate(houseRent.post_house.updated_at)}</p>
                                         <p> Category: " House for rent " </p>
@@ -141,7 +141,7 @@ export default function AccountListings(props) {
                                 >
                                     <div>
                                         <img src={!house.image ? "https://as2.ftcdn.net/jpg/01/75/38/45/500_F_175384555_nJHTQaacAVkFekOTpZCtPCzUzy572yGf.jpg" : house.image?.url} />
-                                        <p> {maxLength(house.post_house_wanted.name)}</p>
+                                        <p className="account-listings-title"> {maxLength(house.post_house_wanted.name)}</p>
                                         <p>Post created: {filterDate(house.post_house_wanted.created_at)}</p>
                                         <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
                                         <p> Category: " House Wanted " </p>
@@ -162,7 +162,7 @@ export default function AccountListings(props) {
                                 >
                                     <div>
                                         <img src={!arr.image ? "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg" : arr.image?.url} />
-                                        <p> {maxLength(arr.community.name_community)}</p>
+                                        <p className="account-listings-title"> {maxLength(arr.community.name_community)}</p>
                                         <p>Post created: {filterDate(arr.community.created_at)}</p>
                                         <p>Last updated: {filterDate(arr.community.updated_at)}</p>
                                         <p> Category: " Communities " </p>
@@ -187,7 +187,7 @@ export default function AccountListings(props) {
                                 >
                                     <div>
                                         <img src={!blog.image ? "https://blog.hubspot.com/hubfs/GettyImages-974683580.jpg" : blog.image?.url} />
-                                        <p> {maxLength(blog.blog.title)}</p>
+                                        <p className="account-listings-title"> {maxLength(blog.blog.title)}</p>
                                         <p>Post created: {filterDate(blog.blog.created_at)}</p>
                                         <p>Last updated: {filterDate(blog.blog.updated_at)}</p>
                                         <p> Category: " Blogs " </p>
@@ -204,9 +204,6 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
-
-
-
 
 
                 </div>

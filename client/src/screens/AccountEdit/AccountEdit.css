@@ -49,7 +49,7 @@
   border-radius: 1em;
   padding: 5px;
   cursor: pointer;
-  width: 130px;
+  width: fit-content;
 }
 
 #paragraph-edit-head {
@@ -64,12 +64,13 @@
 }
 
 .account-edit-left-right img {
-  width: 77px;
+  width: 72px;
 }
 
 #user-edit-left {
   width: 200px;
   color: #606469;
+  font-weight:700;
 }
 
 #user-edit-right {

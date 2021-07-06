@@ -36,6 +36,11 @@
   margin: 50px 70px 50px 0px;
 }
 
+.account-listings-title{
+  color: black;
+  font-weight: 700;
+}
+
 .account-listings-links h3 {
   padding: 2%;
 }
