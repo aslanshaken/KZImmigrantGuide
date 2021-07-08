@@ -203,7 +203,7 @@ function App() {
         </Route>
 
         <Route path='/jobs'>
-          <Jobs />
+          <Jobs jobs={jobs} />
         </Route>
 
         <Route path='/'>

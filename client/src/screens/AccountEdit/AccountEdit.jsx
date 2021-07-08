@@ -23,7 +23,6 @@ export default function AccountEdit(props) {
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
     const id = currentUser?.user.id
-    // console.log(currentUser)
     const history = useHistory();
     const { username,
         email,

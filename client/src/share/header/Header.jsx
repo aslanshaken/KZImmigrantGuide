@@ -50,43 +50,43 @@ export default function Header(props) {
                     </div>
                     <div>
                         <Link to="/jobs" id="none">
-                            <h4 id="hv">Jobs</h4>
+                            <h5 id="hv">Jobs</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv" >Housing</h4>
+                            <h5 id="hv" >Housing</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv" >Services</h4>
+                            <h5 id="hv" >Services</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv">Communities</h4>
+                            <h5 id="hv">Communities</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv">Blog</h4>
+                            <h5 id="hv">Blog</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv">About Us</h4>
+                            <h5 id="hv">About Us</h5>
                         </Link>
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h4 id="hv">Contact</h4>
+                            <h5 id="hv">Contact</h5>
                         </Link>
                     </div>
                     <div>
                         {currentUser ?
                             <Link to="/create-posts" id="none">
-                                <h4 className="create-post-button">Create a Post</h4>
+                                <h5 className="create-post-button">Create a Post</h5>
                             </Link>
                             :
                             <h4 className="create-post-button" onClick={() => alert("Please Sign in or Register")}>Create a Post</h4>

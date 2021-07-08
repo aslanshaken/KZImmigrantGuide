@@ -1,44 +1,78 @@
-.jobs-question-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 400px;
+.jobs-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.jobs-question {
-    display: flex;
-    justify-content: space-around;
-    width: 1000px;
+.jobs-main-photo {
+  background-image: url(https://www.teahub.io/photos/full/6-61455_my-material-4k-hd-desktop-wallpaper-for.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 150vh;
+  height: 300px;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.jobs-question h3:hover {
-    border: none;
-    color: darkred;
-    transform: scale(1.5);
+/* .jobs-main-photo img{
+  width: 100vh;
+  object-fit: cover;
+  z-index: -100;
+} */
+
+.jobs-to-choose {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
 }
 
-.jobs-question h3 {
-    font-size: 30px;
-    padding: 20px;
-    transition: transform .5s ease;
+#job-chosen {
+  border-radius: 1em;
+  background-color: rgb(195, 210, 238);
+  cursor: pointer;
 }
 
-@media only screen and (max-width: 377px) {
-    .jobs-question-main {
-        margin-bottom: 400px;
-    }
+.jobs-to-choose h3 {
+  padding: 2%;
+}
 
-    .jobs-question {
-        width: 350px;
-    }
+.jobs-select {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 100px 0px 50px 0px;
+}
 
-    .jobs-question-main h1,
-    .jobs-question h3,
-    .jobs-question h4 {
-        font-size: 13px;
-        transition: transform .5s ease;
-    }
+.jobs-main-box {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  width: 800px;
+  height: 220px;
+}
 
+.jobs-box-upper {
+  display: flex;
+  justify-content: space-around;
+  width: 800px;
+}
 
+#jobs-box-upper-left {
+  margin: 0px 0px 15px 45px;
+}
+
+.jobs-box-bottom {
+  display: flex;
+  justify-content: space-around;
+  width: 800px;
+  border-top: 1px solid black;
+}
+
+#jobs-box-description {
+  margin: 0px 0px 15px 45px;
+  font-weight: 600;
 }
