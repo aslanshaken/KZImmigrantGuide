@@ -75,7 +75,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(job.job_name)}</p>
                                         <p>Post created: {filterDate(job.created_at)}</p>
                                         <p>Last updated: {filterDate(job.updated_at)}</p>
-                                        <p> Category: " Available Jobs " </p>
+                                        <p> Category: <b>"Available Jobs"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/job/edit/${job.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
@@ -100,7 +100,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(jobByEmployee.title)}</p>
                                         <p>Post created: {filterDate(jobByEmployee.created_at)}</p>
                                         <p>Last updated: {filterDate(jobByEmployee.updated_at)}</p>
-                                        <p> Category: " I'm looking for a job " </p>
+                                        <p> Category: <b>"I'm looking for a job"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/job-by-employee/edit/${jobByEmployee.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
@@ -125,7 +125,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(house.post_house.name)}</p>
                                         <p>Post created: {filterDate(house.post_house.created_at)}</p>
                                         <p>Last updated: {filterDate(house.post_house.updated_at)}</p>
-                                        <p> Category: " House for rent " </p>
+                                        <p> Category: <b>"House for rent"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/house/edit/${house.post_house.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
@@ -150,7 +150,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(house.post_house_wanted.name)}</p>
                                         <p>Post created: {filterDate(house.post_house_wanted.created_at)}</p>
                                         <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
-                                        <p> Category: " House Wanted " </p>
+                                        <p> Category: <b>"House Wanted"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/house-wanted/edit/${house.post_house_wanted.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
@@ -175,7 +175,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(arr.community.name_community)}</p>
                                         <p>Post created: {filterDate(arr.community.created_at)}</p>
                                         <p>Last updated: {filterDate(arr.community.updated_at)}</p>
-                                        <p> Category: " Communities " </p>
+                                        <p> Category: <b>"Communities"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/community/edit/${arr.community.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
@@ -200,7 +200,7 @@ export default function AccountListings(props) {
                                         <p className="account-listings-title"> {maxLength(blog.blog.title)}</p>
                                         <p>Post created: {filterDate(blog.blog.created_at)}</p>
                                         <p>Last updated: {filterDate(blog.blog.updated_at)}</p>
-                                        <p> Category: " Blogs " </p>
+                                        <p> Category: <b>"Blogs"</b> </p>
                                         <div className="listings-box-button">
                                             <Link to={`/blog/edit/${blog.blog.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"

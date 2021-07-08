@@ -1,9 +1,6 @@
 import './Login.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Community from '../../assets/community.png'
-import Search from '../../assets/search.png'
-import Online from '../../assets/online.png'
 import KZ from '../../assets/kz.mp4'
 
 

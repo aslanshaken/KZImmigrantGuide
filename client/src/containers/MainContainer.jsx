@@ -13,8 +13,8 @@ export default function MainContainer() {
     return (
         <div>
             <Wall />
-            <Video />
             <Tracker />
+            <Video />
             <Cities />
             <Events />
             <Testimonials />
