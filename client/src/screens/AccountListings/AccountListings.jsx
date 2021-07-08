@@ -1,6 +1,6 @@
 import './AccountListings.css'
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { destroyOneJobForEmployee } from '../../services/getEmployees'
 import { destroyOneEmployeePost } from '../../services/postByEmployees'

@@ -16,7 +16,6 @@ import { getAllBlogs } from './services/blogs'
 
 // Forward addresses
 import Jobs from './screens/Jobs/Jobs'
-import AvailableJobs from './screens/AvailableJobs/AvailableJobs'
 import CreatePosts from './screens/CreatePosts/CreatePosts'
 import CreateJobForm from './screens/CreateJobForm/CreateJobForm'
 import Layout from './share/layout/Layout'
@@ -34,6 +33,8 @@ import BlogEdit from './screens/BlogEdit/BlogEdit'
 import CommunityEdit from './screens/CommunityEdit/CommunityEdit'
 import HouseForRentEdit from './screens/HouseForRentEdit/HouseForRentEdit';
 import HouseWantedEdit from './screens/HouseWantedEdit/HouseWantedEdit';
+import JobDescription from './screens/JobDescription/JobDescription'
+import JobsByEmployee from './screens/JobsByEmployee/JobsByEmployee';
 
 function App() {
 
@@ -82,7 +83,6 @@ function App() {
     fetchCommunities();
     fetchBlogs();
   }, [])
-
 
   // Security 
   useEffect(() => {
@@ -154,12 +154,20 @@ function App() {
           <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
         </Route>
 
+        <Route path='/job/:id'>
+          <JobDescription jobs={jobs} />
+        </Route>
+
         <Route path='/account'>
           <Account currentUser={currentUser} />
         </Route>
 
         <Route path='/account-edit'>
           <AccountEdit currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        </Route>
+
+        <Route path='/jobs-by-employee'>
+          <JobsByEmployee jobsByEmployee={jobsByEmployee} />
         </Route>
 
         <Route path='/account-listings'>
@@ -196,10 +204,6 @@ function App() {
 
         <Route path="/create-posts">
           <CreatePosts />
-        </Route>
-
-        <Route path="/available-jobs">
-          <AvailableJobs />
         </Route>
 
         <Route path='/jobs'>

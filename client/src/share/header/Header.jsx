@@ -70,7 +70,12 @@ export default function Header(props) {
                     </div>
                     <div>
                         <Link to="#" id="none">
-                            <h5 id="hv">Blog</h5>
+                            <h5 id="hv">Blogs</h5>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="#" id="none">
+                            <h5 id="hv">Discussion Forums</h5>
                         </Link>
                     </div>
                     <div>

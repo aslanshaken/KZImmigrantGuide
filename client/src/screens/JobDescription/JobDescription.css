@@ -1,0 +1,37 @@
+.job-go-back{
+    margin-left: 50px;
+}
+
+.job-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    border: 1px solid grey;
+    box-shadow: 15px 15px 15px grey;
+    margin-bottom: 200px;
+}
+
+.job-box-upper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.job-box-upper p{
+    margin: 20px 50px 10px 50px; 
+}
+
+.job-box-bottom{
+    display: flex;
+    justify-content: space-around;
+}
+
+.job-box-bottom p{
+    margin: 0px 50px 0px 50px;
+}
+
+.job-box-description{
+    width: 500px;
+    margin: 50px 20px 50px 20px;
+}

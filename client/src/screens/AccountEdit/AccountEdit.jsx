@@ -19,7 +19,7 @@ export default function AccountEdit(props) {
         instagram: '',
         current_city: '',
     })
-    const { currentUser, setCurrentUser } = props
+    const { currentUser } = props
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
     const id = currentUser?.user.id
