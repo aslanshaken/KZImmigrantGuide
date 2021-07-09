@@ -35,23 +35,23 @@ export default function Jobs(props) {
     return (
         <div className="jobs-main-container">
             <div className="jobs-main-photo ">
-                <h2>Jobs</h2>
                 <img src={Wall} />
+            </div>
+            <h2>Jobs in the USA</h2>
+            <div className='jobs-select'>
+                <select>
+                    <option value=''>Select State</option>
+                </select>
+                <select>
+                    <option value=''>Select City</option>
+                </select>
+                <select>
+                    <option value=''>Select Category</option>
+                </select>
+                <p><Link to="/jobs-by-employee" id="none"> I'm looking for employees</Link></p>
             </div>
             <div className="jobs-main-middle">
                 <div className="jobs-main-left">
-                    <div className="jobs-to-choose">
-                        <h3 id="job-chosen">I'm looking for a job </h3>
-                        <h3><Link to="/jobs-by-employee" id="none"> I'm looking for employees</Link></h3>
-                    </div>
-                    <div className='jobs-select'>
-                        <select>
-                            <option value=''>Select State</option>
-                        </select>
-                        <select>
-                            <option value=''>Select Category</option>
-                        </select>
-                    </div>
                     {jobs.map((job) => {
                         return (
                             <div className='jobs-main-box'>
@@ -75,6 +75,6 @@ export default function Jobs(props) {
                     <img src={AD} />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

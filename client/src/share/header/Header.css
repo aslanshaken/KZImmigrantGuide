@@ -67,26 +67,3 @@ body {
   display: none;
 }
 
-@media only screen and (max-width: 377px) {
-  .nav-container {
-    display: none;
-  }
-
-  .nav-cell-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border-bottom: 1px solid black;
-    padding: 35px 0px 35px 0px;
-    margin-left: 20px;
-  }
-
-  .nav-cell-container img {
-    width: 50px;
-    margin: 10px;
-  }
-
-  #logo {
-    width: 200px;
-  }
-}
