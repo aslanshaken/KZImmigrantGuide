@@ -16,7 +16,7 @@ export default function AccountListings(props) {
         currentUser,
         jobs,
         jobsByEmployee,
-        houseForRent,
+        housesForRent,
         houseWanted,
         communities,
         blogs
@@ -114,7 +114,7 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
-                    {houseForRent.map((house) => { // Map thru all houses for rent
+                    {housesForRent.map((house) => { // Map thru all houses for rent
                         if (house.post_house.user_id == currentUser?.user.id) {  // Gets each and checks for a user id 
                             return ( // if ok, continue below
                                 <div

@@ -68,10 +68,12 @@
   }
   
   .jobsByEmployee-main-box {
-    border-top: 0.5px solid rgb(194, 184, 184);
-    margin-bottom: 20px;
+    border: 0.5px solid rgb(194, 184, 184);
+    margin-bottom: 30px;
     width: 750px;
-    height: 250px;
+    height: 210px;
+    padding: 2%;
+    box-shadow: 5px 5px 5px 5px rgb(240, 240, 240);
   }
   
   .jobsByEmployee-box-upper {
@@ -81,7 +83,7 @@
   }
   
   .jobsByEmployee-box-upper h6 {
-    margin: 20px 90px 0px 0px;
+    margin: 0px 90px 0px 0px;
   }
   
   #jobsByEmployee-box-upper-left {
@@ -92,15 +94,9 @@
     display: flex;
     justify-content: space-around;
     width: 800px;
+    font-size: 15px;
   }
   
-  #jobsByEmployee-box-description {
-    margin: 0px 0px 15px 45px;
-  }
-  
-  #jobsByEmployee-box-category {
-    margin: 0px 0px 15px 45px;
-  }
   
   .jobsByEmployee-box-learn:hover{
   border-bottom: 1px solid black;

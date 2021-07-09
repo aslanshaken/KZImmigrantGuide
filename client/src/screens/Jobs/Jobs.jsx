@@ -1,8 +1,8 @@
 import './Jobs.css'
 import { Link, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-import Wall from '../../assets/job3.jpg'
-import AD from '../../assets/ad6.jpg'
+import Wall from '../../assets/ad1.png'
+import AD from '../../assets/ad1.png'
 
 export default function Jobs(props) {
 
@@ -16,12 +16,13 @@ export default function Jobs(props) {
     }
 
     function maxLength(str) { // less words for description
-        if (str.length > 25) {
-            return str.split('').slice(0, 100).join('') + '...'
+        if (str.length > 30) {
+            return str.split('').slice(0, 60).join('') + '...'
         } else {
             return str
         }
     }
+
 
     function maxNameLength(str) { // less words for name
         if (str.length > 30) {
@@ -58,13 +59,13 @@ export default function Jobs(props) {
                                     <h6>{filterDate(job?.updated_at)}</h6>
                                     <h6>{job?.city}</h6>
                                 </div>
-                                <h4 id='jobs-box-upper-left'><b>{maxNameLength(job?.job_name)}</b></h4>
-                                <p id="jobs-box-description">Description: {maxLength(job?.description)}</p>
-                                <p id="jobs-box-category">Category: {job?.category} </p>
+                                <p><b>{maxNameLength(job?.job_name)}</b></p>
+                                <p>Description: <b>{maxLength(job?.description)}</b></p>
+                                <p>Category:<b> {job?.category}</b> </p>
                                 <div className="jobs-box-bottom">
-                                    <h6>{job?.cellphone}</h6>
-                                    <h6>{job?.email}</h6>
-                                    <h6><Link  className="jobs-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></h6>
+                                    <p>{job?.cellphone}</p>
+                                    <p>{job?.email}</p>
+                                    <p><Link className="jobs-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></p>
                                 </div>
                             </div>
                         )

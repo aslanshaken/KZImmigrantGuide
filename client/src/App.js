@@ -35,6 +35,8 @@ import HouseForRentEdit from './screens/HouseForRentEdit/HouseForRentEdit';
 import HouseWantedEdit from './screens/HouseWantedEdit/HouseWantedEdit';
 import JobDescription from './screens/JobDescription/JobDescription'
 import JobsByEmployee from './screens/JobsByEmployee/JobsByEmployee';
+import JobByEmployeeDescription from './screens/JobByEmployeeDescription/JobByEmployeeDescription';
+import HousesForRent from './screens/HousesForRent/HousesForRent';
 
 function App() {
 
@@ -45,7 +47,7 @@ function App() {
   // API lists valuable
   const [jobs, setJobs] = useState([])
   const [jobsByEmployee, setJobsByEmployee] = useState([])
-  const [houseForRent, setHouseForRent] = useState([])
+  const [housesForRent, setHousesForRent] = useState([])
   const [houseWanted, setHouseWanted] = useState([])
   const [communities, setCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
@@ -59,9 +61,9 @@ function App() {
       const jobsByEmployeeList = await getAllPostsByEmployee();
       setJobsByEmployee(jobsByEmployeeList)
     }
-    const fetchHouseForRent = async () => {
+    const fetchHousesForRent = async () => {
       const houseForRentList = await getAllHousesForRent();
-      setHouseForRent(houseForRentList)
+      setHousesForRent(houseForRentList)
     }
     const fetchHouseWanted = async () => {
       const houseWantedList = await getAllHousesWanted();
@@ -78,7 +80,7 @@ function App() {
 
     fetchJobs();
     fetchJobsByEmployee();
-    fetchHouseForRent();
+    fetchHousesForRent();
     fetchHouseWanted();
     fetchCommunities();
     fetchBlogs();
@@ -135,7 +137,7 @@ function App() {
         </Route>
 
         <Route path="/house/edit/:id">
-          <HouseForRentEdit currentUser={currentUser} houseForRent={houseForRent} setHouseForRent={setHouseForRent} />
+          <HouseForRentEdit currentUser={currentUser} housesForRent={housesForRent} setHousesForRent={setHousesForRent} />
         </Route>
 
         <Route path="/community/edit/:id">
@@ -154,12 +156,20 @@ function App() {
           <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
         </Route>
 
+        <Route path='/job-by-employee/:id'>
+          <JobByEmployeeDescription jobsByEmployee={jobsByEmployee} />
+        </Route>
+
         <Route path='/job/:id'>
           <JobDescription jobs={jobs} />
         </Route>
 
         <Route path='/account'>
           <Account currentUser={currentUser} />
+        </Route>
+
+        <Route path='/houses-for-rent'>
+          <HousesForRent housesForRent={housesForRent} />
         </Route>
 
         <Route path='/account-edit'>
@@ -175,7 +185,7 @@ function App() {
             currentUser={currentUser}
             jobs={jobs}
             jobsByEmployee={jobsByEmployee}
-            houseForRent={houseForRent}
+            housesForRent={housesForRent}
             houseWanted={houseWanted}
             communities={communities}
             blogs={blogs}

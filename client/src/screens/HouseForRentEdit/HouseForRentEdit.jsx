@@ -17,16 +17,15 @@ export default function HouseForRentEdit(props) {
         state: '',
     })
     const { id } = useParams();
-    const { currentUser, houseForRent, setHouseForRent } = props
+    const { currentUser, housesForRent, setHousesForRent } = props
     const history = useHistory();
     const { name, description, state, city, date_move_in, bathroom, cellphone, email, price } = formData;
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
 
-    console.log(houseForRent)
     useEffect(() => {
         const prefillFormData = () => {
-            const House = houseForRent.find((arr) => arr.post_house.id === Number(id));
+            const House = housesForRent.find((arr) => arr.post_house.id === Number(id));
             setFormData({
                 name: House.post_house.name,
                 description: House.post_house.description,
@@ -40,10 +39,10 @@ export default function HouseForRentEdit(props) {
             });
             setNewImage(House.images)
         }
-        if (houseForRent.length) {
+        if (housesForRent.length) {
             prefillFormData();
         }
-    }, [houseForRent, id])
+    }, [housesForRent, id])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,7 +56,7 @@ export default function HouseForRentEdit(props) {
         e.preventDefault();
         const updateHouse = await updateOneHouseForRent(id, formData);
         const newH = { images: newImage, post_house: updateHouse }
-        setHouseForRent(prevState => prevState.map((arr) => {
+        setHousesForRent(prevState => prevState.map((arr) => {
             return arr.post_house.id === Number(id) ? newH : arr
         }));
         history.push('/account-listings');

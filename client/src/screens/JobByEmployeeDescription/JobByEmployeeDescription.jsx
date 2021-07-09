@@ -1,12 +1,11 @@
-import './JobDescription.css'
+import './JobByEmployeeDescription.css'
 import { Link } from "react-router-dom";
-import {useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-export default function JobDescription(params) {
+export default function JobByEmployeeDescription(params) {
 
-    const { jobs } = params
+    const { jobsByEmployee } = params
     const { id } = useParams();
-
 
     function filterDate(str) { // filter time
         const mdy = str.split('T')[0]
@@ -15,19 +14,20 @@ export default function JobDescription(params) {
     }
     return (
         <div>
-            <p className="job-go-back"><Link to="/jobs" id="none" >Go Back</Link></p>
+            <p className="jobBEDescription-go-back"><Link to="/jobs-by-employee" id="none" >Go Back</Link></p>
 
-            {jobs.map((job) => {
+            {jobsByEmployee.map((job) => {
                 if (job.id == id) {
                     return (
-                        <div className="job-box">
-                            <h2>{job?.job_name}</h2>
-                            <div className="job-box-upper">
+                        <div className="jobBEDescription-box">
+                            <h2>{job?.name}</h2>
+                            <p><b>Title:</b> {job?.title} </p>
+                            <div className="jobBEDescription-box-upper">
                                 <p><b>City:</b> {job?.city}</p>
                                 <p><b>Date:</b> {filterDate(job?.updated_at)}</p>
                             </div>
-                            <p className="job-box-description"><b>Description:</b> {job?.description} </p>
-                            <div className='job-box-bottom'>
+                            <p className="jobBEDescription-box-description"><b>Description:</b> {job?.about} </p>
+                            <div className='jobBEDescription-box-bottom'>
                                 <p><b>Cellphone:</b> {job?.cellphone}</p>
                                 <p><b>Email:</b> {job?.email}</p>
                                 <p><b>Category:</b> {job?.category}</p>

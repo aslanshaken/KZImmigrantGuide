@@ -2,7 +2,7 @@ import './JobsByEmployee.css'
 import { Link, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import Wall from '../../assets/job3.jpg'
-import AD from '../../assets/ad6.jpg'
+import AD from '../../assets/ad1.png'
 
 export default function JobsByEmployee(props) {
 
@@ -16,8 +16,8 @@ export default function JobsByEmployee(props) {
     }
 
     function maxLength(str) { // less words for description
-        if (str.length > 50) {
-            return str.split('').slice(0, 50).join('') + '...'
+        if (str.length > 30) {
+            return str.split('').slice(0, 60).join('') + '...'
         } else {
             return str
         }
@@ -25,7 +25,7 @@ export default function JobsByEmployee(props) {
 
     function maxNameLength(str) { // less words for name
         if (str.length > 30) {
-            return str.split('').slice(0, 20).join('') + '...'
+            return str.split('').slice(0, 60).join('') + '...'
         } else {
             return str
         }
@@ -35,7 +35,7 @@ export default function JobsByEmployee(props) {
         <div className="jobsByEmployee-main-container">
             <div className="jobsByEmployee-main-photo ">
                 <h2>Employees</h2>
-                <img src={Wall} />
+                <img src={AD} />
             </div>
             <div className="jobsByEmployee-main-middle">
                 <div className="jobsByEmployee-main-left">
@@ -59,13 +59,13 @@ export default function JobsByEmployee(props) {
                                     <h6>{job?.city}</h6>
                                 </div>
                                 <p><b>{maxNameLength(job?.title)}</b></p>
-                                <p><b>Name: </b>{maxNameLength(job?.name)}</p>
-                                <p><b>Description:</b> {maxLength(job?.about)}</p>
-                                <p><b>Category:</b> {job?.category} </p>
+                                <p>Name: <b> {maxNameLength(job?.name)}</b></p>
+                                <p>Description:<b> {maxLength(job?.about)}</b> </p>
+                                <p>Category:<b>  {job?.category}</b>  </p>
                                 <div className="jobsByEmployee-box-bottom">
                                     <p>{job?.cellphone}</p>
                                     <p>{job?.email}</p>
-                                    <p><Link className="jobsByEmployee-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></p>
+                                    <p><Link className="jobsByEmployee-box-learn" to={`/job-by-employee/${job?.id}`} id="none">Learn more</Link></p>
                                 </div>
                             </div>
                         )
