@@ -24,7 +24,7 @@
 
 .houses-for-rent-main-middle {
   display: flex;
-  width: 65%;
+  width: 55%;
 }
 
 .houses-for-rent-main-left {
@@ -37,6 +37,7 @@
   width: 20%;
   border: 1px solid black;
   height: 500px !important;
+  margin: 30px;
 }
 
 .houses-for-rent-main-right img {
@@ -52,8 +53,12 @@
 .houses-for-rent-select {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 50%;
   margin: 100px 0px 50px 20px;
+}
+
+.houses-for-rent-select select{
+width: fit-content;
 }
 
 .houses-for-rent-select p {
@@ -68,19 +73,20 @@
   border: 0.5px solid rgb(194, 184, 184);
   margin: 30px;
   width: 300px;
-  height: 300px;
-  padding: 1%;
+  height: 400px;
+  padding: 0% 2% 0% 2%;
   box-shadow: 5px 5px 5px 5px rgb(240, 240, 240);
 }
 
 .houses-for-rent-box-upper {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .houses-for-rent-box-img {
   width: 300px;
-  height: 100px;
+  height: 150px;
   object-fit: cover;
   z-index: -100;
 }

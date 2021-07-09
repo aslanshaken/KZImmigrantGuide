@@ -37,6 +37,7 @@ import JobDescription from './screens/JobDescription/JobDescription'
 import JobsByEmployee from './screens/JobsByEmployee/JobsByEmployee';
 import JobByEmployeeDescription from './screens/JobByEmployeeDescription/JobByEmployeeDescription';
 import HousesForRent from './screens/HousesForRent/HousesForRent';
+import HouseForRentDescription from './screens/HouseForRentDescription/HouseForRentDescription';
 
 function App() {
 
@@ -134,6 +135,10 @@ function App() {
 
         <Route path="/house-wanted/edit/:id">
           <HouseWantedEdit currentUser={currentUser} houseWanted={houseWanted} setHouseWanted={setHouseWanted} />
+        </Route>
+
+        <Route path="/house-for-rent/:id">
+          <HouseForRentDescription housesForRent={housesForRent}/>
         </Route>
 
         <Route path="/house/edit/:id">

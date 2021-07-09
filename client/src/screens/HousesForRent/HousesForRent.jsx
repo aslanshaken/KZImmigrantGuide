@@ -15,8 +15,8 @@ export default function HousesForRent(props) {
     }
 
     function maxLength(str) { // less words for description
-        if (str.length > 30) {
-            return str.split('').slice(0, 60).join('') + '...'
+        if (str.length > 60) {
+            return str.split('').slice(0, 80).join('') + '...'
         } else {
             return str
         }
@@ -58,10 +58,19 @@ export default function HousesForRent(props) {
                         return (
                             <div className='houses-for-rent-main-box'>
                                 <div className='houses-for-rent-box-upper'>
-                                    <p className="houses-for-rent-box-img-price">Price</p>
-                                    <p className='houses-for-rent-box-img-date'>Date Of Move in</p>
+                                    <p className="houses-for-rent-box-img-price">${house.post_house.price}</p>
+                                    <p className='houses-for-rent-box-img-date'>{filterDate(house.post_house.updated_at)}</p>
                                 </div>
-                                <img className='houses-for-rent-box-img' src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
+                                <img className='houses-for-rent-box-img' src={!house.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : house.images[0]?.url} />
+                                <div className='houses-for-rent-box-upper'>
+                                    <p className="houses-for-rent-box-img-price">{house.post_house.bathroom}</p>
+                                    <p className='houses-for-rent-box-img-date'>{house.post_house.state},{house.post_house.city}</p>
+                                </div>
+                                <p>{maxLength(house.post_house.name)}</p>
+                                <div className='houses-for-rent-box-upper'>
+                                    <p className="houses-for-rent-box-img-price">{house.post_house.cellphone}</p>
+                                    <p className='houses-for-rent-box-img-date'><Link to={`/house-for-rent/${house.post_house.id}`} id="none">Learn More</Link></p>
+                                </div>
                             </div>
                         )
                     })}
