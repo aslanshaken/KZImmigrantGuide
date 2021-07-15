@@ -1,4 +1,4 @@
-# KZ Immigrant Guide<!-- omit in toc -->
+# Qazaq Republic in the USA<!-- omit in toc -->
 Link - https://qazaq-republic.netlify.app/
 
 ### Name of programming project:
