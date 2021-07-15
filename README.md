@@ -1,7 +1,7 @@
 # Qazaq Republic in the USA<!-- omit in toc -->
 Link - https://qazaq-republic.netlify.app/
 
-### Programming languages I use for this project:   
+### Languages I use for this project:   
  React for front end and Ruby on Rails for back end, AWS for cloud storage.
 
 ### Date:
