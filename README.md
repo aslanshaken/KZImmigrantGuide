@@ -4,19 +4,19 @@ Link - https://qazaq-republic.netlify.app/
 ### Name of programming project:
 “Qazaq Republic in the USA”
 
-###Programming languages I use for this project:   
+### Programming languages I use for this project:   
  React for front end and Ruby on Rails for back end, AWS for cloud storage.
 
-###Date:
+### Date:
 March, 2021 - Present 
 
-###Brief short description: 
+### Brief short description: 
 This is the center of all Kazakh communities in the USA. It provides a lot of useful and latest resources to people here in the USA, especially to people who just immigrated from Kazakhstan. It can be used from anywhere in the world. It focuses on improving Kazakh culture and helping each other in the USA. It's an online guide that helps people to make the right decisions. Kazakhstan is a young country, and as Kazakh people just started to immigrate from all over the world to the USA, I feel like we need a place where we can find valid resources, meet online with each other and discuss important topics here in the USA. It will be available in English, Kazakh and Russian languages.   
 
-###Target audience: 
+### Target audience: 
 People from Kazakhstan  
 
-###Features: 
+### Features: 
 
 A user can - read only 
 
@@ -42,7 +42,8 @@ Receive a four digit code to their email address if they use the “forget passw
 
 
 
-Future ideas: 
+
+### Future ideas: 
 
 Add the feature to invite all business owners in the USA, and let them discuss important topics and share some advice with others. 
 Create my own brand to sell Kazakh accessories and Kazakh clothes to support my website needs. 
@@ -51,13 +52,15 @@ Nowadays, people from Kazakhstan have a hard time sending TNG (local) money to t
 Add a page with recommended places to visit in the USA. 
 I want to create the same platform for other countries. For example, Kazakh people from France or New Zealand will have the exact same platform for their countries. So it will be available everywhere. 
 
-How I came up with this idea:  
+
+### How I came up with this idea:  
 
 When I was 18 years old, back in 2015, I immigrated alone to the USA with $500 in my pocket. The reason why I immigrated here was because I needed changes in my life and I knew that in the USA I can have a better life. I didn’t really speak English at all. I had no family or friends here in the USA. I started my adventure in New York city. To be honest with you, for the first 2 years I had a lot of problems with renting a house, getting a job and with money. I used to trust everyone. It was my biggest mistake. My roommate stole all my money and I couldn’t find a place to sleep for a few days. My employer didn’t pay me for 2 weeks of my job. Since I didn’t speak English many people cheated me. Well, it was a good and bad experience. I have nothing to regret. I learned a lot from my past. As Leo Tolstoy says in his War and Peace book, “everything comes in time to him who knows how to wait . . . there is nothing stronger than these two: patience and time, they will do it all.” All my past experience made me stronger and taught me how to survive in all types of situations. It’s all about the time. I had to go through this. 
 During my coding bootcamp classes, I had to create a project with full stack features. I spent two days thinking about what I really want to create and how it will help other people. I always want to do something that can make a positive impact on the world. One day I received a message from my Kazakh friend who just immigrated to the USA. He had the same situation. He didn’t know English. He was trying to find a job and places to sleep and  information about our communities here in New York city. I definitely helped him and provided all the information I had. Then, I realized that it would be better if our community would have an online platform or guide, where people can get trusted information about the house, job or support each other in the USA.
 
 
-Why I think it might work:
+
+### Why I think it might work:
 
 It's a completely new idea (maybe) that focuses on one culture in the USA.
 Everyday, a lot of people are immigrating to the USA from Kazakhstan or other countries. They will be more than happy to have this type of online guide that will help them to find trusted resources and get support. 
@@ -71,8 +74,5 @@ Live chat support will be available 24/7.
 I have “a service” feature. People are always looking for any type of service. This platform will provide “trusted” services. 
 And much more.
 
-Link - https://qazaq-republic.netlify.app/ 
-GitHub- https://github.com/aslanshaken/KZImmigrantGuide
-P.S. I haven’t finished yet . Right now, I’m updating my AWS services.
 
 
