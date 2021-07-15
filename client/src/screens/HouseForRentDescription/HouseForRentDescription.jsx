@@ -14,23 +14,29 @@ export default function HouseForRentDescription(params) {
     }
     return (
         <div className="house-for-rent-main-container">
-            <p><Link to="/houses-for-rent" id="none">Go back</Link></p>
-            <div className="house-for-rent-upper">
-                <p>State,City</p>
-                <p>Title</p>
-                <p>Date</p>
-            </div>
-            <img src="http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" />
-            <div className="house-for-rent-middle">
-                <p>Price</p>
-                <p>Bathroom</p>
-                <p>Date of move in</p>
-            </div>
-            <p>Description</p>
-            <div className="house-for-rent-bottom">
-                <p>Cellphone</p>
-                <p>Email</p>
-            </div>
+            {housesForRent.map((house) => {
+                if (house?.post_house.id == id) {
+                    return (
+                        <div>
+                            <div className="house-for-rent-box">
+                                <img src={!house.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : house.images[0]?.url} />
+                                <div className="house-for-rent-box-right">
+                                    <h4><b>{house.post_house.name}</b></h4>
+                                    <p><b>State, City: </b> {house.post_house.state},{house.post_house.city}</p>
+                                    <p><b>Date: </b> {filterDate(house.post_house.updated_at)}</p>
+                                    <p><b>Price:</b> ${house.post_house.price}</p>
+                                    <p><b>Bathroom:</b> {house.post_house.bathroom}</p>
+                                    <p><b>Date Move In:</b> {house.post_house.date_move_in}</p>
+                                    <p><b>Description:</b> {house.post_house.description}</p>
+                                    <p><b>Cellphone:</b> {house.post_house.cellphone}</p>
+                                    <p><b>Email:</b> {house.post_house.email}</p>
+                                </div>
+                            </div>
+                            <p className="house-for-rent-back"><Link to="/houses-for-rent" id="none">Go back</Link></p>
+                        </div>
+                    )
+                }
+            })}
         </div>
     )
 }

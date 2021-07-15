@@ -5,7 +5,7 @@
 }
 
 .events-container {
-  width: 1200px;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;

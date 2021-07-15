@@ -37,7 +37,9 @@ import JobDescription from './screens/JobDescription/JobDescription'
 import JobsByEmployee from './screens/JobsByEmployee/JobsByEmployee';
 import JobByEmployeeDescription from './screens/JobByEmployeeDescription/JobByEmployeeDescription';
 import HousesForRent from './screens/HousesForRent/HousesForRent';
+import HousesWanted from './screens/HousesWanted/HousesWanted';
 import HouseForRentDescription from './screens/HouseForRentDescription/HouseForRentDescription';
+import HouseWantedDescription from './screens/HouseWantedDescription/HouseWantedDescription';
 
 function App() {
 
@@ -52,7 +54,7 @@ function App() {
   const [houseWanted, setHouseWanted] = useState([])
   const [communities, setCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
-  console.log(houseWanted)
+ 
   useEffect(() => {
     const fetchJobs = async () => {
       const jobsList = await getAllJobsForEmployee();
@@ -128,6 +130,8 @@ function App() {
     history.push('/');
   }
 
+  console.log(houseWanted)
+
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
@@ -169,12 +173,20 @@ function App() {
           <JobDescription jobs={jobs} />
         </Route>
 
+        <Route path='/house-wanted/:id'>
+          <HouseWantedDescription houseWanted={houseWanted} />
+        </Route>
+
         <Route path='/account'>
           <Account currentUser={currentUser} />
         </Route>
 
         <Route path='/houses-for-rent'>
           <HousesForRent housesForRent={housesForRent} />
+        </Route>
+
+        <Route path='/houses-for-rent-by-employee'>
+          <HousesWanted houseWanted={houseWanted} />
         </Route>
 
         <Route path='/account-edit'>

@@ -6,7 +6,6 @@ import AD from '../../assets/ad1.png'
 export default function HousesForRent(props) {
 
     const { housesForRent } = props // get read only data from App.js
-    console.log(housesForRent)
 
     function filterDate(str) { // filter time
         const mdy = str.split('T')[0]

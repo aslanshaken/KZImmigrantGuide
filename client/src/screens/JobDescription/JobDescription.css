@@ -1,5 +1,11 @@
+
+.job-main-description{
+    margin:50px 0px 200px 0px;
+}
+
 .job-go-back{
-    margin-left: 50px;
+    text-align: center;
+    margin: 20px;
 }
 
 .job-box{
@@ -8,9 +14,6 @@
     justify-content: center;
     align-items: center;
     height: 500px;
-    border: 1px solid grey;
-    box-shadow: 15px 15px 15px grey;
-    margin-bottom: 200px;
 }
 
 .job-box-upper{

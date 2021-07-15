@@ -1,6 +1,6 @@
 import './JobDescription.css'
 import { Link } from "react-router-dom";
-import {useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function JobDescription(params) {
 
@@ -14,9 +14,7 @@ export default function JobDescription(params) {
         return date
     }
     return (
-        <div>
-            <p className="job-go-back"><Link to="/jobs" id="none" >Go Back</Link></p>
-
+        <div className="job-main-description">
             {jobs.map((job) => {
                 if (job.id == id) {
                     return (
@@ -36,7 +34,7 @@ export default function JobDescription(params) {
                     )
                 }
             })}
-
+            <p className="job-go-back"><Link to="/jobs" id="none" >Go Back</Link></p>
         </div>
     )
 }
