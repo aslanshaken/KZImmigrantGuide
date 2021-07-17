@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './AddCommunity.css'
+import Empty from '../../assets/empty-image.jpg'
 
 export default function AddCommunity(props) {
     const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ export default function AddCommunity(props) {
     })
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData
     const { currentUser } = props
+    const [newImage, setNewImage] = useState(false)
+    const [preview, setPreview] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -32,6 +35,11 @@ export default function AddCommunity(props) {
     //     history.push('/available-jobs');
     // }
 
+    const handleImage = (e) => {
+        e.preventDefault();
+        setPreview(URL.createObjectURL(e.target.files[0]))
+        setNewImage(e.target.files[0])
+    }
 
     return (
         <div>
@@ -39,7 +47,7 @@ export default function AddCommunity(props) {
                 <div className="community-add-main-container">
                     <form className="community-add-box">
                         <p className="community-add-box-header">Add New Community</p>
-                        <div className="community-add-box-name-members">
+                        <div className="community-add-box-div">
                             <label>
                                 <p>Community Name </p>
                                 <input
@@ -49,16 +57,8 @@ export default function AddCommunity(props) {
                                     maxLength="35"
                                     onChange={handleChange} />
                             </label>
-                            <label>
-                                <p>How many members? </p>
-                                <input
-                                    type='number'
-                                    name='members_count'
-                                    value={members_count}
-                                    onChange={handleChange} />
-                            </label>
                         </div>
-                        <div className="community-add-box-name-members">
+                        <div className="community-add-box-div">
                             <label>
                                 <p>State </p>
                                 <input
@@ -76,10 +76,18 @@ export default function AddCommunity(props) {
                                     maxLength="300"
                                     onChange={handleChange} />
                             </label>
-                        </div>
-                        <div className="community-add-box-name-members">
                             <label>
-                                <p>Admin </p>
+                                <p>How many members? </p>
+                                <input
+                                    type='number'
+                                    name='members_count'
+                                    value={members_count}
+                                    onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="community-add-box-div">
+                            <label>
+                                <p>Admin name </p>
                                 <input
                                     type='text'
                                     name='contact_name'
@@ -103,7 +111,7 @@ export default function AddCommunity(props) {
                                     onChange={handleChange} />
                             </label>
                         </div>
-                        <div className="community-add-box-name-members">
+                        <div className="community-add-box-div">
                             <label>
                                 <p>Facebook </p>
                                 <input
@@ -128,6 +136,21 @@ export default function AddCommunity(props) {
                                     value={whatsapp}
                                     onChange={handleChange} />
                             </label>
+                        </div>
+                        <div className="community-add-box-div">
+                            <img  className="community-add-box-img" src={preview ? preview : Empty} />
+                        </div>
+                        <div className="community-add-box-div">
+                            <label>
+                                <h5>Add Image</h5>
+                                <input
+                                    type="file"
+                                    onChange={handleImage}
+                                />
+                            </label>
+                        </div>
+                        <div className="community-add-box-div">
+                            <button>Submit</button>
                         </div>
                     </form>
                 </div>
