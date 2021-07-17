@@ -41,6 +41,7 @@ import HousesWanted from './screens/HousesWanted/HousesWanted';
 import HouseForRentDescription from './screens/HouseForRentDescription/HouseForRentDescription';
 import HouseWantedDescription from './screens/HouseWantedDescription/HouseWantedDescription';
 import Communities from './screens/Communities/Communities';
+import AddCommunity from './screens/AddCommunity/AddCommunity'
 
 function App() {
 
@@ -131,8 +132,6 @@ function App() {
     history.push('/');
   }
 
-  console.log(allCommunities)
-
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
 
@@ -183,7 +182,11 @@ function App() {
         </Route>
 
         <Route path='/communities'>
-          <Communities allCommunities={allCommunities} />
+          <Communities allCommunities={allCommunities} currentUser={currentUser} />
+        </Route>
+
+        <Route path='/community-add'>
+          <AddCommunity currentUser={currentUser} />
         </Route>
 
         <Route path='/houses-for-rent'>

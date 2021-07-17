@@ -1,3 +1,10 @@
+.communities-add-new{
+  justify-content: flex-end;
+  display: flex;
+  cursor: pointer;
+  margin-right: 5%;
+}
+
 .communities-main-container {
   display: flex;
   flex-direction: column;

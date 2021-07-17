@@ -1,0 +1,33 @@
+.community-add-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.community-add-box {
+  border: 0.5px solid grey;
+  padding: 1%;
+}
+
+.community-add-box-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -35px;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: white;
+    /* border: 1px solid black; */
+    
+}
+
+.community-add-box-name-members{
+    display: flex;
+    
+}
+
+.community-add-box-name-members label{
+    margin: 10px;
+}

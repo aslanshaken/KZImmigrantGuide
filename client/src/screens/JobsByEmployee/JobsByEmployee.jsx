@@ -33,10 +33,10 @@ export default function JobsByEmployee(props) {
 
     return (
         <div className="jobsByEmployee-main-container">
-            <div className="jobsByEmployee-main-photo ">
+            {/* <div className="jobsByEmployee-main-photo ">
                 <img src={AD} />
-            </div>
-            <h2>Employees in the USA</h2>
+            </div> */}
+            <h1>Employees in the USA</h1>
             <div className='jobsByEmployee-select'>
                 <select>
                     <option value=''>Select State</option>

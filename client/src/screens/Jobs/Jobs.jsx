@@ -33,10 +33,10 @@ export default function Jobs(props) {
 
     return (
         <div className="jobs-main-container">
-            <div className="jobs-main-photo ">
+            {/* <div className="jobs-main-photo ">
                 <img src={Wall} />
-            </div>
-            <h2>Jobs in the USA</h2>
+            </div> */}
+            <h1>Jobs in the USA</h1>
             <div className='jobs-select'>
                 <select>
                     <option value=''>Select State</option>

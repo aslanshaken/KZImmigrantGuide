@@ -23,9 +23,9 @@ export default function HousesWanted(props) {
 
     return (
         <div className="houses-wanted-main-container">
-            <div className="houses-wanted-main-photo ">
+            {/* <div className="houses-wanted-main-photo ">
                 <img src={AD} />
-            </div>
+            </div> */}
             <h1>House Wanted in the USA </h1>
             <div className='houses-wanted-select'>
                 <select>

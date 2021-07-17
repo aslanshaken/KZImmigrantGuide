@@ -32,9 +32,9 @@ export default function HousesForRent(props) {
 
     return (
         <div className="houses-for-rent-main-container">
-            <div className="houses-for-rent-main-photo ">
+            {/* <div className="houses-for-rent-main-photo ">
                 <img src={AD} />
-            </div>
+            </div> */}
             <h1>Houses For Rent in the USA</h1>
             <div className='houses-for-rent-select'>
                 <select>
