@@ -18,7 +18,7 @@ export default function CommunityEdit(props) {
         whatsapp: '',
     })
     const { id } = useParams();
-    const { currentUser, communities, setCommunities } = props
+    const { currentUser, allCommunities, setAllCommunities } = props
     const history = useHistory();
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData;
     const [newImage, setNewImage] = useState(false)
@@ -26,7 +26,7 @@ export default function CommunityEdit(props) {
 
     useEffect(() => {
         const prefillFormData = () => {
-            const CommunityPost = communities.find((arr) => arr.community.id === Number(id));
+            const CommunityPost = allCommunities.find((arr) => arr.community.id === Number(id));
             // CommunityPost.image === null ? setImg("https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg") : setImg(CommunityPost.image.url)
             setFormData({
                 city: CommunityPost.community.city,
@@ -41,10 +41,10 @@ export default function CommunityEdit(props) {
                 whatsapp: CommunityPost.community.whatsapp,
             });
         }
-        if (communities.length) {
+        if (allCommunities.length) {
             prefillFormData();
         }
-    }, [communities, id])
+    }, [allCommunities, id])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,7 +57,7 @@ export default function CommunityEdit(props) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const updatedCommunity = await updateOneCommunity(id, formData);
-        setCommunities(prevState => prevState.map((arr) => {
+        setAllCommunities(prevState => prevState.map((arr) => {
             return arr.community.id === Number(id) ? updatedCommunity : arr
         }));
         history.push('/account-listings');

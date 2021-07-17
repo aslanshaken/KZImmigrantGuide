@@ -13,7 +13,7 @@
   
   .house-wanted-box {
     display: flex;
-    box-shadow: 5px 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px 5px  gray;
   }
   
   .house-wanted-box img {

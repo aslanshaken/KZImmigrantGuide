@@ -40,6 +40,7 @@ import HousesForRent from './screens/HousesForRent/HousesForRent';
 import HousesWanted from './screens/HousesWanted/HousesWanted';
 import HouseForRentDescription from './screens/HouseForRentDescription/HouseForRentDescription';
 import HouseWantedDescription from './screens/HouseWantedDescription/HouseWantedDescription';
+import Communities from './screens/Communities/Communities';
 
 function App() {
 
@@ -52,9 +53,9 @@ function App() {
   const [jobsByEmployee, setJobsByEmployee] = useState([])
   const [housesForRent, setHousesForRent] = useState([])
   const [houseWanted, setHouseWanted] = useState([])
-  const [communities, setCommunities] = useState([])
+  const [allCommunities, setAllCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
- 
+
   useEffect(() => {
     const fetchJobs = async () => {
       const jobsList = await getAllJobsForEmployee();
@@ -74,7 +75,7 @@ function App() {
     }
     const fetchCommunities = async () => {
       const communitiesList = await getAllCommunities();
-      setCommunities(communitiesList)
+      setAllCommunities(communitiesList)
     }
     const fetchBlogs = async () => {
       const blogsList = await getAllBlogs();
@@ -130,7 +131,7 @@ function App() {
     history.push('/');
   }
 
-  console.log(houseWanted)
+  console.log(allCommunities)
 
   return (
     <Layout currentUser={currentUser} handleLogout={handleLogout}>
@@ -142,7 +143,7 @@ function App() {
         </Route>
 
         <Route path="/house-for-rent/:id">
-          <HouseForRentDescription housesForRent={housesForRent}/>
+          <HouseForRentDescription housesForRent={housesForRent} />
         </Route>
 
         <Route path="/house/edit/:id">
@@ -150,7 +151,7 @@ function App() {
         </Route>
 
         <Route path="/community/edit/:id">
-          <CommunityEdit currentUser={currentUser} communities={communities} setCommunities={setCommunities} />
+          <CommunityEdit currentUser={currentUser} allCommunities={allCommunities} setAllCommunities={setAllCommunities} />
         </Route>
 
         <Route path="/blog/edit/:id">
@@ -181,6 +182,10 @@ function App() {
           <Account currentUser={currentUser} />
         </Route>
 
+        <Route path='/communities'>
+          <Communities allCommunities={allCommunities} />
+        </Route>
+
         <Route path='/houses-for-rent'>
           <HousesForRent housesForRent={housesForRent} />
         </Route>
@@ -204,7 +209,7 @@ function App() {
             jobsByEmployee={jobsByEmployee}
             housesForRent={housesForRent}
             houseWanted={houseWanted}
-            communities={communities}
+            allCommunities={allCommunities}
             blogs={blogs}
           />
         </Route>

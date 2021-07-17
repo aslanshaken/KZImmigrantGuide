@@ -14,17 +14,8 @@ export default function HousesWanted(props) {
     }
 
     function maxLength(str) { // less words for description
-        if (str.length > 60) {
-            return str.split('').slice(0, 80).join('') + '...'
-        } else {
-            return str
-        }
-    }
-
-
-    function maxNameLength(str) { // less words for name
-        if (str.length > 30) {
-            return str.split('').slice(0, 20).join('') + '...'
+        if (str.length > 35) {
+            return str.split('').slice(0, 35).join('') + '...'
         } else {
             return str
         }
@@ -43,12 +34,6 @@ export default function HousesWanted(props) {
                 <select>
                     <option value=''>Select City</option>
                 </select>
-                {/* <select>
-                    <option value=''>Select Bathroom</option>
-                </select>
-                <select>
-                    <option value=''>Select Price</option>
-                </select> */}
                 <p><Link to="/houses-for-rent" id="none"> House for rent</Link></p>
             </div>
             <div className="houses-wanted-main-middle">

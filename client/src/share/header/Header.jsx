@@ -64,7 +64,7 @@ export default function Header(props) {
                         </Link>
                     </div>
                     <div>
-                        <Link to="#" id="none">
+                        <Link to="/communities" id="none">
                             <h5 id="hv">Communities</h5>
                         </Link>
                     </div>

@@ -7,7 +7,6 @@ import AD from '../../assets/ad1.png'
 export default function Jobs(props) {
 
     const { jobs } = props // get read only data from App.js
-    console.log(jobs)
 
     function filterDate(str) { // filter time
         const mdy = str.split('T')[0]

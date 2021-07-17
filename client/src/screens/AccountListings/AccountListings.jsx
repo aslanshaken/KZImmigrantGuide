@@ -18,7 +18,7 @@ export default function AccountListings(props) {
         jobsByEmployee,
         housesForRent,
         houseWanted,
-        communities,
+        allCommunities,
         blogs
     } = props
     const history = useHistory();
@@ -164,7 +164,7 @@ export default function AccountListings(props) {
                             )
                         }
                     })}
-                    {communities.map((arr) => {
+                    {allCommunities.map((arr) => {
                         if (arr.community.user_id == currentUser?.user.id) {
                             return (
                                 <div
