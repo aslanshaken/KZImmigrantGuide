@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './AddCommunity.css'
 import Empty from '../../assets/empty-image.jpg'
+import { postNewCommunity } from '../../services/communities'
 
 export default function AddCommunity(props) {
     const [formData, setFormData] = useState({
@@ -15,10 +16,12 @@ export default function AddCommunity(props) {
         telegram: '',
         whatsapp: ''
     })
+
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData
-    const { currentUser } = props
+    const { currentUser, setAllCommunities } = props
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
+    const [received, setReceived] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,92 +31,123 @@ export default function AddCommunity(props) {
         }))
     }
 
-    // const handleCreate = async (e) => {
-    //     e.preventDefault();
-    //     const newJob = await postNewJobForEmployee(formData);
-    //     setJobs(prevState => [...prevState, newJob]);
-    //     history.push('/available-jobs');
-    // }
-
     const handleImage = (e) => {
         e.preventDefault();
         setPreview(URL.createObjectURL(e.target.files[0]))
         setNewImage(e.target.files[0])
     }
 
+    const handleCreate = async (e) => {
+        e.preventDefault();
+        const newCommunity = await postNewCommunity(formData);
+        setAllCommunities(prevState => [...prevState, newCommunity]);
+        setReceived(true)
+        setFormData({
+            city: '',
+            contact_email: '',
+            contact_name: '',
+            contact_phone: '',
+            facebook: '',
+            members_count: '',
+            name_community: '',
+            state: '',
+            telegram: '',
+            whatsapp: ''
+        })
+    }
+
+    function Call() {
+        return (
+            <div className="community-add-received-text">
+                Thank you! We have received your information. It will be reviewed by administration and submitted within 24 hours.
+            </div>
+        )
+    }
+
     return (
         <div>
             {currentUser ?
                 <div className="community-add-main-container">
-                    <form className="community-add-box">
+                    <form className="community-add-box" onSubmit={handleCreate}>
                         <p className="community-add-box-header">Add New Community</p>
                         <div className="community-add-box-div">
                             <label>
-                                <p>Community Name </p>
+                                <p>Community Name*</p>
                                 <input
+                                    className="community-add-box-input-full"
                                     type='text'
                                     name='name_community'
                                     value={name_community}
-                                    maxLength="35"
+                                    maxLength="50"
+                                    required
                                     onChange={handleChange} />
                             </label>
                         </div>
                         <div className="community-add-box-div">
                             <label>
-                                <p>State </p>
+                                <p>State*</p>
                                 <input
                                     type='text'
                                     name='state'
                                     value={state}
+                                    required
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>City </p>
+                                <p>City*</p>
                                 <input
                                     type='text'
                                     name='city'
                                     value={city}
                                     maxLength="300"
+                                    required
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>How many members? </p>
+                                <p>How many members?*</p>
                                 <input
                                     type='number'
                                     name='members_count'
                                     value={members_count}
+                                    required
                                     onChange={handleChange} />
                             </label>
                         </div>
                         <div className="community-add-box-div">
                             <label>
-                                <p>Admin name </p>
+                                <p>Admin name*</p>
                                 <input
                                     type='text'
                                     name='contact_name'
                                     value={contact_name}
+                                    required
+                                    maxLength="23"
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>Email </p>
+                                <p>Email*</p>
                                 <input
                                     type='email'
                                     name='contact_email'
                                     value={contact_email}
+                                    required
+                                    maxLength="30"
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>CellPhone </p>
+                                <p>Cellphone*</p>
                                 <input
-                                    type='numbers'
+                                    type='text'
                                     name='contact_phone'
                                     value={contact_phone}
+                                    required
+                                    maxLength="12"
                                     onChange={handleChange} />
                             </label>
                         </div>
                         <div className="community-add-box-div">
                             <label>
-                                <p>Facebook </p>
+                                <p>Facebook URL </p>
                                 <input
                                     type='text'
                                     name='facebook'
@@ -121,7 +155,7 @@ export default function AddCommunity(props) {
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>Telegram </p>
+                                <p>Telegram URL </p>
                                 <input
                                     type='text'
                                     name='telegram'
@@ -129,7 +163,7 @@ export default function AddCommunity(props) {
                                     onChange={handleChange} />
                             </label>
                             <label>
-                                <p>WhatsApp </p>
+                                <p>WhatsApp URL </p>
                                 <input
                                     type='text'
                                     name='whatsapp'
@@ -138,9 +172,9 @@ export default function AddCommunity(props) {
                             </label>
                         </div>
                         <div className="community-add-box-div">
-                            <img  className="community-add-box-img" src={preview ? preview : Empty} />
+                            <img className="community-add-box-img" src={preview ? preview : Empty} />
                         </div>
-                        <div className="community-add-box-div">
+                        <div className="community-add-box-div-img-input">
                             <label>
                                 <h5>Add Image</h5>
                                 <input
@@ -153,6 +187,7 @@ export default function AddCommunity(props) {
                             <button>Submit</button>
                         </div>
                     </form>
+                    {received && Call()}
                 </div>
                 :
                 <div className="community-add-main-container">

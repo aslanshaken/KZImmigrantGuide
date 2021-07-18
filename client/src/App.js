@@ -186,7 +186,7 @@ function App() {
         </Route>
 
         <Route path='/community-add'>
-          <AddCommunity currentUser={currentUser} />
+          <AddCommunity currentUser={currentUser} setAllCommunities={setAllCommunities} />
         </Route>
 
         <Route path='/houses-for-rent'>

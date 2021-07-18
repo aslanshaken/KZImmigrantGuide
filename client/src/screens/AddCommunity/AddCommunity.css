@@ -3,38 +3,74 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 50px 0px 100px 0px;
+}
+
+.community-add-received-text{
+  padding: 1%;
+  color: forestgreen;
+  border: 1px solid forestgreen;
+  margin-top: 10px;
 }
 
 .community-add-box {
   border: 0.5px solid grey;
   padding: 1%;
+  width: 620px !important;
 }
 
 .community-add-box-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -35px;
+  text-align: center;
   font-size: 35px;
   font-weight: 700;
-  background-color: white;
-  /* border: 1px solid black; */
+  color: #6498c6;
 }
 
 .community-add-box-div {
   display: flex;
-  border-bottom: 1px solid grey;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .community-add-box-div label {
-  margin: 10px;
+  margin: 0px 10px 0px 10px;
 }
 
-.community-add-box-img{
-  width: 350px !important;
-  height: 300px !important;
-  margin: 50px;
+.community-add-box-div input {
+  height: 30px;
+  border: none;
+  background-color: #edf2f5;
+}
+
+.community-add-box-div button {
+  background-color: #6498c6;
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding: 1%;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.community-add-box-input-full {
+  width: 580px !important;
+}
+
+.community-add-box-img {
+  width: 500px !important;
+  height: 400px !important;
+  margin-top: 50px;
+  display: flex;
+  border-radius: 20px;
+  object-fit: cover;
+  justify-content: center;
+}
+
+.community-add-box-div-img-input {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
