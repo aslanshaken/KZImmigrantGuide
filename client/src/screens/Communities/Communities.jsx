@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import Facebook from '../../assets/facebook.svg'
 import Whatsapp from '../../assets/whatsapp.svg'
 import Telegram from '../../assets/telegram.svg'
+import { UsaStatesAndCities } from '../../assets/Usa'
 
 export default function Communities(props) {
     const { allCommunities, currentUser } = props
     const currentDate = new Date()
+    console.log(UsaStatesAndCities())
 
     function filterDate(str) { // filter time
         if (str) {
@@ -41,7 +43,7 @@ export default function Communities(props) {
                     {allCommunities.map((community) => {
                         if (getCurrentDate(community.community?.created_at) == currentDate.getDate()) {
                             return false
-                        }else {
+                        } else {
                             return (
                                 <div className="community-box">
                                     <div className="community-box-left">
