@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './AddCommunity.css'
 import Empty from '../../assets/empty-image.jpg'
 import { postNewCommunity } from '../../services/communities'
+import { UsaStatesAndCities } from '../../assets/Usa'
 
 export default function AddCommunity(props) {
     const [formData, setFormData] = useState({
@@ -16,19 +17,20 @@ export default function AddCommunity(props) {
         telegram: '',
         whatsapp: ''
     })
-
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData
     const { currentUser, setAllCommunities } = props
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
     const [received, setReceived] = useState(false)
+    const states = UsaStatesAndCities()
+    console.log(states)
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
+        // const { name, value } = e.target;
+        // setFormData(prevState => ({
+        //     ...prevState,
+        //     [name]: value
+        // }))
     }
 
     const handleImage = (e) => {
@@ -86,12 +88,21 @@ export default function AddCommunity(props) {
                         <div className="community-add-box-div">
                             <label>
                                 <p>State*</p>
-                                <input
+                                <select onClick={handleChange()}>
+                                    <option selected disabled> Search by State </option>
+                                    {/* {for (const oneState in states ) {
+                                        return (
+                                    <option name='state' value={oneState}>{oneState}</option>
+                                    )
+                                    }} */}
+                                </select>
+                                {/* <input
                                     type='text'
                                     name='state'
                                     value={state}
                                     required
-                                    onChange={handleChange} />
+                                    onChange={handleChange}
+                                /> */}
                             </label>
                             <label>
                                 <p>City*</p>
