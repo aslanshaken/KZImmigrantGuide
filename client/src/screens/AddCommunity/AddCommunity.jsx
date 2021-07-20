@@ -23,14 +23,14 @@ export default function AddCommunity(props) {
     const [preview, setPreview] = useState(false)
     const [received, setReceived] = useState(false)
     const states = UsaStatesAndCities()
-    console.log(states)
+    const [cities, setCities] = useState([])
 
     const handleChange = (e) => {
-        // const { name, value } = e.target;
-        // setFormData(prevState => ({
-        //     ...prevState,
-        //     [name]: value
-        // }))
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }))
     }
 
     const handleImage = (e) => {
@@ -63,8 +63,13 @@ export default function AddCommunity(props) {
             <div className="community-add-received-text">
                 Thank you! We have received your information. It will be reviewed by administration and submitted within 24 hours.
             </div>
+
         )
     }
+
+    // If state selected map thru all states find that state, and then save selected state's cities to variable called cities.
+    // formData?.state && Object.keys(states).map((oneState) => oneState == formData.state && cities.push(states[oneState]))
+
 
     return (
         <div>
@@ -88,31 +93,20 @@ export default function AddCommunity(props) {
                         <div className="community-add-box-div">
                             <label>
                                 <p>State*</p>
-                                <select onClick={handleChange()}>
+                                <select name='state' onChange={(e) => {
+                                    handleChange(e)
+                                    setCities(states[e.target.value])
+                                }} required >
                                     <option selected disabled> Search by State </option>
-                                    {/* {for (const oneState in states ) {
-                                        return (
-                                    <option name='state' value={oneState}>{oneState}</option>
-                                    )
-                                    }} */}
+                                    {Object.keys(states).map((oneState) => <option value={oneState}>{oneState}</option> )}
                                 </select>
-                                {/* <input
-                                    type='text'
-                                    name='state'
-                                    value={state}
-                                    required
-                                    onChange={handleChange}
-                                /> */}
                             </label>
                             <label>
                                 <p>City*</p>
-                                <input
-                                    type='text'
-                                    name='city'
-                                    value={city}
-                                    maxLength="300"
-                                    required
-                                    onChange={handleChange} />
+                                <select name='city' required onChange={(e) => handleChange(e)} >
+                                    <option selected disabled > Search by City </option>
+                                    {cities && cities.map((city) => < option value={city} > {city}</option>)}
+                                </select>
                             </label>
                             <label>
                                 <p>How many members?*</p>
@@ -205,6 +199,6 @@ export default function AddCommunity(props) {
                     Loading ....
                 </div>
             }
-        </div>
+        </div >
     )
 }

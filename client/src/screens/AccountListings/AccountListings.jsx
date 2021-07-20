@@ -165,7 +165,7 @@ export default function AccountListings(props) {
                         }
                     })}
                     {allCommunities.map((arr) => {
-                        if (arr.community.user_id == currentUser?.user.id) {
+                        if (arr.community?.user_id == currentUser?.user.id) {
                             return (
                                 <div
                                     className={categoryToggle === "all" ? "listing-box" : categoryToggle === "communities" ? "listing-box" : "none-display"}
