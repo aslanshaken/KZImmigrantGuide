@@ -24,6 +24,7 @@ export default function AddCommunity(props) {
     const [received, setReceived] = useState(false)
     const states = UsaStatesAndCities()
     const [cities, setCities] = useState([])
+    const [stateToggle, setStateToggle] = useState(true)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -44,6 +45,8 @@ export default function AddCommunity(props) {
         const newCommunity = await postNewCommunity(formData);
         setAllCommunities(prevState => [...prevState, newCommunity]);
         setReceived(true)
+        setCities()
+        // setStateToggle(false)
         setFormData({
             city: '',
             contact_email: '',
@@ -75,7 +78,7 @@ export default function AddCommunity(props) {
         <div>
             {currentUser ?
                 <div className="community-add-main-container">
-                    <form className="community-add-box" onSubmit={handleCreate}>
+                    <form className="community-add-box" onSubmit={(e) => handleCreate(e)}>
                         <p className="community-add-box-header">Add New Community</p>
                         <div className="community-add-box-div">
                             <label>
@@ -93,19 +96,19 @@ export default function AddCommunity(props) {
                         <div className="community-add-box-div">
                             <label>
                                 <p>State*</p>
-                                <select name='state' onChange={(e) => {
+                                <select required="required" name='state' onChange={(e) => {
                                     handleChange(e)
                                     setCities(states[e.target.value])
-                                }} required >
-                                    <option selected disabled> Search by State </option>
-                                    {Object.keys(states).map((oneState) => <option value={oneState}>{oneState}</option> )}
+                                }}>
+                                    <option selected disabled> Select State </option>
+                                    {stateToggle && Object.keys(states).map((oneState) => <option value={oneState}>{oneState}</option>)}
                                 </select>
                             </label>
                             <label>
                                 <p>City*</p>
-                                <select name='city' required onChange={(e) => handleChange(e)} >
-                                    <option selected disabled > Search by City </option>
-                                    {cities && cities.map((city) => < option value={city} > {city}</option>)}
+                                <select name='city' required="required" onChange={(e) => handleChange(e)} >
+                                    <option selected disabled > Select City </option>
+                                    {cities && cities.map((city) => <option value={city}>{city}</option>)}
                                 </select>
                             </label>
                             <label>
@@ -181,7 +184,6 @@ export default function AddCommunity(props) {
                         </div>
                         <div className="community-add-box-div-img-input">
                             <label>
-                                <h5>Add Image</h5>
                                 <input
                                     type="file"
                                     onChange={handleImage}

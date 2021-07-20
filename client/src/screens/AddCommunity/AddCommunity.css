@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px 0px 100px 0px;
+  margin: 20px 0px 100px 0px;
 }
 
 .community-add-received-text{
@@ -21,16 +21,18 @@
 
 .community-add-box-header {
   text-align: center;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   color: #6498c6;
+
 }
 
 .community-add-box-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
 .community-add-box-div label {
@@ -67,9 +69,9 @@
 }
 
 .community-add-box-img {
-  width: 500px !important;
-  height: 400px !important;
-  margin-top: 50px;
+  width: 300px !important;
+  height: 200px !important;
+  margin-top: 20px;
   display: flex;
   border-radius: 20px;
   object-fit: cover;
@@ -80,5 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
+
+

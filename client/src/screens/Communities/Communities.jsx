@@ -33,11 +33,20 @@ export default function Communities(props) {
                 <h5 className="communities-add-new" onClick={() => alert("Please Sign in or Register if you want to add a new community")}>Request to add a new community</h5>
             }
             <div className="communities-main-container">
-                <h1>Qazaq communities in the USA</h1>
+                <div className="communities-main-wall">
+                    <img src='https://vistapointe.net/images/flag-of-kazakhstan-6.jpg' />
+                    <h1><b>QAZAQ</b> COMMUNITIES IN THE <c>USA</c></h1>
+                </div>
                 <div className="communities-choose">
-                    <p>1. Choose the State</p>
-                    <p>2. Choose the City</p>
-                    <p>3. Get the output</p>
+                    <select>
+                        <option>Select State</option>
+                    </select>
+                    <select>
+                        <option>Select City</option>
+                    </select>
+                    <select>
+                        <option>Select Popularity</option>
+                    </select>
                 </div>
                 <div className="communities-main-boxes">
                     {allCommunities.map((community) => {

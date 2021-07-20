@@ -1,0 +1,21 @@
+.blogs-main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 100px 0px;
+}
+
+.blogs-main-text{
+    text-align: center;
+}
+
+.blogs-center{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blogs-center-box{
+    border: 0.5px solid grey;
+}

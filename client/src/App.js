@@ -42,6 +42,7 @@ import HouseForRentDescription from './screens/HouseForRentDescription/HouseForR
 import HouseWantedDescription from './screens/HouseWantedDescription/HouseWantedDescription';
 import Communities from './screens/Communities/Communities';
 import AddCommunity from './screens/AddCommunity/AddCommunity'
+import Blogs from './screens/Blogs/Blogs';
 
 function App() {
 
@@ -179,6 +180,10 @@ function App() {
 
         <Route path='/account'>
           <Account currentUser={currentUser} />
+        </Route>
+
+        <Route path='/blogs'>
+          <Blogs blogs={blogs} />
         </Route>
 
         <Route path='/communities'>
