@@ -43,6 +43,7 @@ import HouseWantedDescription from './screens/HouseWantedDescription/HouseWanted
 import Communities from './screens/Communities/Communities';
 import AddCommunity from './screens/AddCommunity/AddCommunity'
 import Blogs from './screens/Blogs/Blogs';
+import BlogDescription from './screens/BlogDescription/BlogDescription';
 
 function App() {
 
@@ -152,6 +153,10 @@ function App() {
 
         <Route path="/community/edit/:id">
           <CommunityEdit currentUser={currentUser} allCommunities={allCommunities} setAllCommunities={setAllCommunities} />
+        </Route>
+
+        <Route path="/blog/:id">
+          <BlogDescription blogs={blogs}  />
         </Route>
 
         <Route path="/blog/edit/:id">

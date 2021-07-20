@@ -1,5 +1,6 @@
 import './Blogs.css'
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 export default function Blogs(props) {
     const { blogs } = props
@@ -21,11 +22,18 @@ export default function Blogs(props) {
                 </p>
             </div>
             <div className="blogs-center">
-                <div className="blogs-center-box">
-                    <img />
-                    <h3>TEXT</h3>
-                    <h6>Read More</h6>
-                </div>
+                {blogs.map((blog) => {
+                    return (
+                        <div className="blogs-box">
+                            <img  src={!blog.image ? "https://images.unsplash.com/photo-1504691342899-4d92b50853e1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxvZ2dlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" : blog.image?.url} />
+                            <div className="blogs-box-text">
+                                <h3>{blog.blog.title}</h3>
+                                <h4>by: {blog.blog.name}</h4>
+                                <Link to={`/blog/${blog.blog.id}`} className="blogs-box-read-more">Read More</Link>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
