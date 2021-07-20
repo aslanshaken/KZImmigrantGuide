@@ -79,7 +79,7 @@ export default function Header(props) {
                         </Link>
                     </div>
                     <div>
-                        <Link to="#" id="none">
+                        <Link to="/about" id="none">
                             <h5 id="hv">About Us</h5>
                         </Link>
                     </div>

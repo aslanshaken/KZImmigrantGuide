@@ -58,7 +58,7 @@ export default function Footer() {
                     <h5>LinkedIn</h5>
                 </div>
             </div>
-            <h5 className="footer-all-rights">©2021 Qazaq Republic Inc. All Rights Reserved | by Aslan Shaken</h5>
+            <h5 className="footer-all-rights">©2021 Qazaq Republic Inc. | All Rights Reserved | by Aslan Shaken</h5>
         </div>
     )
 }

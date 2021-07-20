@@ -44,6 +44,7 @@ import Communities from './screens/Communities/Communities';
 import AddCommunity from './screens/AddCommunity/AddCommunity'
 import Blogs from './screens/Blogs/Blogs';
 import BlogDescription from './screens/BlogDescription/BlogDescription';
+import AboutUs from './screens/AboutUs/AboutUs';
 
 function App() {
 
@@ -189,6 +190,10 @@ function App() {
 
         <Route path='/blogs'>
           <Blogs blogs={blogs} />
+        </Route>
+
+        <Route path='/about'>
+          <AboutUs />
         </Route>
 
         <Route path='/communities'>

@@ -1,0 +1,28 @@
+.about-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px 200px 0px;
+}
+
+.about-wall img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: relative;
+}
+
+.about-wall h1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #b6adad;
+  font-size: 40px;
+  line-height: 24px;
+  vertical-align: baseline;
+  letter-spacing: 7.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
