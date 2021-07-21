@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
 }
 
 .about-text {
@@ -63,6 +62,43 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://wonderfulengineering.com/wp-content/uploads/2016/02/white-wallpaper-11.jpg");
+}
 
+.about-me-box {
+  display: flex;
+  justify-content: space-around;
+  width: 1700px;
+  margin: 50px 0px 50px 0px
+}
+
+.about-me-paragraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me-image {
+  border-radius: 20px;
+  box-shadow: 15px 15px 15px 15px grey;
+}
+
+.about-me-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-me-links img {
+  width: 40px;
+  margin: 10px;
+}
+
+.about-idea{
+  background-color: #F6F6F6;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2%;
 }

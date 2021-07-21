@@ -45,6 +45,7 @@ import AddCommunity from './screens/AddCommunity/AddCommunity'
 import Blogs from './screens/Blogs/Blogs';
 import BlogDescription from './screens/BlogDescription/BlogDescription';
 import AboutUs from './screens/AboutUs/AboutUs';
+import Contact from './screens/Contact/Contact';
 
 function App() {
 
@@ -256,6 +257,10 @@ function App() {
 
         <Route path="/create/posts">
           <CreatePosts />
+        </Route>
+
+        <Route path="/contact">
+          <Contact />
         </Route>
 
         <Route path='/jobs'>
