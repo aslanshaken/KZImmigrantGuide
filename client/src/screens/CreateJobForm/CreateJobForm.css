@@ -1,57 +1,77 @@
-.job-create-background {
-    margin-bottom: 100px;
-    background-image: url(https://wallpapercave.com/wp/uEI2zWW.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+.create-job-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px 100px 0px;
 }
 
-.job-create-main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-
+.create-job-received-text {
+  padding: 1%;
+  color: forestgreen;
+  border: 1px solid forestgreen;
+  margin-top: 10px;
 }
 
-.job-create-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid burlywood;
-    padding: 50px;
-    box-shadow: 5px 5px 5px 5px gray;
-    background-color: white;
+.create-job-box {
+  border: 0.5px solid grey;
+  padding: 1%;
+  border-radius: 25px;
+  width: 620px !important;
 }
 
-.job-create-container input {
-    width: 250px;
-    margin-bottom: 10px;
+.create-job-box-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #6498c6;
 }
 
-.job-create-container textarea {
-    width: 250px;
-    margin-bottom: 10px;
-    height: 70px;
+.create-job-box-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
-@media only screen and (max-width: 377px) {
+.create-job-box-div label {
+  margin: 0px 10px 0px 10px;
+}
 
-    .job-create-container {
-        padding: 20px;
-    }
+.create-job-box-div input {
+  height: 30px;
+  border: none;
+  background-color: #edf2f5;
+}
 
-    .job-create-container input {
-        width: 150px;
-        margin-bottom: 10px;
-    }
+.create-job-box-div select {
+  height: 32px;
+  width: 170px;
+  margin: 0px 10px 0px 0px;
+  border: none;
+  background-color: #edf2f5;
+}
 
-    .job-create-container textarea {
-        width: 150px;
-        margin-bottom: 10px;
-        height: 50px;
-    }
+.create-job-box-div button {
+  background-color: #6498c6;
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding: 1%;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
 
+.create-job-box-input-full {
+  width: 580px !important;
+}
 
+.create-job-box-textarea-full {
+margin-top: 20px;
+  width: 500px !important;
+  height: 230px;
+  border: none;
+  background-color: #edf2f5;
 }

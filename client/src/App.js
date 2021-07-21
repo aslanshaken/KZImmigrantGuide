@@ -46,6 +46,7 @@ import Blogs from './screens/Blogs/Blogs';
 import BlogDescription from './screens/BlogDescription/BlogDescription';
 import AboutUs from './screens/AboutUs/AboutUs';
 import Contact from './screens/Contact/Contact';
+import CreateJobWanted from './screens/CreateJobWanted/CreateJobWanted';
 
 function App() {
 
@@ -252,7 +253,11 @@ function App() {
         </Route>
 
         <Route path="/post/job">
-          <CreateJobForm />
+          <CreateJobForm setJobs={setJobs} currentUser={currentUser} />
+        </Route>
+
+        <Route path="/post/jobwanted">
+          <CreateJobWanted setJobsByEmployee={setJobsByEmployee} currentUser={currentUser} />
         </Route>
 
         <Route path="/create/posts">

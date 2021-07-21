@@ -18,7 +18,7 @@ export default function JobByEmployeeEdit(props) {
     const { currentUser, jobsByEmployee, setJobsByEmployee } = props
     const history = useHistory();
     const { title, name, about, category, city, cellphone, email } = formData;
-console.log(jobsByEmployee)
+
     useEffect(() => {
         const prefillFormData = () => {
             const jobPost = jobsByEmployee.find((job) => job.id === Number(id));

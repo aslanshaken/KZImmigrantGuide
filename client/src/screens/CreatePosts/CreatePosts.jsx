@@ -4,21 +4,24 @@ import { Link } from 'react-router-dom'
 export default function CreatePosts() {
     return (
         <div className="post-options-container">
-            <h2>Post</h2>
-            <h5>Please Choose One</h5>
-
+            <h1>Add a new post</h1>
             <div className="post-options">
+                <Link to="/post/job" id="none">
+                    <h4>Job Offered</h4>
+                </Link>
+                <Link to="/post/jobwanted" id="none">
+                    <h4>Resume/Job Wanted</h4>
+                </Link>
                 <Link to="/post-get-hired" id="none">
-                    <h4>Get Hired</h4>
+                    <h4>House Offered</h4>
                 </Link>
                 <Link to="/post/job" id="none">
-                    <h4>Post a Job</h4>
+                    <h4>Housing Wanted</h4>
                 </Link>
-                <Link to="/post-house" id="none">
-                    <h4>Add Housing</h4>
+                <Link to="/post-get-hired" id="none">
+                    <h4>Service Offered</h4>
                 </Link>
             </div>
-
         </div>
     )
 }

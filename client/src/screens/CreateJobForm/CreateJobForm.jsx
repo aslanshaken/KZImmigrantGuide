@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CreateJobForm.css'
-import { useHistory, Redirect } from 'react-router-dom';
 import { postNewJobForEmployee } from '../../services/getEmployees'
+import { UsaStatesAndCities } from '../../assets/Usa'
 
 export default function CreateJobForm(props) {
     const [formData, setFormData] = useState({
@@ -12,11 +12,12 @@ export default function CreateJobForm(props) {
         cellphone: '',
         email: ''
     })
-    const history = useHistory();
-    const { setJobs } = props
+    const { setJobs, currentUser } = props
+    const states = UsaStatesAndCities()
+    const [cities, setCities] = useState([])
+    const [stateToggle, setStateToggle] = useState(true)
     const { job_name, category, description, city, cellphone, email } = formData;
-
-
+    const [received, setReceived] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,78 +31,130 @@ export default function CreateJobForm(props) {
         e.preventDefault();
         const newJob = await postNewJobForEmployee(formData);
         setJobs(prevState => [...prevState, newJob]);
-        history.push('/available-jobs');
+        setReceived(true)
+        setCities()
+        setFormData({
+            job_name: '',
+            category: '',
+            description: '',
+            city: '',
+            cellphone: '',
+            email: ''
+        })
+    }
+
+    function Call() {
+        return (
+            <div className="create-job-received-text">
+                Thank you! We have received your information. It will be reviewed by administration and submitted within 2 hours.
+            </div>
+
+        )
     }
 
 
-
-
     return (
-        <div className="job-create-background">
-            <div className="job-create-main-container">
-
-                <h3>Create a new job</h3>
-
-                <form
-                    className="job-create-container"
-                    onSubmit={handleCreate}
-                >
-
-                    <input
-                        placeholder="Name of the Job"
-                        type='text'
-                        name='job_name'
-                        value={job_name}
-                        onChange={handleChange}
-                    />
-
-                    <textarea
-                        placeholder="Description"
-                        type='text'
-                        name='description'
-                        value={description}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        placeholder="Category"
-                        type='text'
-                        name='category'
-                        value={category}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        placeholder="City"
-                        type='text'
-                        name='city'
-                        value={city}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        placeholder="Cellphone"
-                        type='text'
-                        name='cellphone'
-                        value={cellphone}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        placeholder="Email"
-                        type='email'
-                        name='email'
-                        value={email}
-                        onChange={handleChange}
-                    />
-
-                    <br />
-
-                    <button>Submit</button>
-
-                </form>
-
-            </div>
-        </div>
+        <div>
+            {currentUser ?
+                <div className="create-job-main-container">
+                    <form className="create-job-box" onSubmit={(e) => handleCreate(e)}>
+                        <p className="create-job-box-header">Add a Job Offer</p>
+                        <div className="create-job-box-div">
+                            <label>
+                                <p>Title*</p>
+                                <input
+                                    className="create-job-box-input-full"
+                                    type='text'
+                                    name='job_name'
+                                    value={job_name}
+                                    maxLength="50"
+                                    required
+                                    onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="create-job-box-div">
+                            <label>
+                                <p>State*</p>
+                                <select required="required" name='state' onChange={(e) => {
+                                    handleChange(e)
+                                    setCities(states[e.target.value])
+                                }}>
+                                    <option selected disabled> Select State </option>
+                                    {stateToggle && Object.keys(states).map((oneState) => <option value={oneState}>{oneState}</option>)}
+                                </select>
+                            </label>
+                            <label>
+                                <p>City*</p>
+                                <select name='city' required="required" onChange={(e) => handleChange(e)} >
+                                    <option selected disabled > Select City </option>
+                                    {cities && cities.map((city) => <option value={city}>{city}</option>)}
+                                </select>
+                            </label>
+                            <label>
+                                <p>Category*</p>
+                                <input
+                                    type='text'
+                                    name='category'
+                                    value={category}
+                                    required
+                                    onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="create-job-box-div">
+                            <label>
+                                <p>Admin name*</p>
+                                <input
+                                    type='text'
+                                    // name='name'
+                                    // value={name}
+                                    required
+                                    maxLength="23"
+                                    onChange={handleChange} />
+                            </label>
+                            <label>
+                                <p>Email*</p>
+                                <input
+                                    type='email'
+                                    name='email'
+                                    value={email}
+                                    required
+                                    maxLength="30"
+                                    onChange={handleChange} />
+                            </label>
+                            <label>
+                                <p>Cellphone*</p>
+                                <input
+                                    type='text'
+                                    name='cellphone'
+                                    value={cellphone}
+                                    required
+                                    maxLength="12"
+                                    onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="create-job-box-div">
+                            <label>
+                                <textarea
+                                    className="create-job-box-textarea-full"
+                                    type='text'
+                                    placeholder="Description"
+                                    name='description'
+                                    value={description}
+                                    required
+                                    onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="create-job-box-div">
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                    {received && Call()}
+                </div>
+                :
+                <div className="create-job-main-container">
+                    Loading ....
+                </div>
+            }
+        </div >
     )
 }
