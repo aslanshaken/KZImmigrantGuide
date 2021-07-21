@@ -28,7 +28,7 @@ export default function Communities(props) {
     return (
         <div>
             {currentUser ?
-                <h5 className="communities-add-new"><Link to="/community-add" id="none">Request to add a new community</Link></h5>
+                <h5 className="communities-add-new"><Link to="/community/add" id="none">Request to add a new community</Link></h5>
                 :
                 <h5 className="communities-add-new" onClick={() => alert("Please Sign in or Register if you want to add a new community")}>Request to add a new community</h5>
             }

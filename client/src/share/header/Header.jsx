@@ -54,7 +54,7 @@ export default function Header(props) {
                         </Link>
                     </div>
                     <div>
-                        <Link to="/houses-for-rent" id="none">
+                        <Link to="/housesforrent" id="none">
                             <h5 id="hv" >Housing</h5>
                         </Link>
                     </div>
@@ -90,7 +90,7 @@ export default function Header(props) {
                     </div>
                     <div>
                         {currentUser ?
-                            <Link to="/create-posts" id="none">
+                            <Link to="/create/posts" id="none">
                                 <h5 className="create-post-button">Create a Post</h5>
                             </Link>
                             :
@@ -179,7 +179,7 @@ export default function Header(props) {
                         }
                         <div id="xs">
                             {currentUser ?
-                                <Link to="/create-posts" id="none">
+                                <Link to="/create/posts" id="none">
                                     <h4 className="create-post-button">Create a Post</h4>
                                 </Link>
                                 :

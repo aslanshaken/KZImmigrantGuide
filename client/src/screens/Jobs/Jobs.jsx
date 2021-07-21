@@ -47,7 +47,7 @@ export default function Jobs(props) {
                 <select>
                     <option value=''>Select Category</option>
                 </select>
-                <p><Link to="/jobs-by-employee" id="none"> I'm looking for employees</Link></p>
+                <p><Link to="/jobs/byemployee" id="none"> I'm looking for employees</Link></p>
             </div>
             <div className="jobs-main-middle">
                 <div className="jobs-main-left">

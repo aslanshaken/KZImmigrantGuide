@@ -47,7 +47,7 @@ export default function BlogEdit(props) {
         setBlogs(prevState => prevState.map((blog) => {
             return blog.blog.id === Number(id) ? updatedBlog : blog
         }));
-        history.push('/account-listings');
+        history.push('/account/listings');
     }
 
     const handleImage = (e) => {
@@ -72,7 +72,7 @@ export default function BlogEdit(props) {
             </div>
             <div className="blog-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
-                <h3><Link to="/account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="/account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="blog-edit-main-container">
             <div>
@@ -131,7 +131,7 @@ export default function BlogEdit(props) {
                     <br />
 
                     <div id="blog-edit-button">
-                        <Link to="/account-listings" className="blog-edit-button">Go Back</Link>
+                        <Link to="/account/listings" className="blog-edit-button">Go Back</Link>
                         <button className="blog-edit-save-button">Save</button>
                     </div>
                 </form>

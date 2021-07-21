@@ -47,7 +47,7 @@ export default function AccountListings(props) {
                 <h2>{currentUser?.user.first_name} {currentUser?.user.last_name}</h2>
             </div>
             <div className="account-listings-links">
-                <h3><Link to="account" id="none">Personal Information</Link></h3>
+                <h3><Link to="/account" id="none">Personal Information</Link></h3>
                 <h3 id="account-chosen">Listings</h3>
             </div>
             <div>
@@ -102,7 +102,7 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(jobByEmployee.updated_at)}</p>
                                         <p> Category: <b>"I'm looking for a job"</b> </p>
                                         <div className="listings-box-button">
-                                            <Link to={`/job-by-employee/edit/${jobByEmployee.id}`} className="account-button">Edit</Link>
+                                            <Link to={`/job/byemployee/edit/${jobByEmployee.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
                                                 onClick={() => {
                                                     destroyOneEmployeePost(jobByEmployee.id)
@@ -152,7 +152,7 @@ export default function AccountListings(props) {
                                         <p>Last updated: {filterDate(house.post_house_wanted.updated_at)}</p>
                                         <p> Category: <b>"House Wanted"</b> </p>
                                         <div className="listings-box-button">
-                                            <Link to={`/house-wanted/edit/${house.post_house_wanted.id}`} className="account-button">Edit</Link>
+                                            <Link to={`/house/wanted/edit/${house.post_house_wanted.id}`} className="account-button">Edit</Link>
                                             <Link className="account-button"
                                                 onClick={() => {
                                                     destroyOneHouseWanted(house.post_house.id)

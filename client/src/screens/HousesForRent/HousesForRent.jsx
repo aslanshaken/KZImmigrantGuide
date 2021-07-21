@@ -49,7 +49,7 @@ export default function HousesForRent(props) {
                 <select>
                     <option value=''>Select Price</option>
                 </select>
-                <p><Link to="/houses-for-rent-by-employee" id="none"> People looking to rent a house</Link></p>
+                <p><Link to="/houses/wanted" id="none"> People looking to rent a house</Link></p>
             </div>
             <div className="houses-for-rent-main-middle">
                 <div className="houses-for-rent-main-left">
@@ -68,7 +68,7 @@ export default function HousesForRent(props) {
                                 <p>{maxLength(house.post_house.name)}</p>
                                 <div className='houses-for-rent-box-upper'>
                                     <p className="houses-for-rent-box-img-price">{house.post_house.cellphone}</p>
-                                    <p className='houses-for-rent-box-img-date'><Link to={`/house-for-rent/${house.post_house.id}`} id="none">Learn More</Link></p>
+                                    <p className='houses-for-rent-box-img-date'><Link to={`/houseforrent/${house.post_house.id}`} id="none">Learn More</Link></p>
                                 </div>
                             </div>
                         )

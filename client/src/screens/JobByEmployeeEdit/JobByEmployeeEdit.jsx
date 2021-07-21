@@ -51,7 +51,7 @@ console.log(jobsByEmployee)
         setJobsByEmployee(prevState => prevState.map((job) => {
             return job.id === Number(id) ? updatedJob : job
         }));
-        history.push('/account-listings');
+        history.push('/account/listings');
     }
 
     return (
@@ -62,7 +62,7 @@ console.log(jobsByEmployee)
             </div>
             <div className="jobByEmployee-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
-                <h3><Link to="/account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="/account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="jobByEmployee-edit-main-container">
                 <img id="jobByEmployee-edit-img" src="https://media.istockphoto.com/vectors/looking-for-a-job-vector-id638089158?k=6&m=638089158&s=170667a&w=0&h=m6pK6pfOSrDsoDO0ASkSwdBhCkMdziGykOGWbBq6lT4=" />
@@ -136,7 +136,7 @@ console.log(jobsByEmployee)
                     <br />
 
                     <div id="jobByEmployee-edit-button">
-                        <Link to="/account-listings" className="jobByEmployee-edit-button">Go Back</Link>
+                        <Link to="/account/listings" className="jobByEmployee-edit-button">Go Back</Link>
                         <button className="jobByEmployee-edit-save-button">Save</button>
                     </div>
                 </form>

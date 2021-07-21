@@ -34,7 +34,7 @@ export default function HousesWanted(props) {
                 <select>
                     <option value=''>Select City</option>
                 </select>
-                <p><Link to="/houses-for-rent" id="none"> House for rent</Link></p>
+                <p><Link to="/housesforrent" id="none"> House for rent</Link></p>
             </div>
             <div className="houses-wanted-main-middle">
                 <div className="houses-wanted-main-left">
@@ -53,7 +53,7 @@ export default function HousesWanted(props) {
                                 <p>{maxLength(house.post_house_wanted.name)}</p>
                                 <div className='houses-wanted-box-upper'>
                                     <p className="houses-wanted-box-img-price">{house.post_house_wanted.cellphone}</p>
-                                    <p className='houses-wanted-box-img-date'><Link to={`/house-wanted/${house.post_house_wanted.id}`} id="none">Learn More</Link></p>
+                                    <p className='houses-wanted-box-img-date'><Link to={`/house/wanted/${house.post_house_wanted.id}`} id="none">Learn More</Link></p>
                                 </div>
                             </div>
                         )

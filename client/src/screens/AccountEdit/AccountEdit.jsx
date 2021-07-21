@@ -67,7 +67,6 @@ export default function AccountEdit(props) {
             [name]: value
         }))
     }
-    // console.log(newImage)
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -203,7 +202,7 @@ export default function AccountEdit(props) {
                             </div>
                         </div>
                     </div>
-                    <Link to="account" className="account-edit-button">
+                    <Link to="/account" className="account-edit-button">
                         Go Back
                     </Link>
                 </div>

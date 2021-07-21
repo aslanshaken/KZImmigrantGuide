@@ -57,7 +57,7 @@ export default function HouseWantedEdit(props) {
         setHouseWanted(prevState => prevState.map((arr) => {
             return arr.post_house_wanted.id === Number(id) ? newH : arr
         }));
-        history.push('/account-listings');
+        history.push('/account/listings');
     }
 
 
@@ -83,7 +83,7 @@ export default function HouseWantedEdit(props) {
             </div>
             <div className="house-wanted-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
-                <h3><Link to="/account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="/account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="house-wanted-edit-main-container">
                 <div>
@@ -175,7 +175,7 @@ export default function HouseWantedEdit(props) {
                     <br />
 
                     <div id="house-wanted-edit-button">
-                        <Link to="/account-listings" className="house-wanted-edit-button">Go Back</Link>
+                        <Link to="/account/listings" className="house-wanted-edit-button">Go Back</Link>
                         <button className="house-wanted-edit-save-button">Save</button>
                     </div>
                 </form>

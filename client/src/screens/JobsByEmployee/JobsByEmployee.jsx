@@ -65,7 +65,7 @@ export default function JobsByEmployee(props) {
                                 <div className="jobsByEmployee-box-bottom">
                                     <p>{job?.cellphone}</p>
                                     <p>{job?.email}</p>
-                                    <p><Link className="jobsByEmployee-box-learn" to={`/job-by-employee/${job?.id}`} id="none">Learn more</Link></p>
+                                    <p><Link className="jobsByEmployee-box-learn" to={`/job/byemployee/${job?.id}`} id="none">Learn more</Link></p>
                                 </div>
                             </div>
                         )

@@ -60,7 +60,7 @@ export default function CommunityEdit(props) {
         setAllCommunities(prevState => prevState.map((arr) => {
             return arr.community.id === Number(id) ? updatedCommunity : arr
         }));
-        history.push('/account-listings');
+        history.push('/account/listings');
     }
 
 
@@ -86,7 +86,7 @@ export default function CommunityEdit(props) {
             </div>
             <div className="community-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
-                <h3><Link to="/account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="/account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="community-edit-main-container">
                 <div>
@@ -108,7 +108,7 @@ export default function CommunityEdit(props) {
                 >
                     <h2>Edit</h2>
                     <label>Community Name:
-                    <input
+                        <input
                             type='text'
                             name='name_community'
                             value={name_community}
@@ -117,7 +117,7 @@ export default function CommunityEdit(props) {
                         />
                     </label>
                     <label> State:
-                    <input
+                        <input
                             type='text'
                             name='state'
                             value={state}
@@ -125,7 +125,7 @@ export default function CommunityEdit(props) {
                         />
                     </label>
                     <label> City:
-                    <input
+                        <input
                             type='text'
                             name='city'
                             value={city}
@@ -193,7 +193,7 @@ export default function CommunityEdit(props) {
                     <br />
 
                     <div id="community-edit-button">
-                        <Link to="/account-listings" className="community-edit-button">Go Back</Link>
+                        <Link to="/account/listings" className="community-edit-button">Go Back</Link>
                         <button className="community-edit-save-button">Save</button>
                     </div>
                 </form>

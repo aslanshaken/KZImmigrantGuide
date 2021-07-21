@@ -24,7 +24,7 @@ export default function Account(props) {
             </div>
             <div className="account-personal-listing">
                 <h3 id="account-chosen">Personal Information</h3>
-                <h3><Link to="account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="account-middle">
                 <div className="account-left">
@@ -55,7 +55,7 @@ export default function Account(props) {
                             <div id="user-left">Cell Phone</div> <div id="user-right">{currentUser?.user.cell_phone}</div>
                         </div>
                     </div>
-                    <Link to="account-edit" className="account-user-button">
+                    <Link to="/account/edit" className="account-user-button">
                         Edit my information
                     </Link>
                 </div>
@@ -94,7 +94,7 @@ export default function Account(props) {
                             </Link>
                         </div>
                     </div>
-                    <Link to="account-edit" className="account-user-button">
+                    <Link to="account/edit" className="account-user-button">
                         Delete my account
                     </Link>
                 </div>

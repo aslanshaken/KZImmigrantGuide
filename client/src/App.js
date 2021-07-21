@@ -140,11 +140,11 @@ function App() {
 
       <Switch>
 
-        <Route path="/house-wanted/edit/:id">
+        <Route path="/house/wanted/edit/:id">
           <HouseWantedEdit currentUser={currentUser} houseWanted={houseWanted} setHouseWanted={setHouseWanted} />
         </Route>
 
-        <Route path="/house-for-rent/:id">
+        <Route path="/houseforrent/:id">
           <HouseForRentDescription housesForRent={housesForRent} />
         </Route>
 
@@ -156,15 +156,15 @@ function App() {
           <CommunityEdit currentUser={currentUser} allCommunities={allCommunities} setAllCommunities={setAllCommunities} />
         </Route>
 
-        <Route path="/blog/:id">
-          <BlogDescription blogs={blogs}  />
-        </Route>
-
         <Route path="/blog/edit/:id">
           <BlogEdit currentUser={currentUser} blogs={blogs} setBlogs={setBlogs} />
         </Route>
 
-        <Route path="/job-by-employee/edit/:id">
+        <Route path="/blog/:id">
+          <BlogDescription blogs={blogs} />
+        </Route>
+
+        <Route path="/job/byemployee/edit/:id">
           <JobByEmployeeEdit currentUser={currentUser} jobsByEmployee={jobsByEmployee} setJobsByEmployee={setJobsByEmployee} />
         </Route>
 
@@ -172,7 +172,7 @@ function App() {
           <JobEdit currentUser={currentUser} jobs={jobs} setJobs={setJobs} />
         </Route>
 
-        <Route path='/job-by-employee/:id'>
+        <Route path='/job/byemployee/:id'>
           <JobByEmployeeDescription jobsByEmployee={jobsByEmployee} />
         </Route>
 
@@ -180,12 +180,8 @@ function App() {
           <JobDescription jobs={jobs} />
         </Route>
 
-        <Route path='/house-wanted/:id'>
+        <Route path='/house/wanted/:id'>
           <HouseWantedDescription houseWanted={houseWanted} />
-        </Route>
-
-        <Route path='/account'>
-          <Account currentUser={currentUser} />
         </Route>
 
         <Route path='/blogs'>
@@ -200,27 +196,28 @@ function App() {
           <Communities allCommunities={allCommunities} currentUser={currentUser} />
         </Route>
 
-        <Route path='/community-add'>
+        <Route path='/community/add'>
           <AddCommunity currentUser={currentUser} setAllCommunities={setAllCommunities} />
         </Route>
 
-        <Route path='/houses-for-rent'>
+        <Route path='/housesforrent'>
           <HousesForRent housesForRent={housesForRent} />
         </Route>
 
-        <Route path='/houses-for-rent-by-employee'>
+        <Route path='/houses/wanted'>
           <HousesWanted houseWanted={houseWanted} />
         </Route>
 
-        <Route path='/account-edit'>
-          <AccountEdit currentUser={currentUser} setCurrentUser={setCurrentUser} />
-        </Route>
-
-        <Route path='/jobs-by-employee'>
+        <Route path='/jobs/byemployee'>
           <JobsByEmployee jobsByEmployee={jobsByEmployee} />
         </Route>
 
-        <Route path='/account-listings'>
+        {/* ACCOUNT CONTROL */}
+        <Route path='/account/edit'>
+          <AccountEdit currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        </Route>
+
+        <Route path='/account/listings'>
           <AccountListings
             currentUser={currentUser}
             jobs={jobs}
@@ -232,6 +229,11 @@ function App() {
           />
         </Route>
 
+        <Route path='/account'>
+          <Account currentUser={currentUser} />
+        </Route>
+
+        {/* LOGIN AND PASSWORD CONTROL */}
         <Route path='/login'>
           <Login handleLogin={handleLogin} error={error} />
         </Route>
@@ -248,11 +250,11 @@ function App() {
           <Register handleRegister={handleRegister} />
         </Route>
 
-        <Route path="/post-job">
+        <Route path="/post/job">
           <CreateJobForm />
         </Route>
 
-        <Route path="/create-posts">
+        <Route path="/create/posts">
           <CreatePosts />
         </Route>
 

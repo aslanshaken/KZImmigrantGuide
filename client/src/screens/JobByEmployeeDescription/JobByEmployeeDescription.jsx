@@ -34,7 +34,7 @@ export default function JobByEmployeeDescription(params) {
                     )
                 }
             })}
-            <p className="jobBEDescription-go-back"><Link to="/jobs-by-employee" id="none" >Go Back</Link></p>
+            <p className="jobBEDescription-go-back"><Link to="/jobs/byemployee" id="none" >Go Back</Link></p>
         </div>
     )
 }

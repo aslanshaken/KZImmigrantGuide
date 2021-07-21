@@ -49,7 +49,7 @@ export default function JobEdit(props) {
         setJobs(prevState => prevState.map((job) => {
             return job.id === Number(id) ? updatedJob : job
         }));
-        history.push('/account-listings');
+        history.push('/account/listings');
     }
 
     return (
@@ -60,7 +60,7 @@ export default function JobEdit(props) {
             </div>
             <div className="job-edit-links">
                 <h3><Link to="/account" id="none">Personal Information</Link></h3>
-                <h3><Link to="/account-listings" id="none">Listings</Link></h3>
+                <h3><Link to="/account/listings" id="none">Listings</Link></h3>
             </div>
             <div className="job-edit-main-container">
                 <img id="job-edit-img" src="https://codlrc.org/sites/default/files/u114/were%20hiring.jpg" />
@@ -125,7 +125,7 @@ export default function JobEdit(props) {
                     <br />
 
                     <div id="job-edit-button">
-                        <Link to="/account-listings" className="job-edit-button">Go Back</Link>
+                        <Link to="/account/listings" className="job-edit-button">Go Back</Link>
                         <button className="job-edit-save-button">Save</button>
                     </div>
                 </form>

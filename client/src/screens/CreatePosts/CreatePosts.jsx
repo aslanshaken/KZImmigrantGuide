@@ -11,7 +11,7 @@ export default function CreatePosts() {
                 <Link to="/post-get-hired" id="none">
                     <h4>Get Hired</h4>
                 </Link>
-                <Link to="/post-job" id="none">
+                <Link to="/post/job" id="none">
                     <h4>Post a Job</h4>
                 </Link>
                 <Link to="/post-house" id="none">

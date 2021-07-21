@@ -32,7 +32,7 @@ export default function HouseWantedDescription(params) {
                                     <p><b>Email:</b> {house.post_house_wanted.email}</p>
                                 </div>
                             </div>
-                            <p className="house-wanted-back"><Link to="/houses-for-rent-by-employee" id="none">Go back</Link></p>
+                            <p className="house-wanted-back"><Link to="/houses/wanted" id="none">Go back</Link></p>
                         </div>
                     )
                 }
