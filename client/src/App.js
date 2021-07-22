@@ -47,6 +47,8 @@ import BlogDescription from './screens/BlogDescription/BlogDescription';
 import AboutUs from './screens/AboutUs/AboutUs';
 import Contact from './screens/Contact/Contact';
 import CreateJobWanted from './screens/CreateJobWanted/CreateJobWanted';
+import CreateHouseOffer from './screens/CreateHouseOffer/CreateHouseOffer';
+import CreateHouseWanted from './screens/CreateHouseWanted/CreateHouseWanted';
 
 function App() {
 
@@ -250,6 +252,14 @@ function App() {
 
         <Route path='/register'>
           <Register handleRegister={handleRegister} />
+        </Route>
+
+        <Route path="/post/house">
+          <CreateHouseOffer setHousesForRent={setHousesForRent} currentUser={currentUser} />
+        </Route>
+
+        <Route path="/post/housewanted">
+          <CreateHouseWanted setHouseWanted={setHouseWanted} currentUser={currentUser} />
         </Route>
 
         <Route path="/post/job">

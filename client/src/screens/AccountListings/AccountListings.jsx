@@ -115,7 +115,7 @@ export default function AccountListings(props) {
                         }
                     })}
                     {housesForRent.map((house) => { // Map thru all houses for rent
-                        if (house.post_house.user_id == currentUser?.user.id) {  // Gets each and checks for a user id 
+                        if (house.post_house?.user_id == currentUser?.user.id) {  // Gets each and checks for a user id 
                             return ( // if ok, continue below
                                 <div
                                     className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseForRent" ? "listing-box" : "none-display"}
@@ -140,7 +140,7 @@ export default function AccountListings(props) {
                         }
                     })}
                     {houseWanted.map((house) => {
-                        if (house.post_house_wanted.user_id == currentUser?.user.id) {
+                        if (house.post_house_wanted?.user_id == currentUser?.user.id) {
                             return (
                                 <div
                                     className={categoryToggle === "all" ? "listing-box" : categoryToggle === "houseWanted" ? "listing-box" : "none-display"}
@@ -190,7 +190,7 @@ export default function AccountListings(props) {
                         }
                     })}
                     {blogs.map((blog) => {
-                        if (blog.blog.user_id == currentUser?.user.id) {
+                        if (blog.blog?.user_id == currentUser?.user.id) {
                             return (
                                 <div
                                     className={categoryToggle === "all" ? "listing-box" : categoryToggle === "blogs" ? "listing-box" : "none-display"}

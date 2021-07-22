@@ -1,0 +1,77 @@
+.create-job-wanted-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px 100px 0px;
+}
+
+.create-job-wanted-received-text {
+  padding: 1%;
+  color: forestgreen;
+  border: 1px solid forestgreen;
+  margin-top: 10px;
+}
+
+.create-job-wanted-box {
+  border: 0.5px solid grey;
+  padding: 1%;
+  border-radius: 25px;
+  width: 620px !important;
+}
+
+.create-job-wanted-box-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #6498c6;
+}
+
+.create-job-wanted-box-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.create-job-wanted-box-div label {
+  margin: 0px 10px 0px 10px;
+}
+
+.create-job-wanted-box-div input {
+  height: 30px;
+  border: none;
+  background-color: #edf2f5;
+}
+
+.create-job-wanted-box-div select {
+  height: 32px;
+  width: 170px;
+  margin: 0px 10px 0px 0px;
+  border: none;
+  background-color: #edf2f5;
+}
+
+.create-job-wanted-box-div button {
+  background-color: #6498c6;
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding: 1%;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.create-job-wanted-box-input-full {
+  width: 580px !important;
+}
+
+.create-job-wanted-box-textarea-full {
+  margin-top: 20px;
+  width: 500px !important;
+  height: 230px;
+  border: none;
+  background-color: #edf2f5;
+}
