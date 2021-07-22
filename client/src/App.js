@@ -49,6 +49,7 @@ import Contact from './screens/Contact/Contact';
 import CreateJobWanted from './screens/CreateJobWanted/CreateJobWanted';
 import CreateHouseOffer from './screens/CreateHouseOffer/CreateHouseOffer';
 import CreateHouseWanted from './screens/CreateHouseWanted/CreateHouseWanted';
+import CityInformation from './screens/CityInformation/CityInformation';
 
 function App() {
 
@@ -187,6 +188,19 @@ function App() {
         <Route path='/house/wanted/:id'>
           <HouseWantedDescription houseWanted={houseWanted} />
         </Route>
+
+        <Route path='/city/:city'>
+          <CityInformation
+            currentUser={currentUser}
+            jobs={jobs}
+            jobsByEmployee={jobsByEmployee}
+            housesForRent={housesForRent}
+            houseWanted={houseWanted}
+            allCommunities={allCommunities}
+            blogs={blogs}
+          />
+        </Route>
+
 
         <Route path='/blogs'>
           <Blogs blogs={blogs} />

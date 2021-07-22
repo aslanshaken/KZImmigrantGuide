@@ -9,7 +9,6 @@ export default function Communities(props) {
     const { allCommunities, currentUser } = props
     const currentDate = new Date()
 
-    console.log(allCommunities)
     function filterDate(str) { // filter time
         if (str) {
             const mdy = str.split('T')[0]

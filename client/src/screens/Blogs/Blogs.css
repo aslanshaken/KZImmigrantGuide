@@ -24,13 +24,9 @@
   height: 400px !important;
   margin: 50px 20px 20px 20px;
   box-shadow: 2px 2px 2px 2px grey;
-  /* transition: transform 1s ease; */
 }
 
 .blogs-box:hover {
-  /* border: none;
-  zoom: 1;
-  transform: scale(1.1); */
   box-shadow: 4px 4px 4px 4px grey;
 }
 
