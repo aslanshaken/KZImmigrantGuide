@@ -13,7 +13,7 @@ export default function Cities() {
                     <div className="cities-box">
                         <h4>New York</h4>
                         <div className="">
-                            <Link to="/city/newyork">
+                            <Link to="/city/new-york">
                                 <img alt="newyork" src="https://www.bazar.club/wp-content/uploads/1-13.jpg" />
                             </Link>
                         </div>

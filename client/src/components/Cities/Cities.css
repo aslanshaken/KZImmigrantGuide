@@ -15,7 +15,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 1000px;
+    width: 60%;
 
 }
 
@@ -30,27 +30,12 @@
 
 .cities-box {
     margin-bottom: 50px;
+    padding: 2%;
+    transition: transform .5s ease;
 }
 
-@media only screen and (max-width: 377px) {
-
-    .cities-wrap-parent {
-        margin-bottom: 20px;
-    }
-
-    .cities-container {
-        width: 320px;
-
-    }
-
-    .cities-container img {
-        width: 100px;
-        height: 70px;
-    }
-
-
-    .cities-box {
-        margin-bottom: 10px;
-    }
+.cities-box:hover{
+    zoom: 1;
+    transform: scale(1.1);
 
 }

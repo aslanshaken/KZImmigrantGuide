@@ -38,9 +38,45 @@
   width: 500px;
 }
 
+.city-to-choose {
+  display: flex;
+  margin: 50px 0px 50px 0px;
+  justify-content: space-around;
+  width: 40%;
+  /* padding-bottom: 2%;
+  border-bottom: 0.5px solid grey; */
+}
+
+.city-to-choose-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px 3px grey;
+  border-radius: 25px;
+  padding: 30px 25px 0px 25px;
+}
+
+.city-to-choose-box:hover {
+  cursor: pointer;
+  background-color: #acd1f1;
+}
+
+.city-to-choose-box img {
+  width: 70px;
+}
+
+.city-to-choose-box h2 {
+  color: #635e5e;
+  line-height: 24px;
+  vertical-align: baseline;
+  letter-spacing: 2.5px;
+}
+
 /* Job Offers */
 .city-main-jobs {
   margin: 100px 0px 70px 0px;
+  width: 80%;
 }
 
 .city-main-jobs h3 {
@@ -97,6 +133,7 @@
 
 .city-houses-main {
   margin: 100px 0px 70px 0px;
+  width: 80%;
 }
 
 .city-houses-main h3 {
@@ -146,6 +183,7 @@
 
 .city-community-main {
   margin: 100px 0px 70px 0px;
+  width: 80%;
 }
 
 .city-community-main h3 {
@@ -187,49 +225,4 @@
 .city-community-box-links img {
   width: 25px;
   height: 25px;
-}
-
-/* city-blogs */
-
-.city-blogs-main{
-    margin: 100px 0px 70px 0px;
-}
-
-.city-blogs-main h3{
-    text-align: center;
-}
-
-.city-blogs-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.city-blogs-box {
-  border-radius: 20px;
-  width: 500px !important;
-  height: 400px !important;
-  margin: 50px 20px 20px 20px;
-  box-shadow: 2px 2px 2px 2px grey;
-}
-
-.city-blogs-box:hover {
-  box-shadow: 4px 4px 4px 4px grey;
-}
-
-.city-blogs-box img {
-  border-radius: 20px 20px 0px 0px;
-  object-fit: cover;
-  width: 500px;
-  height: 240px;
-}
-
-.city-blogs-box-text {
-  padding: 0px 24px 18px;
-}
-
-.city-blogs-box-read-more {
-  text-decoration: none;
-  color: rgb(73, 68, 68);
 }
