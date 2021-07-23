@@ -3,7 +3,7 @@
 export const UsaStatesAndCities = () => {
   const resp = {
     "New York": [
-      "New York",
+      "New-York",
       "Buffalo",
       "Rochester",
       "Yonkers",
@@ -22,10 +22,10 @@ export const UsaStatesAndCities = () => {
       "Valley Stream"
     ],
     "California": [
-      "Los Angeles",
-      "San Diego",
-      "San Jose",
-      "San Francisco",
+      "Los-Angeles",
+      "San-Diego",
+      "San-Jose",
+      "San-Francisco",
       "Fresno",
       "Sacramento",
       "Long Beach",

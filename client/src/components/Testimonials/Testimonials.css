@@ -5,16 +5,21 @@
 }
 
 .testimonials-box {
-  width: 250px;
+  width: 250px !important;
+  height: 250px !important;
   margin: 20px;
 }
 
 .testimonials-first-box {
   display: flex;
+  height: 70px !important;
+  width: 250px !important;
 }
 
 .testimonials-first-box img {
   width: 65px;
+  height: 65px;
+  object-fit: cover;
   margin-right: 90px;
 }
 

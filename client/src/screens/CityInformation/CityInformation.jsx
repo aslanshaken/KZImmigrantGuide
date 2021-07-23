@@ -1,6 +1,6 @@
 import './CityInformation.css';
 import { Link, useHistory, useParams, } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Import Images
 import Facebook from '../../assets/facebook.svg'
@@ -12,8 +12,10 @@ import NewYork from '../../assets/new-york.jpg'
 import Miami from '../../assets/miami.jpg'
 import Chicago from '../../assets/chicago.jpg'
 import Cincinnati from '../../assets/cincinaty.jpg'
-import House from '../../assets/house.svg'
-import { func } from 'prop-types';
+import House from '../../assets/house.png'
+import Job from '../../assets/job.png'
+import HandShake from '../../assets/handshake.png'
+import Community from '../../assets/community-people-city.png'
 
 
 export default function CityInformation(props) {
@@ -30,7 +32,7 @@ export default function CityInformation(props) {
     } = props
 
     const { city } = useParams(); // 1. get the city name from link
-    const [showData, setShowData] = useState('empty')
+    const [showData, setShowData] = useState()
 
     const currentDate = new Date()  // get current date
 
@@ -251,16 +253,16 @@ export default function CityInformation(props) {
 
             <div className="city-to-choose">
                 <div className='city-to-choose-box' onClick={() => setShowData('job')}>
-                    <img src="https://img.icons8.com/carbon-copy/100/000000/find-matching-job.png" /> <h2>Job</h2>
+                    <img src={Job} /> <h2>Job</h2>
                 </div>
-                <div className='city-to-choose-box' onClick={() =>setShowData('house')}>
-                    <img src="https://img.icons8.com/dotty/80/000000/prefab-house.png" /><h2>House</h2>
+                <div className='city-to-choose-box' onClick={() => setShowData('house')}>
+                    <img src={House} /><h2>House</h2>
                 </div>
-                <div className='city-to-choose-box' onClick={() =>setShowData('service')}>
-                    <img src="https://img.icons8.com/ios/100/000000/handshake--v1.png" /><h2>Service</h2>
+                <div className='city-to-choose-box' onClick={() => setShowData('service')}>
+                    <img src={HandShake} /><h2>Service</h2>
                 </div>
-                <div className='city-to-choose-box' onClick={() =>setShowData('community')}>
-                    <img src="https://img.icons8.com/ios/100/000000/people-working-together.png" /><h2>Community</h2>
+                <div className='city-to-choose-box' onClick={() => setShowData('community')}>
+                    <img src={Community} /><h2>Community</h2>
                 </div>
             </div>
 
