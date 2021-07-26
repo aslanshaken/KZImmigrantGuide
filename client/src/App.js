@@ -65,6 +65,15 @@ function App() {
   const [allCommunities, setAllCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
 
+  const records = {
+    jobs: jobs.length,
+    jobsByEmployee: jobsByEmployee.length,
+    housesForRent: housesForRent.length,
+    houseWanted: houseWanted.length,
+    allCommunities: allCommunities.length,
+    blogs: blogs.length
+  }
+
   useEffect(() => {
     const fetchJobs = async () => {
       const jobsList = await getAllJobsForEmployee();
@@ -297,7 +306,7 @@ function App() {
         </Route>
 
         <Route path='/'>
-          <MainContainer currentUser={currentUser} />
+          <MainContainer currentUser={currentUser} records={records} />
         </Route>
 
       </Switch>

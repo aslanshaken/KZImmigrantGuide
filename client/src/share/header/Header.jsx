@@ -13,88 +13,57 @@ export default function Header(props) {
             {currentUser
                 ?
                 <div className="nav-container-upper">
-                    <div>
-                        <Link to="/account" id="none">
-                            <h5>My Account</h5>
-                        </Link>
-                    </div>
-                    <div><h5>|</h5></div>
-                    <div>
-                        <h5 id="logout" onClick={handleLogout}>Sign out</h5>
-                    </div>
+                    <h6><Link to="/account" className="nav-container-upper-text">My Account </Link></h6>
+                    <h6>|</h6 >
+                    <h6 id="logout" onClick={handleLogout}>Sign out</h6>
                 </div>
                 :
                 <div className="nav-container-upper">
-                    <div>
-                        <Link to="/login" id="none">
-                            <h5>Log in</h5>
-                        </Link>
-                    </div>
-                    <div><h5>|</h5></div>
-                    <div>
-                        <Link to="/register" id="none">
-                            <h5>Create Account</h5>
-                        </Link>
-                    </div>
+                    <h6> <Link to="/login" className="nav-container-upper-text">Log in</Link></h6>
+                    <h6>|</h6 >
+                    <h6> <Link to="/register" className="nav-container-upper-text">Create Account </Link></h6>
                 </div>
             }
             <div id="fixed">
                 <div className="nav-container">
-                    <div>
-                        <Link to="/" id="none">
-                            <p id="logo">
-                                QAZAQ REPUBLIC IN THE USA   
-                                {/* <img id="logo" src={Logo} /> */}
-                            </p>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/jobs" id="none">
-                            <h5 id="hv">Jobs</h5>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/housesforrent" id="none">
-                            <h5 id="hv" >Housing</h5>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="#" id="none">
-                            <h5 id="hv" >Services</h5>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/communities" id="none">
-                            <h5 id="hv">Community</h5>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/blogs" id="none">
-                            <h5 id="hv">Blog</h5>
-                        </Link>
-                    </div>
+                    <Link to="/" id="none">
+                        <p id="logo">
+                            INFO-BOX
+                        </p>
+                    </Link>
+                    <Link to="/jobs" id="none">
+                        <p id="hv">Job</p>
+                    </Link>
+                    <Link to="/housesforrent" id="none">
+                        <p id="hv" >House</p>
+                    </Link>
+                    <Link to="#" id="none">
+                        <p id="hv" >Service</p>
+                    </Link>
+                    <Link to="/communities" id="none">
+                        <p id="hv">Community</p>
+                    </Link>
+                    <Link to="/blogs" id="none">
+                        <p id="hv">Blog</p>
+                    </Link>
                     {/* <div>
                         <Link to="#" id="none">
                             <h5 id="hv">Discussion Forums</h5>
                         </Link>
                     </div> */}
-                    <div>
-                        <Link to="/about" id="none">
-                            <h5 id="hv">About Us</h5>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to="/contact" id="none">
-                            <h5 id="hv">Contact</h5>
-                        </Link>
-                    </div>
+                    <Link to="/about" id="none">
+                        <p id="hv">About Us</p>
+                    </Link>
+                    <Link to="/contact" id="none">
+                        <p id="hv">Contact</p>
+                    </Link>
                     <div>
                         {currentUser ?
                             <Link to="/create/posts" id="none">
-                                <h5 className="create-post-button">Create a Post</h5>
+                                <p className="create-post-button">Create a Post</p>
                             </Link>
                             :
-                            <h4 className="create-post-button" onClick={() => alert("Please Sign in or Register")}>Create a Post</h4>
+                            <p className="create-post-button" onClick={() => alert("Please Sign in or Register")}>Create a Post</p>
                         }
                     </div>
 
@@ -193,6 +162,6 @@ export default function Header(props) {
 
 
 
-        </div>
+        </div >
     )
 }

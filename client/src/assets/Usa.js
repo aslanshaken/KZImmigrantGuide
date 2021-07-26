@@ -1107,3 +1107,40 @@ export const UsaStatesAndCities = () => {
   }
   return resp
 }
+
+export const Categories = () => {
+  const categories = [
+    "accounting + finance",
+    "admin / office",
+    "arch / engineering",
+    "art / media / design",
+    "biotech / science",
+    "business / mgmt",
+    "customer service",
+    "education",
+    "etc / misc",
+    "food / bev / hosp",
+    "general labor",
+    "government",
+    "human resources",
+    "legal / paralegal",
+    "manufacturing",
+    "marketing / pr / ad",
+    "medical / health",
+    "nonprofit sector",
+    "real estate",
+    "retail / wholesale",
+    "sales / biz dev",
+    "salon / spa / fitness",
+    "security",
+    "skilled trade / craft",
+    "software / qa / dba",
+    "systems / network",
+    "technical support",
+    "transport",
+    "tv / film / video",
+    "web / info design",
+    "writing / editing",
+  ]
+  return categories
+}

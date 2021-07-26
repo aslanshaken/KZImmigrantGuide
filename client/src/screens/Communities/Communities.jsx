@@ -4,6 +4,7 @@ import Facebook from '../../assets/facebook.svg'
 import Whatsapp from '../../assets/whatsapp.svg'
 import Telegram from '../../assets/telegram.svg'
 import { UsaStatesAndCities } from '../../assets/Usa'
+import Video from '../../components/Video/Video'
 
 export default function Communities(props) {
     const { allCommunities, currentUser } = props
@@ -47,6 +48,7 @@ export default function Communities(props) {
                         <option>Select Popularity</option>
                     </select>
                 </div>
+                <Video />
                 <div className="communities-main-boxes">
                     {allCommunities.map((community) => {
                         if (getCurrentDate(community.community?.created_at) == currentDate.getDate()) {

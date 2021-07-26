@@ -16,7 +16,7 @@ export default function Contact(params) {
             </div>
             <div className="contact-icons">
                 <img src="https://img.icons8.com/ios/100/000000/email.png" />
-                <p>info@qazaq-r-usa.com</p>
+                <p>info@box.com</p>
             </div>
             <div className="contact-icons">
                 <img src="https://img.icons8.com/ios/100/000000/phone-message.png" />

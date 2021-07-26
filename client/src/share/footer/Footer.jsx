@@ -6,8 +6,8 @@ export default function Footer() {
         <div>
             <div className="footer-container">
                 <div className="footer-box">
-                    <p className="footer-logo">QAZAQ REPUBLIC IN THE USA</p>
-                    <h5>info@qazaq-r-usa.com</h5>
+                    <p className="footer-logo"> Info-Box</p>
+                    <h5>info@box.com</h5>
                     <h5>+1(929)-928-5292</h5>
                     <h5>New York, USA</h5>
                 </div>

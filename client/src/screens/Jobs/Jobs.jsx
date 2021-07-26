@@ -1,12 +1,21 @@
 import './Jobs.css'
 import { Link, useHistory } from 'react-router-dom'
+import Select from 'react-select'
 import { useState, useEffect } from 'react';
 import Wall from '../../assets/ad1.png'
 import AD from '../../assets/ad1.png'
+import { UsaStatesAndCities, Categories } from '../../assets/Usa'
+
 
 export default function Jobs(props) {
-
     const { jobs } = props // get read only data from App.js
+
+    const states = UsaStatesAndCities() // get a list of states
+    const categories = Categories()
+    const [category, setCategory] = useState()
+    const [city, setCity] = useState()
+    const [cities, setCities] = useState([])
+    const [stateToggle, setStateToggle] = useState(true)
 
     function filterDate(str) { // filter time
         const mdy = str.split('T')[0]
@@ -31,26 +40,42 @@ export default function Jobs(props) {
         }
     }
 
+    const options = [
+        { value: "one", label: "One" },
+        { value: "two", label: "Two" }
+    ];
+
     return (
         <div className="jobs-main-container">
             {/* <div className="jobs-main-photo ">
                 <img src={Wall} />
             </div> */}
             <h1>Jobs in the USA</h1>
-            <div className='jobs-select'>
-                <select>
-                    <option value=''>Select State</option>
-                </select>
-                <select>
-                    <option value=''>Select City</option>
-                </select>
-                <select>
-                    <option value=''>Select Category</option>
-                </select>
-                <p><Link to="/jobs/byemployee" id="none"> I'm looking for employees</Link></p>
-            </div>
             <div className="jobs-main-middle">
-                <div className="jobs-main-left">
+                <div className='jobs-main-left'>
+                    <div className='jobs-select'>
+                        <select onChange={(e) => setCities(states[e.target.value])}>
+                            <option selected disabled>Select State</option>
+                            {stateToggle && Object.keys(states).map((oneState) => <option value={oneState}>{oneState}</option>)}
+                        </select>
+                        <select onChange={(e) => setCity(e.target.value)}>
+                            <option selected disabled>Select City</option>
+                            {cities && cities.map((city) => <option value={city}>{city}</option>)}
+                        </select>
+                        <select onChange={(e) => setCategory(e.target.value)}>
+                            <option value=''>Select Category</option>
+                            {categories.map((category) => <option value={category}>{category}</option>)}
+                        </select>
+                        <div className="job-select-buttons">
+                            <button onClick={() => {
+                                setCities()
+                            }}>Reset</button>
+                            <button>Search</button>
+                        </div>
+                        <p><Link to="/jobs/byemployee" id="none"> I'm looking for employees</Link></p>
+                    </div>
+                </div>
+                <div className="jobs-main-right">
                     {jobs.map((job) => {
                         return (
                             <div className='jobs-main-box'>
@@ -70,10 +95,8 @@ export default function Jobs(props) {
                         )
                     })}
                 </div>
-                <div className='jobs-main-right'>
-                    <img src={AD} />
-                </div>
             </div>
         </div >
     )
 }
+

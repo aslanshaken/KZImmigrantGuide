@@ -1,40 +1,34 @@
 .wall-main-container {
-  margin: 0px 0px 0px 0px;
-  position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wall-main-left {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.wall-img {
-  height: 70vh;
-  width: 90vw;
-  object-fit: cover;
-  z-index: -100;
+.wall-main-left h1 {
+  color: #141933;
+  font-size: 42.5px;
 }
 
-.wall-center-text {
-  margin: 0px 0px 0px 0px;
-  padding: 5%;
-  color: #ffffff;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 35px;
-  line-height: 30px;
-  letter-spacing: 8px;
-  width: fit-content;
-  text-decoration: none solid rgb(96, 96, 96);
+.wall-main-left p {
+  color: #766b6f;
+  font-size: 19.5px;
+  width: 60%;
+  margin-top: -10px;
+  text-align: center;
 }
 
-.wall-center-button {
-  padding: 1%;
-  font-size: 13px;
-  color: #ffffff;
-  border-radius: 25px;
-  cursor: pointer;
-  background-color: #6498C6;
+.wall-main-right {
+  width: 50%;
+}
+
+.wall-main-right img {
+  width: 97%;
 }

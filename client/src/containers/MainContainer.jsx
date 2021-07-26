@@ -9,12 +9,14 @@ import Wall from '../components/Wall/Wall';
 
 
 
-export default function MainContainer() {
+export default function MainContainer(props) {
+    const { records } = props
+
     return (
         <div>
             <Wall />
-            <Tracker />
-            <Video />
+            <Tracker records={records} />
+            {/* <Video /> */}
             <Cities />
             <Events />
             <Testimonials />

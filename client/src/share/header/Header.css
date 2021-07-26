@@ -1,22 +1,31 @@
 .nav-container-upper {
   display: flex;
   justify-content: flex-end;
+  color: rgb(216, 207, 195);
   border-bottom: 1px solid black;
   background-color: rgb(19, 17, 17);
 }
 
-.nav-container-upper div {
-  margin: -20px 50px -20px 0px;
+.nav-container-upper h6 {
+  margin: 5px 25px 5px 0px;
 }
-.nav-container-upper h5 {
+
+.nav-container-upper-text {
   color: rgb(216, 207, 195);
+  text-decoration: none;
 }
 
 .nav-container {
   display: flex;
+  align-items: baseline;
   width: 100%;
   justify-content: space-around;
   padding: 0px 0px 0px 0px;
+}
+
+.nav-container p {
+  font-size: 15px;
+  letter-spacing: 0.5px;
 }
 
 #none {
@@ -26,33 +35,32 @@
 
 body {
   letter-spacing: 0.5px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #logo {
   color: #606060;
-  margin-right: 400px;
+  margin-right: 600px;
   font-size: 20px;
   line-height: 24px;
-  vertical-align: baseline;
   letter-spacing: 2.5px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none solid rgb(96, 96, 96);
 }
 
 .create-post-button {
-  border: 1px solid rgb(0, 0, 0);
+  border: 0.5px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-color: #6498c6;
-  color: #ffffff;
+  background-color: #4e99db;
+  color: white;
   cursor: pointer;
-  padding: 0px 10px 0px 10px;
-  /* transition: transform 0.9s ease-in-out; */
+  letter-spacing: 1.5px;
+  padding: 5px 10px 5px 10px;
 }
 
 .create-post-button:hover {
-  background-color: #4e99db;
-  /* transform: scale(2) rotate(7deg); */
+  background-color: #ffff;
+  color: #4e99db;
 }
 
 #logout {
@@ -66,4 +74,3 @@ body {
 .nav-cell-container {
   display: none;
 }
-

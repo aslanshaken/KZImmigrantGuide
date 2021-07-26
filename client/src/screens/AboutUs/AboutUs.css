@@ -3,6 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #5e5a5a;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: baseline;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 .about-text {
@@ -36,28 +43,18 @@
   width: 1700px;
 }
 
+.about-box img{
+width: 40%;
+}
+
 .about-paragraph-mission {
-  color: #5e5a5a;
-  font-size: 20px;
-  line-height: 24px;
-  vertical-align: baseline;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  text-decoration: none;
-  width: 70%;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .about-paragraph-idea {
-  color: #5e5a5a;
-  font-size: 20px;
-  line-height: 24px;
-  vertical-align: baseline;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  text-decoration: none;
   width: 80%;
   display: flex;
   justify-content: center;
