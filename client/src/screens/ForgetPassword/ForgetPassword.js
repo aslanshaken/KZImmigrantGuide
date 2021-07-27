@@ -35,32 +35,28 @@ export default function ForgetPassword() {
     return (
         <div className="forget-password">
 
-            <div className="forget-password-main-container">
+            {/* <video className="forget-password-video" autoStart autoPlay muted loop src={KZ} type="video/mp4" /> */}
 
-                <video className="forget-password-video" autoStart autoPlay muted loop src={KZ} type="video/mp4" />
-
-                <div className="forget-password-box">
-                    <form onSubmit={handleForgetPassword}>
-                        <h4>Forget password?</h4>
-                        <h4>Please enter your email address</h4>
-                        {
-                            error &&
-                            <p>{error}</p>
-                        }
-                        <input
-                            className='input-forget-password-email'
-                            type='text'
-                            placeholder="Email"
-                            required
-                            name='username'
-                            value={emailData}
-                            onChange={handleChange}
-                        />
-                        <button id="forget-password-form-button"><b>Submit</b></button>
-                        <Link to='/login' id='none'> <h3>Go Back</h3></Link>
-                    </form>
-                </div>
-
+            <div className="forget-password-box">
+                <form onSubmit={handleForgetPassword}>
+                    <h4>Forget password?</h4>
+                    <h4>Please enter your email address</h4>
+                    {
+                        error &&
+                        <p>{error}</p>
+                    }
+                    <input
+                        className='input-forget-password-email'
+                        type='text'
+                        placeholder="Email"
+                        required
+                        name='username'
+                        value={emailData}
+                        onChange={handleChange}
+                    />
+                    <button id="forget-password-form-button"><b>Submit</b></button>
+                    <Link to='/login' id='none'> <h3>Go Back</h3></Link>
+                </form>
             </div>
         </div>
     )
