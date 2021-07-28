@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CreateJobForm.css'
 import { postNewJobForEmployee } from '../../services/getEmployees'
-import { UsaStatesAndCities } from '../../assets/Usa'
+import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa'
 
 export default function CreateJobForm(props) {
     const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ export default function CreateJobForm(props) {
     })
     const { setJobs, currentUser } = props
     const states = UsaStatesAndCities()
+    const categories = Categories()
     const [cities, setCities] = useState([])
     const [stateToggle, setStateToggle] = useState(true)
     const { job_name, category, description, city, cellphone, email } = formData;
@@ -92,12 +93,12 @@ export default function CreateJobForm(props) {
                             </label>
                             <label>
                                 <p>Category*</p>
-                                <input
-                                    type='text'
-                                    name='category'
-                                    value={category}
-                                    required
-                                    onChange={handleChange} />
+                                <select name="category" onChange={handleChange}>
+                                    <option value=''>Choose Category</option>
+                                    {categories.map((category) =>
+                                        <option value={category}>{category}</option>
+                                    )}
+                                </select>
                             </label>
                         </div>
                         <div className="create-job-box-div">

@@ -1,4 +1,4 @@
-
+// DATA 
 
 export const UsaStatesAndCities = () => {
   const resp = {
@@ -1110,6 +1110,7 @@ export const UsaStatesAndCities = () => {
 
 export const Categories = () => {
   const categories = [
+    "all",
     "accounting + finance",
     "admin / office",
     "arch / engineering",
@@ -1143,4 +1144,15 @@ export const Categories = () => {
     "writing / editing",
   ]
   return categories
+}
+
+export const EmploymentTypes = () => {
+  const types = [
+    "all",
+    "full-time",
+    "part-time",
+    "temproary",
+    "contract"
+  ]
+  return types
 }
