@@ -56,13 +56,30 @@ export default function Jobs(props) {
 
     function JobList(job) { // show job
         return (
+            // <div className='jobs-main-box'>
+            //     <div className='jobs-box-upper'>
+            //         <h6>{filterTime(job?.updated_at)}</h6>
+            //         <h6>{job?.city}</h6>
+            //     </div>
+            //     <p><b>{maxNameLength(job?.job_name)}</b></p>
+            //     <p> <b>{maxLength(job?.description)}</b></p>
+            //     <p>Category:<b> {job?.category}</b> </p>
+            //     <div className="jobs-box-bottom">
+            //         <p>{job?.cellphone}</p>
+            //         <p>{job?.email}</p>
+            //         <p><Link className="jobs-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></p>
+            //     </div>
+            // </div>
             <div className='jobs-main-box'>
+                <h3 className='jobs-box-date'>{filterTime(job?.updated_at)}</h3>
+                <p className='jobs-box-category'>{job?.category}</p>
+                <h3 className='jobs-box-city'>{job?.city}</h3>
                 <div className='jobs-box-upper'>
                     <h6>{filterTime(job?.updated_at)}</h6>
                     <h6>{job?.city}</h6>
                 </div>
                 <p><b>{maxNameLength(job?.job_name)}</b></p>
-                <p>Description: <b>{maxLength(job?.description)}</b></p>
+                <p> <b>{maxLength(job?.description)}</b></p>
                 <p>Category:<b> {job?.category}</b> </p>
                 <div className="jobs-box-bottom">
                     <p>{job?.cellphone}</p>
@@ -73,39 +90,37 @@ export default function Jobs(props) {
         )
     }
 
-    function FilterData(data) {
+    function FilterData(data) { // FILTER
         if (!formData.category) {
             if (formData.city == data.city) {
                 return JobList(data)
             }
-        }else if (formData.category){
+        } else if (formData.category) {
             if (formData.city == data.city && formData.category == data.category) {
                 return JobList(data)
-            }else if(formData.city == data.city && formData.category == "all"){
+            } else if (formData.city == data.city && formData.category == "all") {
                 return JobList(data)
             }
         }
     }
-
-    console.log(formData)
 
     return (
         <div className="jobs-main-container">
             {/* <div className="jobs-main-photo ">
                 <img src={Wall} />
             </div> */}
-            <h1>Jobs in the USA</h1>
+            <h1 className="jobs-main-text">Search for jobs</h1>
             <div className="jobs-main-middle">
                 <div className='jobs-main-left'>
                     <div className='jobs-select'>
-                        <h3>Filter</h3>
+                        <h3>Filters</h3>
                         {/* 1 */}
                         <select required name='state' onChange={(e) => {
                             setCities(states[e.target.value])
                             handleChange(e)
                             formData.city = states[e.target.value][cities.indexOf(formData.city)] // for city selected update
                         }}>
-                            <option selected disabled >Choose State</option>
+                            <option selected disabled>Choose State</option>
                             {Object.keys(states).map((oneState) =>
                                 <option value={oneState}>{oneState}</option>
                             )}
@@ -123,7 +138,7 @@ export default function Jobs(props) {
                         <select name="category" onChange={(e) => {
                             handleChange(e)
                         }}>
-                            <option value=''>Choose Category</option>
+                            <option selected disabled value=''>Choose Category</option>
                             {formData.city && categories.map((category) =>
                                 <option value={category}>{category}</option>
                             )}
@@ -131,16 +146,14 @@ export default function Jobs(props) {
                         <select name="employment_type" onChange={(e) => {
                             handleChange(e)
                         }}>
-                            <option value=''>Choose Employment Type</option>
+                            <option selected disabled value=''>Choose Employment Type</option>
                             {formData.city && employmentOptions.map((type) =>
                                 <option value={type}>{type}</option>
                             )}
                         </select>
-                        <div className="job-select-buttons">
-                            <button onClick={() => {
-                                window.location.reload();
-                            }}>Reset</button>
-                        </div>
+                        <button className="job-select-button" onClick={() => {
+                            window.location.reload();
+                        }}>Reset</button>
                         <p><Link to="/jobs/byemployee" id="none"> I'm looking for employees</Link></p>
                     </div>
                 </div>
