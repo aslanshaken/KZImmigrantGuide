@@ -1,10 +1,10 @@
 import './Jobs.css'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Select from 'react-select'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Wall from '../../assets/ad1.png'
 import AD from '../../assets/ad1.png'
-import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa'
+import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa' // FILTER
 
 
 export default function Jobs(props) {
@@ -40,7 +40,7 @@ export default function Jobs(props) {
 
     function maxLength(str) { // less words for description
         if (str.length > 100) {
-            return str.split('').slice(0, 100).join('') + '...'
+            return str.split('').slice(0, 140).join('') + '...'
         } else {
             return str
         }
@@ -59,14 +59,21 @@ export default function Jobs(props) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    function JobList(job) { // show job
+    function JobList(data) { // show job
         return (
             <div className='jobs-main-box'>
-                <h4 className='jobs-box-date'>{filterTime(job?.updated_at)}</h4>
-                <p className='jobs-box-category'>{capitalizeFirstLetter(job?.category)}</p>
-                <h3 className='jobs-box-city'><img src="https://img.icons8.com/ios/50/000000/region-code.png" />{job?.city}</h3>
-                <p className='jobs-box-paragraph'>  {maxLength(job?.description)}  </p>
-                <Link to={`/job/${job?.id}`} id='none'><p className="jobs-box-learn">Job Description</p></Link>
+                <div className='jobs-box-upper'>
+                    <h5>{data?.category}</h5>
+                    <h5>{filterTime(data?.updated_at)}</h5>
+                    <h5 className='jobs-box-city'>{data?.city}</h5>
+                </div>
+                <p>{data?.job_name}</p>
+                <p className='jobs-box-about'>{maxLength(data?.description)} </p>
+                <div className="jobs-box-bottom">
+                    <p>{data?.cellphone}</p>
+                    <p>{data?.email}</p>
+                    <p><Link className="jobs-box-learn" to={`/job/${data?.id}`} id="none">Learn more</Link></p>
+                </div>
             </div>
         )
     }
@@ -132,7 +139,7 @@ export default function Jobs(props) {
                         </select>
                         <button className="job-select-button" onClick={() => {
                             window.location.reload();
-                        }}>RESET SEARCH</button>
+                        }}><img src="https://img.icons8.com/ios-glyphs/30/000000/recurring-appointment.png"/>RESET SEARCH</button>
                         <div className="jobs-select-line"></div>
                         <Link to="/jobs/byemployee" id="none"><p className="jobs-link"> Looking for employees</p></Link>
                     </div>
