@@ -38,8 +38,8 @@ export default function Jobs(props) {
     }
 
     function maxLength(str) { // less words for description
-        if (str.length > 30) {
-            return str.split('').slice(0, 60).join('') + '...'
+        if (str.length > 100) {
+            return str.split('').slice(0, 100).join('') + '...'
         } else {
             return str
         }
@@ -56,36 +56,12 @@ export default function Jobs(props) {
 
     function JobList(job) { // show job
         return (
-            // <div className='jobs-main-box'>
-            //     <div className='jobs-box-upper'>
-            //         <h6>{filterTime(job?.updated_at)}</h6>
-            //         <h6>{job?.city}</h6>
-            //     </div>
-            //     <p><b>{maxNameLength(job?.job_name)}</b></p>
-            //     <p> <b>{maxLength(job?.description)}</b></p>
-            //     <p>Category:<b> {job?.category}</b> </p>
-            //     <div className="jobs-box-bottom">
-            //         <p>{job?.cellphone}</p>
-            //         <p>{job?.email}</p>
-            //         <p><Link className="jobs-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></p>
-            //     </div>
-            // </div>
             <div className='jobs-main-box'>
-                <h3 className='jobs-box-date'>{filterTime(job?.updated_at)}</h3>
+                <h4 className='jobs-box-date'>{filterTime(job?.updated_at)}</h4>
                 <p className='jobs-box-category'>{job?.category}</p>
-                <h3 className='jobs-box-city'>{job?.city}</h3>
-                <div className='jobs-box-upper'>
-                    <h6>{filterTime(job?.updated_at)}</h6>
-                    <h6>{job?.city}</h6>
-                </div>
-                <p><b>{maxNameLength(job?.job_name)}</b></p>
-                <p> <b>{maxLength(job?.description)}</b></p>
-                <p>Category:<b> {job?.category}</b> </p>
-                <div className="jobs-box-bottom">
-                    <p>{job?.cellphone}</p>
-                    <p>{job?.email}</p>
-                    <p><Link className="jobs-box-learn" to={`/job/${job?.id}`} id="none">Learn more</Link></p>
-                </div>
+                <h3 className='jobs-box-city'><img src="https://img.icons8.com/ios/50/000000/region-code.png" />{job?.city}</h3>
+                <p className='jobs-box-paragraph'>  {maxLength(job?.description)}  </p>
+                <Link to={`/job/${job?.id}`} id='none'><p className="jobs-box-learn">Job Description</p></Link>
             </div>
         )
     }
@@ -111,9 +87,9 @@ export default function Jobs(props) {
             </div> */}
             <h1 className="jobs-main-text">Search for jobs</h1>
             <div className="jobs-main-middle">
-                <div className='jobs-main-left'>
+                <div className='jobs-main-first'>
                     <div className='jobs-select'>
-                        <h3>Filters</h3>
+                        {/* <h3>Filters</h3> */}
                         {/* 1 */}
                         <select required name='state' onChange={(e) => {
                             setCities(states[e.target.value])
@@ -154,10 +130,10 @@ export default function Jobs(props) {
                         <button className="job-select-button" onClick={() => {
                             window.location.reload();
                         }}>Reset</button>
-                        <p><Link to="/jobs/byemployee" id="none"> I'm looking for employees</Link></p>
+                        <Link to="/jobs/byemployee" id="none"><p className="jobs-link"> I'm looking for employees</p></Link>
                     </div>
                 </div>
-                <div className="jobs-main-right">
+                <div className="jobs-main-second">
                     {jobs.map((job) => {
                         if (formData.city) {
                             return FilterData(job)
