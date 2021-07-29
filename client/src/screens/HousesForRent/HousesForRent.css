@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.houses-for-rent-main-photo {
+/* .houses-for-rent-main-photo {
   margin: 0px 0px 50px 0px;
   position: relative;
   text-align: center;
@@ -20,27 +20,32 @@
   width: 70vw;
   object-fit: cover;
   z-index: -100;
+} */
+
+.houses-for-rent-main-text{
+  width: 80%;
+  text-align: center;
+  background-color: #f2f8ff;
+  padding: 3%;
+  margin-bottom: 50px;
 }
 
 .houses-for-rent-main-middle {
   display: flex;
-  width: 55%;
+  width: 80%;
 }
 
-.houses-for-rent-main-left {
+.houses-for-rent-main-right {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.houses-for-rent-main-right {
-  width: 20%;
-  border: 1px solid black;
-  height: 500px !important;
-  margin: 30px;
+.houses-for-rent-main-left {
+margin-right: 30px;
 }
 
-.houses-for-rent-main-right img {
+.houses-for-rent-main-left img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -52,26 +57,68 @@
 
 .houses-for-rent-select {
   display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 100px 0px 50px 20px;
+  flex-direction: column;
+  width: 320px;
+  height: 600px !important;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border: 0.5px solid rgb(194, 184, 184);
 }
 
-.houses-for-rent-select select{
-width: fit-content;
+.houses-for-rent-select select {
+  background-color: #f2f8ff;
+  border: none;
+  margin: 15px;
+  font-weight: 700;
+  height: 40px;
+  width: 250px;
+  color: grey;
+  font-size: 17px;
 }
 
-.houses-for-rent-select p {
-  margin-top: -3px;
+.houses-for-rent-select-choose-state-city {
+  color: rgb(201, 69, 69);
 }
 
-.houses-for-rent-select p:hover {
-  border-bottom: 0.5px solid grey;
+.houses-for-rent-select-button {
+  margin: 20px;
+  width: 250px;
+  height: 35px;
+  background-color: rgb(102, 145, 189);
+  color: white;
+  border-radius: 35px;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.houses-for-rent-select-button img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.houses-for-rent-select-line {
+  width: 200px;
+  border: 0.5px solid rgb(140, 166, 180);
+  margin: 20px;
+}
+
+.houses-for-rent-link {
+  color: rgb(104, 96, 96);
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: 0.5px solid grey;
+  padding: 20px 30px 20px 30px;
 }
 
 .houses-for-rent-main-box {
   border: 0.5px solid rgb(194, 184, 184);
-  margin: 30px;
+  margin: 0px 10px 15px 10px;
   width: 300px;
   height: 400px;
   padding: 0% 2% 0% 2%;
@@ -81,7 +128,6 @@ width: fit-content;
 .houses-for-rent-box-upper {
   display: flex;
   justify-content: space-between;
-  
 }
 
 .houses-for-rent-box-img {
@@ -92,11 +138,9 @@ width: fit-content;
 }
 
 .houses-for-rent-box-img-price {
-
 }
 
 .houses-for-rent-box-img-date {
-
 }
 
 .houses-for-rent-box-bottom {

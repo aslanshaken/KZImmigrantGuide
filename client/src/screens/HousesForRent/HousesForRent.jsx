@@ -2,10 +2,32 @@ import './HousesForRent.css';
 import { Link, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import AD from '../../assets/ad1.png'
+import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa' // Filter
 
 export default function HousesForRent(props) {
 
     const { housesForRent } = props // get read only data from App.js
+
+    // FILTER
+    const states = UsaStatesAndCities() // get a list of states
+    const categories = Categories() // get a list of categories
+    const employmentOptions = EmploymentTypes() // get a list of employment types
+    const [cities, setCities] = useState([]) // get chosen cities county
+    const [stateCityCheck, setStateCityCheck] = useState(false)
+    const [formData, setFormData] = useState({
+        state: '',
+        city: '',
+        category: '',
+        employment_type: ''
+    })
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }))
+    }
+    // FILTER
 
     function filterDate(str) { // filter time
         const mdy = str.split('T')[0]
@@ -29,30 +51,59 @@ export default function HousesForRent(props) {
             return str
         }
     }
+    const checkStateCity = () => !formData.state && !formData.city && setStateCityCheck(true) // check for state and city
 
     return (
         <div className="houses-for-rent-main-container">
             {/* <div className="houses-for-rent-main-photo ">
                 <img src={AD} />
             </div> */}
-            <h1>Houses For Rent in the USA</h1>
-            <div className='houses-for-rent-select'>
-                <select>
-                    <option value=''>Select State</option>
-                </select>
-                <select>
-                    <option value=''>Select City</option>
-                </select>
-                <select>
-                    <option value=''>Select Bathroom</option>
-                </select>
-                <select>
-                    <option value=''>Select Price</option>
-                </select>
-                <p><Link to="/houses/wanted" id="none"> People looking to rent a house</Link></p>
-            </div>
+            <h1 className='houses-for-rent-main-text'>House For Rent</h1>
             <div className="houses-for-rent-main-middle">
-                <div className="houses-for-rent-main-left">
+                <div className='houses-for-rent-main-left'>
+                    <div className='houses-for-rent-select'>
+                        <h3>FILTER</h3>
+                        {stateCityCheck && <h4 className='houses-for-rent-select-choose-state-city'>Please select state and city first.</h4>}
+                        {/* 1 */}
+                        <select required name='state' onChange={(e) => {
+                            setCities(states[e.target.value])
+                            handleChange(e)
+                            setStateCityCheck(false)
+                            formData.city = states[e.target.value][cities.indexOf(formData.city)] // for city selected update
+                        }}>
+                            <option selected disabled>State</option>
+                            {Object.keys(states).map((oneState) =>
+                                <option value={oneState}>{oneState}</option>
+                            )}
+                        </select>
+                        {/* 2 */}
+                        <select name="city" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled> City</option>
+                            {cities && cities.map((city) =>
+                                <option value={city}>{city}</option>
+                            )}
+                        </select>
+                        {/* The rest */}
+                        {/* <select name="category" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled value=''>Job Types</option>
+                            {formData.city && categories.map((category) =>
+                                <option value={category}>{category}</option>
+                            )}
+                        </select> */}
+                        <select name="employment_type" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled value=''>Bedroom</option>
+                            {formData.city && employmentOptions.map((type) =>
+                                <option value={type}>{type}</option>
+                            )}
+                        </select>
+                        <button className="houses-for-rent-select-button" onClick={() => {
+                            window.location.reload();
+                        }}><img src="https://img.icons8.com/ios-glyphs/30/000000/recurring-appointment.png" />RESET SEARCH</button>
+                        <div className="houses-for-rent-select-line"></div>
+                        <Link to="/houses/wanted" id="none"><p className="jobs-link"> Who needs house</p></Link>
+                    </div>
+                </div>
+                <div className="houses-for-rent-main-right">
                     {housesForRent.map((house) => {
                         return (
                             <div className='houses-for-rent-main-box'>
@@ -73,9 +124,6 @@ export default function HousesForRent(props) {
                             </div>
                         )
                     })}
-                </div>
-                <div className='houses-for-rent-main-right'>
-                    <img src={AD} />
                 </div>
             </div>
         </div>
