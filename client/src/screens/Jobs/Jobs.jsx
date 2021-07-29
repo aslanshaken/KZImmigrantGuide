@@ -15,6 +15,7 @@ export default function Jobs(props) {
     const categories = Categories() // get a list of categories
     const employmentOptions = EmploymentTypes() // get a list of employment types
     const [cities, setCities] = useState([]) // get chosen cities county
+    const [stateCityCheck, setStateCityCheck] = useState(false)
     const [formData, setFormData] = useState({
         state: '',
         city: '',
@@ -54,11 +55,15 @@ export default function Jobs(props) {
         }
     }
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     function JobList(job) { // show job
         return (
             <div className='jobs-main-box'>
                 <h4 className='jobs-box-date'>{filterTime(job?.updated_at)}</h4>
-                <p className='jobs-box-category'>{job?.category}</p>
+                <p className='jobs-box-category'>{capitalizeFirstLetter(job?.category)}</p>
                 <h3 className='jobs-box-city'><img src="https://img.icons8.com/ios/50/000000/region-code.png" />{job?.city}</h3>
                 <p className='jobs-box-paragraph'>  {maxLength(job?.description)}  </p>
                 <Link to={`/job/${job?.id}`} id='none'><p className="jobs-box-learn">Job Description</p></Link>
@@ -80,6 +85,8 @@ export default function Jobs(props) {
         }
     }
 
+    const checkStateCity = () => !formData.state && !formData.city && setStateCityCheck(true) // check for state and city
+
     return (
         <div className="jobs-main-container">
             {/* <div className="jobs-main-photo ">
@@ -89,48 +96,45 @@ export default function Jobs(props) {
             <div className="jobs-main-middle">
                 <div className='jobs-main-first'>
                     <div className='jobs-select'>
-                        {/* <h3>Filters</h3> */}
+                        <h3>FILTER</h3>
+                        {stateCityCheck && <h4 className='jobs-select-choose-state-city'>Please select state and city first.</h4>}
                         {/* 1 */}
                         <select required name='state' onChange={(e) => {
                             setCities(states[e.target.value])
                             handleChange(e)
+                            setStateCityCheck(false)
                             formData.city = states[e.target.value][cities.indexOf(formData.city)] // for city selected update
                         }}>
-                            <option selected disabled>Choose State</option>
+                            <option selected disabled>State</option>
                             {Object.keys(states).map((oneState) =>
                                 <option value={oneState}>{oneState}</option>
                             )}
                         </select>
                         {/* 2 */}
-                        <select name="city" onChange={(e) => {
-                            handleChange(e)
-                        }}>
-                            <option selected disabled>Choose City</option>
+                        <select name="city" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled> City</option>
                             {cities && cities.map((city) =>
                                 <option value={city}>{city}</option>
                             )}
                         </select>
                         {/* The rest */}
-                        <select name="category" onChange={(e) => {
-                            handleChange(e)
-                        }}>
-                            <option selected disabled value=''>Choose Category</option>
+                        <select name="category" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled value=''>Job Types</option>
                             {formData.city && categories.map((category) =>
                                 <option value={category}>{category}</option>
                             )}
                         </select>
-                        <select name="employment_type" onChange={(e) => {
-                            handleChange(e)
-                        }}>
-                            <option selected disabled value=''>Choose Employment Type</option>
+                        <select name="employment_type" onClick={checkStateCity} onChange={handleChange}>
+                            <option selected disabled value=''>Employment Type</option>
                             {formData.city && employmentOptions.map((type) =>
                                 <option value={type}>{type}</option>
                             )}
                         </select>
                         <button className="job-select-button" onClick={() => {
                             window.location.reload();
-                        }}>Reset</button>
-                        <Link to="/jobs/byemployee" id="none"><p className="jobs-link"> I'm looking for employees</p></Link>
+                        }}>RESET SEARCH</button>
+                        <div className="jobs-select-line"></div>
+                        <Link to="/jobs/byemployee" id="none"><p className="jobs-link"> Looking for employees</p></Link>
                     </div>
                 </div>
                 <div className="jobs-main-second">
