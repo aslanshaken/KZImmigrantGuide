@@ -1,4 +1,4 @@
-# Qazaq Republic in the USA<!-- omit in toc -->
+# Info-Box<!-- omit in toc -->
 Link - https://qazaq-republic.netlify.app/
 
 ### Languages I use for this project:   
@@ -8,11 +8,11 @@ Link - https://qazaq-republic.netlify.app/
 March, 2021 - Present 
 
 ### Brief short description: 
-The web source aims to integrate all Kazakh communities in the US. It’s planned to be a digital toolbox and a source facilitator, where Kazakh Americans and newcomers will get veracious up-to-date information on various topics, including immigration, legalization, housing and lease/rent, job-hunting and offering, cultural gatherings etc. At large, it should grow as a communication medium and resource sharing channel for all Kazakhstanis, who repudiate losing their bundle with homeland and native culture. 
-Project is non-profit and encourages volunteering among our counterparts.    
+To help people everywhere find what they love. The web source aims to integrate all people in the US. It’s planned to be a digital toolbox and a source facilitator, where people will get veracious up-to-date information on various topics, including immigration, legalization, housing and lease/rent, job-hunting and offering, cultural gatherings etc.
 
-### Target audience: 
-Kazakh Diaspora in the US   
+At large, it should grow as a communication medium and resource sharing channel for all people.
+Project is non-profit and encourages volunteering among our counterparts.
+
 
 ### Features: 
 
@@ -21,8 +21,8 @@ A user can - read only
 Job-Hunting  or looking for employees.
 Search for a house/apt/room for rent or landlords who  lease  housing properties.
 Search for all types of available services, including financial, household, travel, beauty, etc.  
-Search for Kazakh Communities in the US. For instance: New York has 3 small Kazakh groups with around 50-80 people in each group. Through  this platform, a user will be able to find these communities by state and city, and get a brief description of any groups such as location, admin, contact information and so on. 
-Search for the blogs. Each blog will cover important topics to discuss here in the US. Blogging might help Kazakh immigrants to adapt to their communities.
+Search for Communities in the US. Through  this platform, a user will be able to find these communities by state and city, and get a brief description of any groups such as location, admin, contact information and so on. 
+Search for the blogs. Each blog will cover important topics to discuss here in the US. 
 Search for any topics in the discussion forums. In this place, a user can choose any topic and discuss it, or find ready answers from users’ experiences. 
 Search for upcoming events in their location and join meetings. 
 Look up the donation page. It provides information about the people who need help with medicines or buy essential things. 
@@ -40,7 +40,11 @@ Receive a four digit code to their email address if they use the “forget passw
 
 ### The origins of the  idea:  
 
-At the age of 18, I moved to the US in pursuit of my dreams. As a young new face, with a weak knowledge of English and life experience in the city of New York, I had difficulties in finding a good affordable housing and a comparatively well paid job. These life challenges of adulthood made me stronger and led me to learn new skills. When I found my interest in coding, I joined bootcamp classes, where I have been challenged to create a project with full stack features. One of my Kazakh friends accidentally pitched me an idea of this platform, when he asked about job/housing , immigration and information about New-York based Kazakh communities. While I was helping him, I developed the idea of the platform, which should digital guide to Kazakh immigrants to pursue their American dreams.
+At the age of 18, I moved to the US in pursuit of my dreams. As a young new face, with a weak knowledge of English and life experience in the city of New York, I had difficulties in finding a good affordable housing and a comparatively well paid job. These life challenges of adulthood made me stronger and led me to learn new skills. When I found my interest in coding, I joined boot-camp classes, where I have been challenged to create a project with full stack features. One of my friends accidentally pitched me an idea of this platform, when he asked about job/housing , immigration and information about New-York based communities.
+
+While I was helping him, I developed the idea of the platform, which should digital guide to people to pursue their needss.
+
+
 
 
 
