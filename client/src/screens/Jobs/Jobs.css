@@ -124,7 +124,7 @@
 
 .jobs-box-about {
   color: gray;
-  height: 70px;
+  height: 70px !important;
   width: 400px;
 }
 
