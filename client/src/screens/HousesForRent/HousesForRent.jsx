@@ -2,7 +2,7 @@ import './HousesForRent.css';
 import { Link, useHistory } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import AD from '../../assets/ad1.png'
-import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa' // Filter
+import { UsaStatesAndCities, Bedrooms } from '../../assets/Usa' // Filter
 
 export default function HousesForRent(props) {
 
@@ -10,15 +10,13 @@ export default function HousesForRent(props) {
 
     // FILTER
     const states = UsaStatesAndCities() // get a list of states
-    const categories = Categories() // get a list of categories
-    const employmentOptions = EmploymentTypes() // get a list of employment types
+    const bedroomsType = Bedrooms() // get bedroom list
     const [cities, setCities] = useState([]) // get chosen cities county
     const [stateCityCheck, setStateCityCheck] = useState(false)
     const [formData, setFormData] = useState({
         state: '',
         city: '',
-        category: '',
-        employment_type: ''
+        bedroom: ''
     })
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +41,6 @@ export default function HousesForRent(props) {
         }
     }
 
-
     function maxNameLength(str) { // less words for name
         if (str.length > 30) {
             return str.split('').slice(0, 20).join('') + '...'
@@ -51,6 +48,43 @@ export default function HousesForRent(props) {
             return str
         }
     }
+
+    function HousesList(house) {
+        return (
+            <div className='houses-for-rent-main-box'>
+                <div className='houses-for-rent-box-upper'>
+                    <p className="houses-for-rent-box-img-price">${house.post_house.price}</p>
+                    <p className='houses-for-rent-box-img-date'>{filterDate(house.post_house.updated_at)}</p>
+                </div>
+                <img className='houses-for-rent-box-img' src={!house.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : house.images[0]?.url} />
+                <div className='houses-for-rent-box-upper'>
+                    <p className="houses-for-rent-box-img-price">{house.post_house.bathroom}</p>
+                    <p className='houses-for-rent-box-img-date'>{house.post_house.state},{house.post_house.city}</p>
+                </div>
+                <p>{maxLength(house.post_house.name)}</p>
+                <div className='houses-for-rent-box-upper'>
+                    <p className="houses-for-rent-box-img-price">{house.post_house.cellphone}</p>
+                    <p className='houses-for-rent-box-img-date'><Link to={`/houseforrent/${house.post_house.id}`} id="none">Learn More</Link></p>
+                </div>
+            </div>
+        )
+    }
+
+    function FilterData(data) { // FILTER
+        if (!formData.bedroom) {
+            if (formData.city == data.post_house.city) {
+                return HousesList(data)
+            }
+        } else if (formData.bedroom) {
+            if (formData.city == data.post_house.city && formData.bedroom == data.post_house.bathroom) {
+                return HousesList(data)
+            } else if (formData.city == data.post_house.city && formData.bedroom == "all") {
+                return HousesList(data)
+            }
+        }
+    }
+
+
     const checkStateCity = () => !formData.state && !formData.city && setStateCityCheck(true) // check for state and city
 
     return (
@@ -84,15 +118,9 @@ export default function HousesForRent(props) {
                             )}
                         </select>
                         {/* The rest */}
-                        {/* <select name="category" onClick={checkStateCity} onChange={handleChange}>
-                            <option selected disabled value=''>Job Types</option>
-                            {formData.city && categories.map((category) =>
-                                <option value={category}>{category}</option>
-                            )}
-                        </select> */}
-                        <select name="employment_type" onClick={checkStateCity} onChange={handleChange}>
+                        <select name="bedroom" onClick={checkStateCity} onChange={handleChange}>
                             <option selected disabled value=''>Bedroom</option>
-                            {formData.city && employmentOptions.map((type) =>
+                            {formData.city && bedroomsType.map((type) =>
                                 <option value={type}>{type}</option>
                             )}
                         </select>
@@ -100,29 +128,13 @@ export default function HousesForRent(props) {
                             window.location.reload();
                         }}><img src="https://img.icons8.com/ios-glyphs/30/000000/recurring-appointment.png" />RESET SEARCH</button>
                         <div className="houses-for-rent-select-line"></div>
-                        <Link to="/houses/wanted" id="none"><p className="jobs-link"> Who needs house</p></Link>
+                        <Link to="/houses/wanted" id="none"><p className="jobs-link"> House Wanted</p></Link>
                     </div>
                 </div>
                 <div className="houses-for-rent-main-right">
                     {housesForRent.map((house) => {
-                        return (
-                            <div className='houses-for-rent-main-box'>
-                                <div className='houses-for-rent-box-upper'>
-                                    <p className="houses-for-rent-box-img-price">${house.post_house.price}</p>
-                                    <p className='houses-for-rent-box-img-date'>{filterDate(house.post_house.updated_at)}</p>
-                                </div>
-                                <img className='houses-for-rent-box-img' src={!house.images[0] ? "http://www.mylaporetimes.com/wp-content/uploads/2020/07/rent-clipart-for-rent-sign-vector-art-illustration-612.jpg" : house.images[0]?.url} />
-                                <div className='houses-for-rent-box-upper'>
-                                    <p className="houses-for-rent-box-img-price">{house.post_house.bathroom}</p>
-                                    <p className='houses-for-rent-box-img-date'>{house.post_house.state},{house.post_house.city}</p>
-                                </div>
-                                <p>{maxLength(house.post_house.name)}</p>
-                                <div className='houses-for-rent-box-upper'>
-                                    <p className="houses-for-rent-box-img-price">{house.post_house.cellphone}</p>
-                                    <p className='houses-for-rent-box-img-date'><Link to={`/houseforrent/${house.post_house.id}`} id="none">Learn More</Link></p>
-                                </div>
-                            </div>
-                        )
+                        if (formData.city) { return FilterData(house) }
+                        else return HousesList(house)
                     })}
                 </div>
             </div>

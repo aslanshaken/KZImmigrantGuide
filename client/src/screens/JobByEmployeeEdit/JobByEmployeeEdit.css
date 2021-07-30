@@ -66,6 +66,14 @@
   font-size: medium;
 }
 
+.jobByEmployee-edit-box select {
+  width: 358px;
+  margin-bottom: 10px;
+  float: right;
+  font-size: medium;
+}
+
+
 .jobByEmployee-edit-box textarea {
   width: 350px !important;
   margin-bottom: 10px;

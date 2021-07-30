@@ -1,112 +1,161 @@
 .houses-wanted-main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .houses-wanted-main-photo {
-    margin: 0px 0px 50px 0px;
-    position: relative;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .houses-wanted-main-photo img {
-    height: 13vh;
-    width: 70vw;
-    object-fit: cover;
-    z-index: -100;
-  }
-  
-  .houses-wanted-main-middle {
-    display: flex;
-    width: 55%;
-  }
-  
-  .houses-wanted-main-left {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .houses-wanted-main-right {
-    width: 20%;
-    border: 1px solid black;
-    height: 500px !important;
-    margin: 30px;
-  }
-  
-  .houses-wanted-main-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  .houses-wanted-to-choose h3 {
-    padding: 2%;
-  }
-  
-  .houses-wanted-select {
-    display: flex;
-    justify-content: space-between;
-    width: 30%;
-    margin: 100px 0px 50px 0px;
-  }
-  
-  .houses-wanted-select select{
-  width: fit-content;
-  }
-  
-  .houses-wanted-select p {
-    margin-top: -3px;
-  }
-  
-  .houses-wanted-select p:hover {
-    border-bottom: 0.5px solid grey;
-  }
-  
-  .houses-wanted-main-box {
-    border: 0.5px solid rgb(194, 184, 184);
-    margin: 30px;
-    width: 300px;
-    height: 370px !important;
-    padding: 0% 2% 0% 2%;
-    box-shadow: 5px 5px 5px 5px rgb(240, 240, 240);
-  }
-  
-  .houses-wanted-box-upper {
-    display: flex;
-    justify-content: space-between;
-    
-  }
-  
-  .houses-wanted-box-img {
-    width: 300px;
-    height: 150px;
-    object-fit: cover;
-    z-index: -100;
-  }
-  
-  .houses-wanted-box-img-price {
-  
-  }
-  
-  .houses-wanted-box-img-date {
-  
-  }
-  
-  .houses-wanted-box-bottom {
-    display: flex;
-    justify-content: space-around;
-    width: 800px;
-    font-size: 15px;
-  }
-  
-  .houses-wanted-box-learn:hover {
-    border-bottom: 1px solid black;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .houses-wanted-main-photo {
+  margin: 0px 0px 50px 0px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.houses-wanted-main-photo img {
+  height: 13vh;
+  width: 70vw;
+  object-fit: cover;
+  z-index: -100;
+} */
+
+.houses-wanted-main-text{
+  width: 80%;
+  text-align: center;
+  background-color: #f2f8ff;
+  padding: 3%;
+  margin-bottom: 50px;
+}
+
+.houses-wanted-main-middle {
+  display: flex;
+  width: 80%;
+}
+
+.houses-wanted-main-right {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.houses-wanted-main-left {
+margin-right: 30px;
+}
+
+.houses-wanted-main-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.houses-wanted-to-choose h3 {
+  padding: 2%;
+}
+
+.houses-wanted-select {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 600px !important;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border: 0.5px solid rgb(194, 184, 184);
+}
+
+.houses-wanted-select select {
+  background-color: #f2f8ff;
+  border: none;
+  margin: 15px;
+  font-weight: 700;
+  height: 40px;
+  width: 250px;
+  color: grey;
+  font-size: 17px;
+}
+
+.houses-wanted-select-choose-state-city {
+  color: rgb(201, 69, 69);
+}
+
+.houses-wanted-select-button {
+  margin: 20px;
+  width: 250px;
+  height: 35px;
+  background-color: rgb(102, 145, 189);
+  color: white;
+  border-radius: 35px;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.houses-wanted-select-button img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.houses-wanted-select-line {
+  width: 200px;
+  border: 0.5px solid rgb(140, 166, 180);
+  margin: 20px;
+}
+
+.houses-wanted-link {
+  color: rgb(104, 96, 96);
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: 0.5px solid grey;
+  padding: 20px 30px 20px 30px;
+}
+
+.houses-wanted-main-box {
+  border: 0.5px solid rgb(194, 184, 184);
+  margin: 0px 10px 15px 10px;
+  width: 300px;
+  height: 400px;
+  padding: 0% 2% 0% 2%;
+  box-shadow: 5px 5px 5px 5px rgb(240, 240, 240);
+}
+
+.houses-wanted-box-upper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.houses-wanted-box-img {
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  z-index: -100;
+}
+
+.houses-wanted-box-name{
+  color: gray;
+  width: 300px;
+  height: 50px !important;
+}
+
+.houses-wanted-box-img-price {
+}
+
+.houses-wanted-box-img-date {
+}
+
+.houses-wanted-box-bottom {
+  display: flex;
+  justify-content: space-around;
+  width: 800px;
+  font-size: 15px;
+}
+
+.houses-wanted-box-learn:hover {
+  border-bottom: 1px solid black;
+}

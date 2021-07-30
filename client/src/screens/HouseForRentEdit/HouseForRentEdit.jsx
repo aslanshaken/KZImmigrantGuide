@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
 import { updateOneHouseForRent } from '../../services/postHouses'
+import { UsaStatesAndCities, Bedrooms } from '../../assets/Usa'
 
 export default function HouseForRentEdit(props) {
     const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ export default function HouseForRentEdit(props) {
         state: '',
     })
     const { id } = useParams();
+    const states = UsaStatesAndCities() // get all states
+    const bedroomTypes = Bedrooms()
     const { currentUser, housesForRent, setHousesForRent } = props
     const history = useHistory();
     const { name, description, state, city, date_move_in, bathroom, cellphone, email, price } = formData;
@@ -77,6 +80,10 @@ export default function HouseForRentEdit(props) {
         }
     }
 
+    const cities = states[state]
+
+    console.log(state, city, cities)
+
     return (
         <div className="house-edit">
             <div className="house-edit-main-photo">
@@ -116,12 +123,12 @@ export default function HouseForRentEdit(props) {
                         />
                     </label>
                     <label> Bathroom:
-                        <input
-                            type='number'
-                            name='bathroom'
-                            value={bathroom}
-                            onChange={handleChange}
-                        />
+                        <select value={bathroom} name="bathroom" onChange={handleChange}>
+                            <option selected disabled> Bedroom</option>
+                            {bedroomTypes.map((data) =>
+                                <option value={data}>{data}</option>
+                            )}
+                        </select>
                     </label>
                     <label> Price:
                         <input
@@ -141,21 +148,23 @@ export default function HouseForRentEdit(props) {
                         />
                     </label>
                     <label> State:
-                        <input
-                            type='text'
-                            name='state'
-                            value={state}
-                            onChange={handleChange}
-                        />
+                        <select value={state} name="state" onChange={(e) => {
+                            handleChange(e)
+                            formData.city = states[e.target.value][cities.indexOf(formData.city)] // for city selected update
+                        }}>
+                            <option selected disabled>State</option>
+                            {Object.keys(states).map((oneState) =>
+                                <option value={oneState}>{oneState}</option>
+                            )}
+                        </select>
                     </label>
                     <label> City:
-                        <input
-                            type='text'
-                            name='city'
-                            value={city}
-                            maxLength="300"
-                            onChange={handleChange}
-                        />
+                        <select value={city} name="city" onChange={handleChange}>
+                            <option selected disabled> City</option>
+                            {cities?.map((data)=>
+                            <option value={data}>{data}</option>
+                            )}
+                        </select>
                     </label>
                     <label> Description:
                         <input

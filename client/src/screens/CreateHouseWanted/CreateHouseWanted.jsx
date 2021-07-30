@@ -1,6 +1,6 @@
 import './CreateHouseWanted.css'
 import { useState } from 'react';
-import { UsaStatesAndCities } from '../../assets/Usa'
+import { UsaStatesAndCities, Bedrooms } from '../../assets/Usa'
 import { postNewHouseWanted } from '../../services/postHousesWanted'
 import Empty from '../../assets/empty-image.jpg'
 
@@ -24,6 +24,7 @@ export default function CreateHouseWanted(props) {
 
     // States,Cities and received message
     const [cities, setCities] = useState([])
+    const bedroomsType = Bedrooms()
     const [stateToggle, setStateToggle] = useState(true)
     const [received, setReceived] = useState(false)
     const states = UsaStatesAndCities()
@@ -137,14 +138,11 @@ export default function CreateHouseWanted(props) {
                         <div className="create-house-wanted-box-div">
                             <label>
                                 <p>Bathroom*</p>
-                                <select name='bathroom' required="required" onChange={(e) => handleChange(e)} >
-                                    <option selected disabled > Select Bathroom </option>
-                                    <option value="0">Studio</option>
-                                    <option value="1">1 bedroom</option>
-                                    <option value="2">2 bedrooms</option>
-                                    <option value="3">3 bedrooms</option>
-                                    <option value="4">4 bedrooms</option>
-                                    <option value="5">5 bedrooms and +</option>
+                                <select name="bathroom" onChange={handleChange}>
+                                    <option selected disabled value=''>Bedroom</option>
+                                    {bedroomsType.map((type) =>
+                                        <option value={type}>{type}</option>
+                                    )}
                                 </select>
                             </label>
                             <label>

@@ -1156,3 +1156,10 @@ export const EmploymentTypes = () => {
   ]
   return types
 }
+
+export const Bedrooms = () => {
+  const bedroomsType = [
+    "all", "studio", 1, 2, 3, 4, 5
+  ]
+  return bedroomsType;
+}

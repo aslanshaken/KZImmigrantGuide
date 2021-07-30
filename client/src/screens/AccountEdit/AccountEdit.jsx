@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { updateOneUser } from '../../services/auth'
 import { Link } from "react-router-dom";
+import { UsaStatesAndCities } from '../../assets/Usa'
 
 export default function AccountEdit(props) {
     const [formData, setFormData] = useState({
@@ -24,6 +25,9 @@ export default function AccountEdit(props) {
     const [preview, setPreview] = useState(false)
     const id = currentUser?.user.id
     const history = useHistory();
+    const states = UsaStatesAndCities() // get all states
+    const [userState, setUserState] = useState()
+    const [cities, setCities] = useState([]) // get chosen cities county
     const { username,
         email,
         first_name,
@@ -59,6 +63,18 @@ export default function AccountEdit(props) {
         }
     }, [currentUser])
 
+    function UpdateStatesAndCities() {
+        return Object.keys(states).map((oneState) => { // To update state anb city selects
+            states[oneState].map((city) => {
+                if (city == current_city) {
+                    setCities(states[oneState]) // update select cities within state in select
+                    setUserState(oneState) // update value of state select
+                }
+            })
+        })
+    }
+
+    console.log(current_city)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -221,13 +237,28 @@ export default function AccountEdit(props) {
                             </div>
                         </div>
                         <div className="account-edit-left-right">
+                            <div id="user-edit-left">State:</div> <div id="user-edit-right">
+                                {!userState && UpdateStatesAndCities()}  
+                                <select value={userState} onChange={(e) => {
+                                    setCities(states[e.target.value])
+                                    setUserState(e.target.value)
+                                    formData.current_city = states[e.target.value][cities.indexOf(formData.current_city)] // for city selected update
+                                }}> 
+                                    <option selected disabled>State</option>
+                                    {Object.keys(states).map((oneState) =>
+                                        <option value={oneState}>{oneState}</option>
+                                    )}
+                                </select>
+                            </div>
+                        </div>
+                        <div className="account-edit-left-right">
                             <div id="user-edit-left">Current City:</div> <div id="user-edit-right">
-                                <input
-                                    type='text'
-                                    name='current_city'
-                                    value={current_city}
-                                    onChange={handleChange}
-                                />
+                                <select value={current_city} name="current_city" onChange={handleChange}>
+                                    <option selected disabled> City</option>
+                                    {cities.map((city) =>
+                                        <option value={city}>{city}</option>
+                                    )}
+                                </select>
                             </div>
                         </div>
                         <div className="account-edit-left-right">

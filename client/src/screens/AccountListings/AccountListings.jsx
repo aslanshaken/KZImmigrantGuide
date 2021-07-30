@@ -32,8 +32,8 @@ export default function AccountListings(props) {
     }
 
     function maxLength(str) {
-        if (str.length > 25) {
-            return str.split('').slice(0, 30).join('') + '...'
+        if (str.length > 20) {
+            return str.split('').slice(0, 20).join('') + '...'
         } else {
             return str
         }

@@ -1,6 +1,6 @@
 import './CreateJobWanted.css'
 import { useState } from 'react';
-import { UsaStatesAndCities } from '../../assets/Usa'
+import { UsaStatesAndCities, Categories } from '../../assets/Usa'
 import { postNewEmployee } from '../../services/postByEmployees'
 
 export default function CreateJobWanted(props) {
@@ -17,6 +17,7 @@ export default function CreateJobWanted(props) {
     const { currentUser, setJobsByEmployee } = props
 
     const [cities, setCities] = useState([])
+    const categories = Categories()
     const [stateToggle, setStateToggle] = useState(true)
     const [received, setReceived] = useState(false)
     const states = UsaStatesAndCities()
@@ -95,12 +96,12 @@ export default function CreateJobWanted(props) {
                             </label>
                             <label>
                                 <p>Category*</p>
-                                <input
-                                    type='text'
-                                    name='category'
-                                    value={category}
-                                    required
-                                    onChange={handleChange} />
+                                <select name="category" onChange={handleChange}>
+                                    <option value=''>Choose Category</option>
+                                    {categories.map((category) =>
+                                        <option value={category}>{category}</option>
+                                    )}
+                                </select>
                             </label>
                         </div>
                         <div className="create-job-wanted-box-div">
