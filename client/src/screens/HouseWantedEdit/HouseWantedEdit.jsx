@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
 import { updateOneHouseWanted } from '../../services/postHousesWanted'
+import { UsaStatesAndCities, Bedrooms } from '../../assets/Usa' // 1 for filter
 
 export default function HouseWantedEdit(props) {
     const [formData, setFormData] = useState({
@@ -16,9 +17,11 @@ export default function HouseWantedEdit(props) {
         state: '',
     })
     const { id } = useParams();
+    const states = UsaStatesAndCities() // 2 get all states 
+    const bedroomTypes = Bedrooms() // 2 get all bedroom types 
     const { currentUser, houseWanted, setHouseWanted } = props
     const history = useHistory();
-    const { name, about_me, state, city, date_move_in, bathroom, cellphone, email} = formData;
+    const { name, about_me, state, city, date_move_in, bathroom, cellphone, email } = formData;
     const [newImage, setNewImage] = useState(false)
     const [preview, setPreview] = useState(false)
 
@@ -75,6 +78,10 @@ export default function HouseWantedEdit(props) {
         }
     }
 
+    const cities = states[state] // take current state and save all cities to "cities variable"
+    console.log(state, city, cities)
+
+
     return (
         <div className="house-wanted-edit">
             <div className="house-wanted-edit-main-photo">
@@ -114,7 +121,7 @@ export default function HouseWantedEdit(props) {
                         />
                     </label>
                     <label> About Me:
-                        <input
+                        <textarea
                             type='text'
                             name='about_me'
                             value={about_me}
@@ -122,12 +129,12 @@ export default function HouseWantedEdit(props) {
                         />
                     </label>
                     <label> Bathroom:
-                        <input
-                            type='number'
-                            name='bathroom'
-                            value={bathroom}
-                            onChange={handleChange}
-                        />
+                        <select value={bathroom} name="bathroom" onChange={handleChange}>
+                            <option selected disabled> Bedroom</option>
+                            {bedroomTypes?.map((data) =>
+                                <option value={data}>{data}</option>
+                            )}
+                        </select>
                     </label>
                     <label> Date Move In:
                         <input
@@ -139,21 +146,23 @@ export default function HouseWantedEdit(props) {
                         />
                     </label>
                     <label> State:
-                        <input
-                            type='text'
-                            name='state'
-                            value={state}
-                            onChange={handleChange}
-                        />
+                        <select value={state} name="state" onChange={(e) => {
+                            handleChange(e)
+                            formData.city = states[e.target.value][cities?.indexOf(formData.city)] // for city selected update
+                        }}>
+                            <option selected disabled>State</option>
+                            {Object.keys(states).map((oneState) =>
+                                <option value={oneState}>{oneState}</option>
+                            )}
+                        </select>
                     </label>
                     <label> City:
-                        <input
-                            type='text'
-                            name='city'
-                            value={city}
-                            maxLength="300"
-                            onChange={handleChange}
-                        />
+                        <select value={city} name="city" onChange={handleChange}>
+                            <option selected disabled> City</option>
+                            {cities?.map((data) =>
+                                <option value={data}>{data}</option>
+                            )}
+                        </select>
                     </label>
                     <label> Email:
                         <input

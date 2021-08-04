@@ -14,46 +14,52 @@
   z-index: -100;
 } */
 
-
 .login-box {
-  padding: 10px;
+  /* padding: 10px;
   width: 360px;
-  height: 350px;
+  height: 350px; */
   border-radius: 5em 5em 5em 5em;
   text-align: center;
   display: flex;
-  border: 0.5px solid grey;
+}
+
+.login-box label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: gray;
+  margin-bottom: 10px;
 }
 
 .input-username {
-  margin: 10px;
+  margin: 10px 0px 15px 0px;
   background: url("https://img.icons8.com/fluent/48/000000/username.png")
     no-repeat scroll 5px;
   text-align: center;
   background-size: 25px;
-  height: 30px;
+  height: 40px;
   border-radius: 5em 5em 5em 5em;
   outline: none;
-  width: 250px;
+  width: 350px;
   font-weight: 800;
 }
 
 .input-password {
-  margin: 10px;
+  margin: 10px 0px 15px 0px;
   background: url("https://img.icons8.com/ultraviolet/40/000000/heart-key.png")
     no-repeat scroll 5px;
   text-align: center;
   background-size: 21px;
-  height: 30px;
+  height: 40px;
   border-radius: 5em 5em 5em 5em;
   line-height: 2em;
   outline: none;
-  width: 250px;
+  width: 350px;
   font-weight: 800;
 }
 
 #forget-password {
-  margin: 0px -150px 0px 0px;
+  margin: -20px -250px 0px 0px;
 }
 
 #login-form-button {

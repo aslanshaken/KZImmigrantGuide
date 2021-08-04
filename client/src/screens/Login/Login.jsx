@@ -33,24 +33,26 @@ export default function Login(props) {
                         error &&
                         <p>{error}</p>
                     }
-                    <input
-                        className='input-username'
-                        type='text'
-                        placeholder="Username"
-                        required
-                        name='username'
-                        value={username}
-                        onChange={handleChange}
-                    />
-                    <input
-                        className='input-password'
-                        type='password'
-                        placeholder="Password"
-                        required
-                        name='password'
-                        value={password}
-                        onChange={handleChange}
-                    />
+                    <label>Username
+                        <input
+                            className='input-username'
+                            type='text'
+                            required
+                            name='username'
+                            value={username}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>Password
+                        <input
+                            className='input-password'
+                            type='password'
+                            required
+                            name='password'
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </label>
                     <Link to='/forgotpassword' id='none'> <h5 id="forget-password">Forget Password?</h5></Link>
                     <button id="login-form-button"><b>Log into your account</b></button>
                     <Link to='/register' id='none'> <h4>New user? Create account</h4></Link>

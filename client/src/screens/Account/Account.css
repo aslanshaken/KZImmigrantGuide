@@ -105,6 +105,7 @@
 
 .account-user-about-me {
   display: flex;
+  max-height: 90px;
 }
 
 .account-user-social-media {

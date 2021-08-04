@@ -2,9 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5%;
+  background-color: #F8F9FA;
 }
 
-.testimonials-box {
+.testimonials-left{
+  width: 50%;
+}
+
+.testimonials-right{
+  width: 50%;
+}
+
+.testimonials-right p{
+  font-weight: 400;
+  color: #8b8e93;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* .testimonials-box {
   width: 250px !important;
   height: 250px !important;
   margin: 20px;
@@ -25,4 +42,4 @@
 
 .testimonials-box p {
   color: rgb(100, 92, 92);
-}
+} */

@@ -16,6 +16,14 @@ export default function Account(props) {
         }
     }
 
+    function maxLength(str) { // less words for description
+        if (str?.length > 100) {
+            return str.split('').slice(0, 100).join('') + '...'
+        } else {
+            return str
+        }
+    }
+
     return (
         <div className="account-container">
             <div className="account-main-photo">
@@ -71,7 +79,7 @@ export default function Account(props) {
                             <div id="user-left">Current City:</div> <div id="user-right">{capitalizeFirstLetter(currentUser?.user.current_city)}</div>
                         </div>
                         <div className="account-user-about-me">
-                            <div id="user-left">About Me: </div> <div id="user-right">{capitalizeFirstLetter(currentUser?.user.about_me)}</div>
+                            <div id="user-left">About Me: </div> <div id="user-right">{maxLength(capitalizeFirstLetter(currentUser?.user.about_me))}</div>
                         </div>
                     </div>
                     <div className="account-contact-box">

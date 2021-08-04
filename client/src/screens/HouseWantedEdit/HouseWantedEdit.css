@@ -82,6 +82,23 @@
     float: right;
     font-size: medium;
   }
+
+  .house-wanted-edit-box select {
+    width: 308px;
+    margin-bottom: 10px;
+    float: right;
+    font-size: medium;
+  }
+
+    
+  .house-wanted-edit-box textarea {
+    width: 303px !important;
+    height: 100px !important;
+    margin-bottom: 10px;
+    float: right;
+    font-size: medium;
+  }
+  
   
   .house-wanted-edit-date{
     padding-left: 1%;

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
 import { updateOneCommunity } from '../../services/communities'
+import { UsaStatesAndCities } from '../../assets/Usa'
 
 export default function CommunityEdit(props) {
     const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ export default function CommunityEdit(props) {
         whatsapp: '',
     })
     const { id } = useParams();
+    const states = UsaStatesAndCities() // get all states
     const { currentUser, allCommunities, setAllCommunities } = props
     const history = useHistory();
     const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData;
@@ -78,6 +80,10 @@ export default function CommunityEdit(props) {
         }
     }
 
+    const cities = states[state] // take current state and save all cities to "cities variable"
+
+    console.log(state, city, cities)
+
     return (
         <div className="community-edit">
             <div className="community-edit-main-photo">
@@ -117,21 +123,23 @@ export default function CommunityEdit(props) {
                         />
                     </label>
                     <label> State:
-                        <input
-                            type='text'
-                            name='state'
-                            value={state}
-                            onChange={handleChange}
-                        />
+                        <select value={state} name="state" onChange={(e) => {
+                            handleChange(e)
+                            formData.city = states[e.target.value][cities?.indexOf(formData.city)] // for city selected update
+                        }}>
+                            <option selected disabled>State</option>
+                            {Object.keys(states).map((oneState) =>
+                                <option value={oneState}>{oneState}</option>
+                            )}
+                        </select>
                     </label>
                     <label> City:
-                        <input
-                            type='text'
-                            name='city'
-                            value={city}
-                            maxLength="300"
-                            onChange={handleChange}
-                        />
+                        <select value={city} name="city" onChange={handleChange}>
+                            <option selected disabled> City</option>
+                            {cities?.map((data) =>
+                                <option value={data}>{data}</option>
+                            )}
+                        </select>
                     </label>
                     <label> Members:
                         <input

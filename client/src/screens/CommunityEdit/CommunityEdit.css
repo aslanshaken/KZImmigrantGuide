@@ -82,6 +82,14 @@
     float: right;
     font-size: medium;
   }
+
+  .community-edit-box select {
+    width: 308px;
+    margin-bottom: 10px;
+    float: right;
+    font-size: medium;
+  }
+  
   
   /* .community-edit-box textarea {
     width: 300px !important;

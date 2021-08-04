@@ -115,7 +115,6 @@ export default function BlogEdit(props) {
                             type='text'
                             name='description'
                             value={description}
-                            maxLength="300"
                             onChange={handleChange}
                         />
                     </label>

@@ -19,7 +19,7 @@ export default function HouseForRentEdit(props) {
     })
     const { id } = useParams();
     const states = UsaStatesAndCities() // get all states
-    const bedroomTypes = Bedrooms()
+    const bedroomTypes = Bedrooms() // get all bedroom types
     const { currentUser, housesForRent, setHousesForRent } = props
     const history = useHistory();
     const { name, description, state, city, date_move_in, bathroom, cellphone, email, price } = formData;
@@ -80,7 +80,7 @@ export default function HouseForRentEdit(props) {
         }
     }
 
-    const cities = states[state]
+    const cities = states[state] // take current state and save all cities to "cities variable"
 
     console.log(state, city, cities)
 
@@ -125,7 +125,7 @@ export default function HouseForRentEdit(props) {
                     <label> Bathroom:
                         <select value={bathroom} name="bathroom" onChange={handleChange}>
                             <option selected disabled> Bedroom</option>
-                            {bedroomTypes.map((data) =>
+                            {bedroomTypes?.map((data) =>
                                 <option value={data}>{data}</option>
                             )}
                         </select>
@@ -150,7 +150,7 @@ export default function HouseForRentEdit(props) {
                     <label> State:
                         <select value={state} name="state" onChange={(e) => {
                             handleChange(e)
-                            formData.city = states[e.target.value][cities.indexOf(formData.city)] // for city selected update
+                            formData.city = states[e.target.value][cities?.indexOf(formData.city)] // for city selected update
                         }}>
                             <option selected disabled>State</option>
                             {Object.keys(states).map((oneState) =>
@@ -161,13 +161,13 @@ export default function HouseForRentEdit(props) {
                     <label> City:
                         <select value={city} name="city" onChange={handleChange}>
                             <option selected disabled> City</option>
-                            {cities?.map((data)=>
-                            <option value={data}>{data}</option>
+                            {cities?.map((data) =>
+                                <option value={data}>{data}</option>
                             )}
                         </select>
                     </label>
                     <label> Description:
-                        <input
+                        <textarea
                             type='text'
                             name='description'
                             value={description}
