@@ -3,43 +3,29 @@
   justify-content: center;
   align-items: center;
   padding: 5%;
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
 
-.testimonials-left{
+.testimonials-left {
   width: 50%;
 }
 
-.testimonials-right{
+.testimonials-right {
   width: 50%;
 }
 
-.testimonials-right p{
+.testimonials-right p {
   font-weight: 400;
   color: #8b8e93;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
 }
 
-/* .testimonials-box {
-  width: 250px !important;
-  height: 250px !important;
-  margin: 20px;
+.testimonials-right h1 {
+  color: #606060;
+  font-size: 40px;
+  line-height: 24px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  text-decoration: none solid rgb(96, 96, 96);
 }
-
-.testimonials-first-box {
-  display: flex;
-  height: 70px !important;
-  width: 250px !important;
-}
-
-.testimonials-first-box img {
-  width: 65px;
-  height: 65px;
-  object-fit: cover;
-  margin-right: 90px;
-}
-
-.testimonials-box p {
-  color: rgb(100, 92, 92);
-} */
