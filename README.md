@@ -43,6 +43,23 @@ https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZ%2
 ### Table
 https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZtable.png?raw=true
 
+
+**## Project Schedule
+
+|  Day | Deliverable | Status
+|---|---| ---|
+|July 10 |Prompt / Wireframes / Priority Matrix / Timeframes | Completed
+|July 12| Project Approval | Completed
+|July 15| Core Application Structure (HTML, CSS, React etc.) | Completed
+|July 20| Pseudocode / actual code | Completed
+|July 25| Initial Clickable Model  | Completed
+|July 30| MVP | Completed
+|August 2-5 | Test | Completed
+|August 5-10 | Fix Bugs | In the process
+
+**
+
+
 ### The origins of the  idea:  
 
 At the age of 18, I moved to the US in pursuit of my dreams. As a young new face, with a weak knowledge of English and life experience in the city of New York, I had difficulties in finding a good affordable housing and a comparatively well paid job. These life challenges of adulthood made me stronger and led me to learn new skills. When I found my interest in coding, I joined boot-camp classes, where I have been challenged to create a project with full stack features. One of my friends accidentally pitched me an idea of this platform, when he asked about job/housing , immigration and information about New-York based communities.
