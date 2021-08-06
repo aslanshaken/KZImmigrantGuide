@@ -44,7 +44,7 @@ https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZ%2
 https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZtable.png?raw=true
 
 
-**## Project Schedule
+### Project Schedule
 
 |  Day | Deliverable | Status
 |---|---| ---|
@@ -56,8 +56,6 @@ https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZta
 |July 30| MVP | Completed
 |August 2-5 | Test | Completed
 |August 5-10 | Fix Bugs | In the process
-
-**
 
 
 ### The origins of the  idea:  
