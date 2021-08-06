@@ -37,6 +37,9 @@ A user can - post/edit/delete
 - Receive a four digit code to their email address if they use the “forget password” or “update password” features.  
 
 
+### Component Hierarchy
+https://github.com/aslanshaken/KZImmigrantGuide/blob/main/client/src/assets/KZ%20hierarchy.png?raw=true
+
 ### The origins of the  idea:  
 
 At the age of 18, I moved to the US in pursuit of my dreams. As a young new face, with a weak knowledge of English and life experience in the city of New York, I had difficulties in finding a good affordable housing and a comparatively well paid job. These life challenges of adulthood made me stronger and led me to learn new skills. When I found my interest in coding, I joined boot-camp classes, where I have been challenged to create a project with full stack features. One of my friends accidentally pitched me an idea of this platform, when he asked about job/housing , immigration and information about New-York based communities.
