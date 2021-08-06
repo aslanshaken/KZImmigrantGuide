@@ -67,7 +67,7 @@ While I was helping him, I developed the idea of the platform, which should digi
 
 
 
-### Code Snippet
+### Code Snippet - View Jobs
 
 ```
 import './Jobs.css'
