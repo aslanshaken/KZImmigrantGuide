@@ -69,7 +69,7 @@ While I was helping him, I developed the idea of the platform, which should digi
 
 ### Code Snippet
 
-```json
+```
 import './Jobs.css'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
