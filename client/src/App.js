@@ -65,7 +65,7 @@ function App() {
   const [allCommunities, setAllCommunities] = useState([])
   const [blogs, setBlogs] = useState([])
 
-  const records = {
+  const records = { // for tracker 
     jobs: jobs.length,
     jobsByEmployee: jobsByEmployee.length,
     housesForRent: housesForRent.length,
@@ -122,8 +122,8 @@ function App() {
 
   const handleLogin = async (formData) => {
     try {
-      const currentUser = await loginUser(formData);
-      setCurrentUser(currentUser);
+      const currentUser1 = await loginUser(formData);
+      setCurrentUser(currentUser1);
       setError(null);
       history.push('/');
       history.go(0)
@@ -134,8 +134,8 @@ function App() {
 
   const handleRegister = async (formData) => {
     try {
-      const currentUser = await registerUser(formData);
-      setCurrentUser(currentUser);
+      const currentUser1 = await registerUser(formData);
+      // setCurrentUser(currentUser1);
       history.push('/');
     } catch (e) {
       setError("invalid sign up info")

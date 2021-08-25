@@ -2,21 +2,21 @@ import api from './api-config';
 
 export const loginUser = async (loginData) => {
     try {
-        const resp = await api.post('/auth/login', { authentication: loginData })
-        localStorage.setItem('authToken', resp.data.token);
-        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-        return resp.data.user
+        const resp = await api.post('/auth/login', { authentication: loginData })  // go to back end, pass over new info and return response
+        localStorage.setItem('authToken', resp.data.token); // update local storage token with new user
+        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}` // update api token
+        return resp.data.user // return just create user info
     } catch (e) {
         throw (e)
     }
 }
 
 export const verifyUser = async () => {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-        api.defaults.headers.common.authorization = `Bearer ${token}`
-        const resp = await api.get('/auth/verify');
-        return resp.data
+    const token = localStorage.getItem('authToken'); // get from local storage authToken and saves into token variable
+    if (token) { // if token exists, then do below
+        api.defaults.headers.common.authorization = `Bearer ${token}` //update api
+        const resp = await api.get('/auth/verify'); // get from back end
+        return resp.data // return data
     }
     return null
 }
@@ -46,12 +46,12 @@ export const getOneUser = async (id) => {
 }
 
 
-export const registerUser = async (registerData, imageInfo) => {
+export const registerUser = async (registerData, imageInfo) => { // receives 1 object and 1 image
     try {
-        const resp = await api.post('/users/', { user: registerData, image: imageInfo })
-        localStorage.setItem('authToken', resp.data.token);
-        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-        return resp.data.image
+        const resp = await api.post('/users/', { user: registerData, image: imageInfo }) // pass to route 1 object and 1 image
+        localStorage.setItem('authToken', resp.data.token); // updates local storage token
+        api.defaults.headers.common.authorization = `Bearer ${resp.data.token}` // updates api token
+        return resp.data // return response
     } catch (e) {
         throw (e)
     }

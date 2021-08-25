@@ -1,12 +1,14 @@
-import './JobEdit.css'
+import './JobEdit.css' // CSS
+
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
-import { updateOneJobForEmployee } from '../../services/getEmployees'
-import { UsaStatesAndCities, Categories } from '../../assets/Usa'
+
+import { updateOneJobForEmployee } from '../../services/getEmployees' // API
+import { UsaStatesAndCities, Categories } from '../../assets/Usa' // filter
 
 export default function JobEdit(props) {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({ // created empty object
         job_name: '',
         category: '',
         description: '',
@@ -14,9 +16,9 @@ export default function JobEdit(props) {
         cellphone: '',
         email: ''
     })
-    const { id } = useParams();
+    const { id } = useParams(); // receives ID from route
     const states = UsaStatesAndCities() // get all states
-    const categoryTypes = Categories()
+    const categoryTypes = Categories() // get all categories
     const [userState, setUserState] = useState()
     const [cities, setCities] = useState([]) // get chosen cities county
     const { currentUser, jobs, setJobs } = props

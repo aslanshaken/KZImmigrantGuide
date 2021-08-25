@@ -1,10 +1,7 @@
 import './Jobs.css'
 import { Link } from 'react-router-dom'
-import Select from 'react-select'
 import { useState } from 'react';
-import Wall from '../../assets/ad1.png'
-import AD from '../../assets/ad1.png'
-import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa' // FILTER
+import { UsaStatesAndCities, Categories, EmploymentTypes } from '../../assets/Usa' // get states,categories and employment types 
 
 
 export default function Jobs(props) {
@@ -14,15 +11,16 @@ export default function Jobs(props) {
     const states = UsaStatesAndCities() // get a list of states
     const categories = Categories() // get a list of categories
     const employmentOptions = EmploymentTypes() // get a list of employment types
+    
     const [cities, setCities] = useState([]) // get chosen cities county
     const [stateCityCheck, setStateCityCheck] = useState(false)
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({ // creates a empty object
         state: '',
         city: '',
         category: '',
         employment_type: ''
     })
-    const handleChange = (e) => {
+    const handleChange = (e) => { // if value is changed update the formData
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,

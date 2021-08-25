@@ -1,12 +1,14 @@
-import './CommunityEdit.css'
+import './CommunityEdit.css' // CSS
+
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from 'react-router-dom';
-import { updateOneCommunity } from '../../services/communities'
-import { UsaStatesAndCities } from '../../assets/Usa'
+
+import { updateOneCommunity } from '../../services/communities' // API
+import { UsaStatesAndCities } from '../../assets/Usa' // Get a lists of States and Cities
 
 export default function CommunityEdit(props) {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({ // create empty object for community api
         city: '',
         contact_email: '',
         contact_name: '',
@@ -18,19 +20,19 @@ export default function CommunityEdit(props) {
         telegram: '',
         whatsapp: '',
     })
-    const { id } = useParams();
+    const { id } = useParams(); // receive id from route
     const states = UsaStatesAndCities() // get all states
-    const { currentUser, allCommunities, setAllCommunities } = props
+    const { currentUser, allCommunities, setAllCommunities } = props // receive info from App.js
     const history = useHistory();
-    const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData;
-    const [newImage, setNewImage] = useState(false)
-    const [preview, setPreview] = useState(false)
+    const { city, contact_email, contact_name, contact_phone, facebook, members_count, name_community, state, telegram, whatsapp } = formData; // take from formData and make them available separate 
+    
+    const [newImage, setNewImage] = useState(false) // image
+    const [preview, setPreview] = useState(false) //  preview image
 
     useEffect(() => {
         const prefillFormData = () => {
-            const CommunityPost = allCommunities.find((arr) => arr.community.id === Number(id));
-            // CommunityPost.image === null ? setImg("https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg") : setImg(CommunityPost.image.url)
-            setFormData({
+            const CommunityPost = allCommunities.find((arr) => arr.community.id === Number(id)); // if id == id save to CommunityPost
+            setFormData({ // updates empty object with newest information from API
                 city: CommunityPost.community.city,
                 contact_email: CommunityPost.community.contact_email,
                 contact_name: CommunityPost.community.contact_name,
@@ -43,12 +45,12 @@ export default function CommunityEdit(props) {
                 whatsapp: CommunityPost.community.whatsapp,
             });
         }
-        if (allCommunities.length) {
+        if (allCommunities.length) { // if allCommunities true call function prefillFormData
             prefillFormData();
         }
-    }, [allCommunities, id])
+    }, [allCommunities, id]) // when allCommunities and ID updates use useEffect 
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { // every time we change the value, save to formData object
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -56,23 +58,23 @@ export default function CommunityEdit(props) {
         }))
     }
 
-    const handleUpdate = async (e) => {
+    const handleUpdate = async (e) => { // if save is clicked do below
         e.preventDefault();
-        const updatedCommunity = await updateOneCommunity(id, formData);
-        setAllCommunities(prevState => prevState.map((arr) => {
+        const updatedCommunity = await updateOneCommunity(id, formData); // call api and pass over id and newest formData
+        setAllCommunities(prevState => prevState.map((arr) => { // go to all communities and update just created community
             return arr.community.id === Number(id) ? updatedCommunity : arr
         }));
         history.push('/account/listings');
     }
 
 
-    const handleImage = (e) => {
+    const handleImage = (e) => { // for community image
         e.preventDefault();
         setPreview(URL.createObjectURL(e.target.files[0]))
         setNewImage(e.target.files[0])
     }
 
-    const checkImage = () => {
+    const checkImage = () => { // checks user's image
         if (currentUser?.image === null) {
             return "https://socialmediaweek.org/wp-content/blogs.dir/1/files/FB-Admins.jpg"
         } else {
@@ -81,8 +83,6 @@ export default function CommunityEdit(props) {
     }
 
     const cities = states[state] // take current state and save all cities to "cities variable"
-
-    console.log(state, city, cities)
 
     return (
         <div className="community-edit">
@@ -196,10 +196,8 @@ export default function CommunityEdit(props) {
                             value={whatsapp}
                             onChange={handleChange}
                         />
-                    </label>
-
+                    </label>    
                     <br />
-
                     <div id="community-edit-button">
                         <Link to="/account/listings" className="community-edit-button">Go Back</Link>
                         <button className="community-edit-save-button">Save</button>
